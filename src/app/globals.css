@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Seaside Wellness — Design System
+ * Brand: luxury coastal recovery. Warm gold/sand, deep charcoal ink,
+ * ocean teal accent, soft cream & shell neutrals.
+ * ------------------------------------------------------------------ */
+
+@theme {
+  /* Seafoam blue — primary brand accent, drawn from the logo wave (#98c8b8).
+     Light end = the logo blue; deeper shades keep white-text contrast on buttons.
+     (Token name kept as `gold` to avoid a site-wide class rename.) */
+  --color-gold-50: #eff7f4;
+  --color-gold-100: #d9ede6;
+  --color-gold-200: #b8dccf;
+  --color-gold-300: #98c8b8;
+  --color-gold-400: #6fae9b;
+  --color-gold-500: #4c9382;
+  --color-gold-600: #3c7768;
+  --color-gold-700: #326052;
+  --color-gold-800: #284b40;
+  --color-gold-900: #1e3830;
+
+  /* Ink — cool slate charcoal (neutral, no warm/brown cast) */
+  --color-ink: #282d33;
+  --color-ink-900: #17191d;
+  --color-ink-800: #282d33;
+  --color-ink-700: #3a4048;
+  --color-ink-600: #515861;
+  --color-ink-500: #6f767e;
+  --color-ink-400: #949aa1;
+  --color-ink-300: #bfc4c9;
+
+  /* Ocean — teal accent (#375C60) */
+  --color-ocean-300: #7fa6a9;
+  --color-ocean-400: #547f83;
+  --color-ocean-500: #375c60;
+  --color-ocean-600: #2b494c;
+  --color-ocean-700: #21393b;
+  --color-ocean-800: #182b2c;
+
+  /* Neutrals — cool off-white & light gray (no beige/brown) */
+  --color-cream: #f5f6f7;
+  --color-shell: #eaeded;
+  --color-sand: #e2e6e6;
+
+  /* Semantic */
+  --color-background: #ffffff;
+  --color-foreground: #282d33;
+
+  /* Typography */
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-karla), ui-sans-serif, system-ui, sans-serif;
+
+  /* Radii */
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+
+  /* Shadows — soft, expensive */
+  --shadow-soft: 0 2px 8px rgba(40, 45, 51, 0.04), 0 12px 32px rgba(40, 45, 51, 0.06);
+  --shadow-lift: 0 8px 20px rgba(40, 45, 51, 0.08), 0 24px 60px rgba(40, 45, 51, 0.1);
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  ::selection {
+    background: var(--color-gold-500);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ocean-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-page { padding-inline: 2rem; }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-gold-700);
+  }
+
+  .prose-seaside {
+    color: var(--color-ink-700);
+    font-size: 1.075rem;
+    line-height: 1.8;
+  }
+  .prose-seaside > * + * { margin-top: 1.15em; }
+  .prose-seaside h2 {
+    font-size: 1.85rem;
+    margin-top: 2.2em;
+    margin-bottom: 0.2em;
+  }
+  .prose-seaside h3 {
+    font-size: 1.4rem;
+    margin-top: 1.6em;
+    margin-bottom: 0.1em;
+  }
+  .prose-seaside ul { list-style: none; padding-left: 0; }
+  .prose-seaside ul li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-top: 0.6em;
+  }
+  .prose-seaside ul li::before {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    top: 0.72em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--color-gold-500);
+  }
+  .prose-seaside a {
+    color: var(--color-ocean-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .prose-seaside strong { color: var(--color-ink); font-weight: 700; }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  animation: rise-in 0.8s var(--ease-out-expo) both;
+}
+
+/* Progressive enhancement: without JS the reveal animation never runs, so
+   force scroll-reveal content visible. With JS the inline head script removes
+   `.no-js` before paint and the component takes over. */
+.no-js [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Skip-to-content link — visible only when focused via keyboard. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  padding: 0.65rem 1.1rem;
+  border-radius: 9999px;
+  background: var(--color-ink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-lift);
+  transition: transform 0.2s var(--ease-out-expo);
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--color-gold-400);
+  outline-offset: 2px;
+}

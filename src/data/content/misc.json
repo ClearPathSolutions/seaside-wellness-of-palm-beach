@@ -1,0 +1,519 @@
+[
+  {
+    "slug": "about-us",
+    "metaTitle": "About Seaside Wellness | South Florida Rehab Center",
+    "metaDescription": "Learn about Seaside Wellness, a leading Florida addiction and mental health treatment center backed by 10+ years of proven recovery success.",
+    "heading": "Timothy Foley",
+    "heroSubtitle": "Program Director",
+    "intro": [],
+    "sections": [
+      {
+        "heading": "About Timothy",
+        "paragraphs": [
+          "Tim is a dedicated and compassionate Program Director with over seven years of experience in addiction treatment and behavioral health. He has developed and managed evidence-based, patient-centered programs and is skilled at leading multidisciplinary teams to deliver seamless, holistic care.",
+          "With a strong background in program evaluation and staff development, Tim ensures services are effective, up to date, and tailored to client needs. He holds a bachelor's degree in behavioral science and is known for his empathetic leadership style. Under his guidance, the program has achieved higher patient engagement and improved long-term recovery outcomes."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "faq",
+    "metaTitle": "Addiction and Mental Health FAQ | Seaside Wellness",
+    "metaDescription": "Get answers to common questions about addiction and mental health treatment, admissions, and insurance at Seaside Wellness in West Palm Beach.",
+    "heading": "Most frequently asked questions",
+    "heroSubtitle": "Clear, reliable answers about our services, admissions process, treatment programs, insurance coverage, and what to expect during recovery.",
+    "intro": [
+      "At Seaside Wellness, we know that choosing an addiction treatment center or mental health program comes with many questions. Our FAQ section is designed to provide clear, reliable answers about our services, admissions process, treatment programs, insurance coverage, and what to expect during recovery. By addressing the most common concerns our clients and their families have, we aim to make the decision-making process easier and less stressful. Whether you're wondering about detox protocols, dual diagnosis treatment, length of stay, or how insurance works for rehab, you'll find straightforward, trustworthy information here to guide your next steps."
+    ],
+    "faqs": [
+      {
+        "q": "What conditions do you treat at Seaside Wellness?",
+        "a": "We treat drug & alcohol addiction, mental health disorders (without addiction), and co-occurring disorders (people facing drug/alcohol addiction with mental health issues). Our licensed clinicians provide evidence-based care for a range of conditions, from substance use to anxiety, depression, bipolar disorder, and trauma-related disorders."
+      },
+      {
+        "q": "Do you treat mental health disorders that don't involve substance use?",
+        "a": "Yes. Seaside Wellness offers dedicated mental health programs for individuals struggling with psychiatric or emotional challenges who do not have a history of substance use. Our services address a wide range of mental health conditions using individualized therapeutic approaches."
+      },
+      {
+        "q": "Do you treat co-occurring (dual diagnosis) disorders?",
+        "a": "Yes. Our licensed clinicians specialize in treating dual diagnosis cases, addressing both substance use disorders and mental health conditions simultaneously for more effective outcomes."
+      },
+      {
+        "q": "Do you offer medically supervised detox?",
+        "a": "Yes. Our facility provides medically supervised detox for clients withdrawing from alcohol, opioids, benzodiazepines, and other substances. Detox is closely monitored by licensed medical staff to ensure safety and comfort."
+      },
+      {
+        "q": "What types of therapy do you use?",
+        "a": "We utilize evidence-based modalities including Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), Eye Movement Desensitization and Reprocessing (EMDR), trauma-informed care, and holistic interventions to support both mental health stabilization and substance use recovery."
+      },
+      {
+        "q": "How long does treatment last?",
+        "a": "The length of treatment depends on individual needs and diagnosis. Programs for addiction recovery and mental health stabilization typically range from 30 to 90 days, with extended care available when clinically appropriate. Call (855) 416-5648 to speak with our team about your situation."
+      },
+      {
+        "q": "Do you accept clients from outside Florida?",
+        "a": "Yes. We welcome clients from across Florida and the United States, offering assistance with travel arrangements to our West Palm Beach treatment center. Call (855) 416-5648 to speak with our team about your situation."
+      },
+      {
+        "q": "Who is residential treatment recommended for?",
+        "a": "Residential treatment is recommended for individuals requiring a structured, 24/7 environment to address severe addiction, complex mental health conditions, or co-occurring disorders. Call (855) 416-5648 for a free assessment. Our team will help decide what's best for you or your loved one."
+      },
+      {
+        "q": "Which addictions do you treat?",
+        "a": "Yes. Our team has expertise in treating addictions to alcohol, opioids (including fentanyl and heroin), methamphetamine, cocaine, benzodiazepines, and prescription medications."
+      },
+      {
+        "q": "Why choose West Palm Beach for treatment?",
+        "a": "West Palm Beach offers a tranquil coastal setting with year-round warm weather, creating a therapeutic environment that supports emotional healing. Clients benefit from a calm atmosphere combined with access to top addiction treatment and mental health professionals in South Florida."
+      },
+      {
+        "q": "Where is Seaside Wellness located?",
+        "a": "Seaside Wellness is located in West Palm Beach, Florida, minutes from Palm Beach International Airport and within easy reach of Fort Lauderdale and Miami. Our location offers a calm, coastal environment ideal for both addiction recovery and mental health stabilization."
+      },
+      {
+        "q": "What levels of care do you offer at this location?",
+        "a": "At this West Palm Beach location, we specialize in medical detox, substance abuse inpatient rehabilitation, and mental health inpatient stabilization for individuals requiring 24/7 clinical supervision. Other levels of care, such as partial hospitalization programs (PHP) and intensive outpatient programs (IOP), are available through our affiliated facilities within the same treatment network, ensuring clients have access to a full continuum of care."
+      },
+      {
+        "q": "What is your client-to-staff ratio?",
+        "a": "We maintain a low client-to-staff ratio to ensure each patient receives individualized attention from our multidisciplinary treatment team, which includes licensed physicians, psychiatric providers, registered nurses, and licensed therapists. This approach supports intensive monitoring, precise medication management, and personalized therapeutic interventions."
+      },
+      {
+        "q": "Will I receive an individualized treatment plan?",
+        "a": "Yes. All clients undergo a comprehensive biopsychosocial assessment upon admission. This informs a customized treatment plan that integrates evidence-based therapies, medical care, and psychiatric support for addiction, mental health disorders, or co-occurring conditions. If you or a loved one need help, call (855) 416-5648 for a free assessment."
+      },
+      {
+        "q": "Is medical staff available around the clock?",
+        "a": "Yes. Our inpatient units are staffed around the clock with licensed medical professionals who provide continuous monitoring, medication administration, and crisis intervention when necessary."
+      },
+      {
+        "q": "What amenities does the facility offer?",
+        "a": "In addition to comfortable, private or semi-private rooms, patients have access to therapeutic common areas, structured recreational activities, and wellness-focused amenities (gym, pool…) designed to support recovery in a clinically supervised setting."
+      },
+      {
+        "q": "Do you offer gender-specific therapy?",
+        "a": "Yes. When clinically appropriate, we provide gender-specific therapy groups and individual sessions to foster comfort and address gender-related recovery issues in both substance abuse and mental health treatment."
+      },
+      {
+        "q": "Can clients spend time outdoors?",
+        "a": "Yes. Clients may participate in supervised outdoor activities as part of our therapeutic programming, which can improve mood regulation and encourage physical wellness during recovery."
+      },
+      {
+        "q": "Do you offer family therapy?",
+        "a": "Absolutely. With patient consent, we facilitate family therapy sessions, either in-person or virtually, to strengthen support systems and improve communication post-discharge."
+      },
+      {
+        "q": "Do you provide aftercare planning?",
+        "a": "Yes. Our case management team develops a detailed aftercare plan for every client, which may include referrals to PHP, IOP, outpatient therapy, medication management, and community support groups, often within our broader treatment network."
+      },
+      {
+        "q": "How do I begin the admissions process?",
+        "a": "To start, contact our admissions team by phone or submit our confidential online form. We offer no-cost clinical assessments for individuals seeking medical detox, inpatient substance abuse treatment, or mental health help. This assessment helps us determine the most clinically appropriate program for you, either here in West Palm Beach or within our broader treatment network."
+      },
+      {
+        "q": "What information will I need to provide?",
+        "a": "We'll ask for your personal and contact details, medical history, current medications, insurance information, and a summary of your mental health or substance use concerns. This allows our team to create a safe, tailored admission plan."
+      },
+      {
+        "q": "How quickly can I be admitted?",
+        "a": "We usually have same-day admissions available. Depending on the urgency, we aim to admit clients within 24 hours, depending on bed availability and completion of pre-admission requirements such as insurance verification and medical clearance. For medical detox and mental health crisis stabilization, we prioritize expedited intake."
+      },
+      {
+        "q": "Can I tour the facility before I decide?",
+        "a": "Yes. We offer both in-person and virtual tours so you can see our West Palm Beach inpatient facility and meet staff before making your decision."
+      },
+      {
+        "q": "Do you accept clients traveling from out of state?",
+        "a": "Yes. We regularly admit clients from across the United States. Our admissions team can assist with travel arrangements, airport pickup, and coordination of medical records to ensure a smooth transition into care."
+      },
+      {
+        "q": "Do you help arrange travel to the facility?",
+        "a": "We help coordinate every step, from booking flights to arranging ground transportation, to make the journey to our facility as stress-free as possible. Call our team at (855) 416-5648 for more information."
+      },
+      {
+        "q": "Will I have to stop my current medications?",
+        "a": "Not necessarily. Our clinical team reviews all current prescriptions during intake and makes any necessary adjustments in collaboration with you to ensure safe continuity of care."
+      },
+      {
+        "q": "What should I bring to treatment?",
+        "a": "We'll provide a detailed packing guide that includes comfortable clothing, approved personal items, and any necessary medical devices. Certain items, such as alcohol-based products or electronics, may be restricted for clinical or safety reasons."
+      },
+      {
+        "q": "Are same-day admissions available?",
+        "a": "Yes, when space allows and clinical criteria are met. Same-day admissions are often possible for detox, inpatient mental health, and substance abuse residential inpatient, especially in crisis situations. Call (855) 416-5648 to get more details."
+      },
+      {
+        "q": "Do you accept insurance?",
+        "a": "Yes. Seaside Wellness works with most major health insurance providers to cover medical detox, inpatient substance abuse treatment, and inpatient mental health stabilization. We also coordinate with our network partners to verify benefits for other levels of care if needed. If you want to check if we take your insurance, call (855) 416-5648, or fill out our confidential form."
+      },
+      {
+        "q": "How do I verify my insurance benefits?",
+        "a": "Call our admissions team or complete our insurance verification form for a free, confidential review. Our specialists will contact your provider directly to confirm what services are covered, your deductible, and any out-of-pocket costs."
+      },
+      {
+        "q": "Does insurance cover detox?",
+        "a": "In most cases, yes. If medical necessity is documented by a licensed physician, insurance plans often cover detox services for withdrawal from alcohol, opioids, benzodiazepines, and other substances."
+      },
+      {
+        "q": "What if I don't have insurance?",
+        "a": "We accept private pay and can help arrange flexible payment plans. Our team can also refer you to financing resources and assist in exploring coverage options within our treatment network. Call (855) 416-5648 for more answers."
+      },
+      {
+        "q": "What if my insurance isn't accepted at your location?",
+        "a": "Coverage depends on your specific plan and the clinical services required. Our admissions department can confirm eligibility and connect you with an appropriate program within our network if your plan is not accepted at our West Palm Beach location."
+      },
+      {
+        "q": "How much of inpatient treatment will insurance cover?",
+        "a": "This varies by policy, provider, and level of care. Some plans fully cover inpatient treatment, while others require coinsurance or partial payment. We explain all benefits and costs before admission."
+      },
+      {
+        "q": "Do you handle insurance claims for me?",
+        "a": "Yes. We handle all claims submission and documentation directly with your insurance provider, so you can focus on recovery."
+      },
+      {
+        "q": "Do you offer grants or financial assistance?",
+        "a": "While we do not offer direct grants, we help clients find third-party financing and coordinate cost-effective transitions within our network to ensure continuity of care."
+      },
+      {
+        "q": "Do you offer payment plans for clients without insurance?",
+        "a": "Yes. We offer structured payment arrangements to make care more accessible for those without insurance."
+      },
+      {
+        "q": "How much does treatment cost?",
+        "a": "Costs depend on the length of stay, type of treatment (detox, inpatient substance abuse, or mental health stabilization), and any additional clinical services. Contact us for a personalized quote based on your clinical assessment."
+      }
+    ]
+  },
+  {
+    "slug": "admissions-process",
+    "metaTitle": "Simple Admissions Process | Seaside Wellness",
+    "metaDescription": "Get help fast with Seaside Wellness. Our admissions process makes starting addiction or mental health treatment easy and supportive.",
+    "heading": "Start Your Recovery with a Simple Admissions Process",
+    "heroSubtitle": "Getting help at Seaside Wellness is quick, confidential, and stress-free.",
+    "intro": [
+      "At Seaside Wellness of Palm Beach, we know that taking the first step toward addiction treatment can feel overwhelming. That's why our admissions process is designed to be simple, supportive, and judgment-free. From your first call to arriving at our facility, our team will guide you through each step: insurance verification, travel arrangements, and personalized assessments, so you can focus on what matters most: beginning the journey to recovery.",
+      "Here is what you can expect from our admissions process:"
+    ],
+    "sections": [
+      {
+        "heading": "Compassionate Guidance",
+        "paragraphs": [
+          "From the very first call, our admissions team will treat you or your loved one with kindness, respect, and understanding. We know how difficult reaching out can be, and our goal is to make the process as comfortable as possible."
+        ]
+      },
+      {
+        "heading": "Clear, Honest Communication",
+        "paragraphs": [
+          "You'll never be left guessing about the next step. We provide full transparency about insurance, costs, assessments, and treatment options, so you feel confident and informed throughout the process."
+        ]
+      },
+      {
+        "heading": "Confidential & Judgment-Free Support",
+        "paragraphs": [
+          "Your privacy is our priority. All information shared with our team is kept strictly confidential, and our approach is always supportive, never judgmental."
+        ]
+      },
+      {
+        "heading": "A Smooth, Stress-Free Process",
+        "paragraphs": [
+          "From insurance verification to travel coordination and intake, our team handles the details so you can focus on what matters most: beginning recovery. The entire process is designed to be simple, quick, and stress-free."
+        ]
+      },
+      {
+        "heading": "Step 1: Contact Us",
+        "paragraphs": [
+          "When you reach out to Seaside Wellness, whether by phone, form, or chat, you'll be immediately connected with a member of our Admissions Team. Each team member is trained to guide families and individuals through what can often feel like an overwhelming time, making the process as simple and reassuring as possible. Most of our admissions staff members have personal experience with recovery, either directly or through a loved one, so they understand the urgency, fear, and hope you may be feeling in this moment.",
+          "During that first conversation, we'll ask a few basic questions to get a clearer picture of your situation. These may include what substances are being used and how frequently, if addiction, what the mental health struggles are, whether there have been previous attempts at treatment, if there are any urgent medical or mental health concerns, and what your immediate goals are. This initial call is also your opportunity to ask us anything, from how our detox process works to what day-to-day life in treatment looks like."
+        ]
+      },
+      {
+        "heading": "Step 2: Pre-Assessment",
+        "paragraphs": [
+          "Our admissions team provides a complimentary and confidential pre-assessment to ensure your loved one receives the right level of care (whether you're calling for addiction, mental health, or dual diagnosis). During this stage, one of our admissions specialists will connect with you and your loved one to gather important details about their history, challenges, and goals for recovery. This conversation helps us create the most effective treatment plan possible, tailored to their unique situation. Our team will ask questions about:",
+          "This stage is not just about collecting information, it's about listening, supporting, and making sure you feel confident about the next steps. Once the pre-assessment is complete, our clinical team reviews the information and begins shaping a customized plan of care. From here, we also guide you through insurance verification and treatment cost options so there are no surprises along the way."
+        ],
+        "bullets": [
+          "Personal history of substance use",
+          "Relevant family history",
+          "Physical and mental health background",
+          "Current medications being taken",
+          "Previous treatment experiences"
+        ]
+      },
+      {
+        "heading": "Step 3: Insurance Verification",
+        "paragraphs": [
+          "Understanding insurance can feel complicated, but we're here to make it simple and stress-free. At Seaside Wellness, we work with most major health insurance providers to help cover the cost of treatment. When you call, our admissions team will walk you through your benefits in clear language and answer any questions you have about coverage.",
+          "To verify insurance, we'll ask for:",
+          "From there, we'll contact your insurance provider directly to confirm benefits and explain exactly what is covered. All information is kept completely confidential, and we follow strict HIPAA guidelines to protect your privacy.",
+          "Self-Pay Options: If you don't have insurance, you still have options. We offer several self-pay solutions, including flexible payment plans and financing options, so cost doesn't have to stand in the way of treatment. Our admissions team will work with you to create a financial plan that allows you or your loved one to begin recovery without delay."
+        ],
+        "bullets": [
+          "The client's full name and date of birth",
+          "Insurance provider name",
+          "Policy or member ID number",
+          "Type of plan"
+        ]
+      },
+      {
+        "heading": "Step 4: Admissions",
+        "paragraphs": [
+          "The final step is arriving at Seaside and beginning your recovery journey. If you or your loved one needs help getting here, our team can assist with travel arrangements. We coordinate airport pickups, local transportation, and can even arrange for a sober escort if necessary.",
+          "Upon arrival, you will be welcomed by our admissions and medical staff who are here to make you feel comfortable from the very beginning. Every client receives a comprehensive medical and psychological evaluation to ensure their treatment plan is both safe and effective. After intake, you'll receive a personal tour of the facility and support settling into your suite. From there, clients are free to relax, whether that means enjoying the lounge, getting something to eat, or simply resting before treatment begins.",
+          "Once you arrive, our team is committed to making the transition as smooth as possible. Detox and early recovery are challenging, but you won't go through it alone. Our trained medical staff and treatment advisors will be there with you every step of the way."
+        ]
+      },
+      {
+        "heading": "Why Choose Seaside?",
+        "paragraphs": [
+          "At Seaside Wellness, we specialize in evidence-based treatment for addiction, mental health disorders, and co-occurring conditions. Our West Palm Beach facility provides a private, calming environment where clients can focus fully on recovery. With a team of licensed clinicians and therapists, we deliver personalized care that blends compassion with clinical expertise. Whether the need is detox, residential rehab (addiction or mental health), or dual diagnosis treatment, we are dedicated to helping each individual and their loved ones achieve lasting healing. By combining proven therapies with a supportive community, Seaside Wellness guides clients toward long-term recovery and improved mental well-being."
+        ]
+      },
+      {
+        "heading": "Take the First Step Toward Recovery Today",
+        "paragraphs": [
+          "If you or a loved one is struggling with addiction or mental health challenges, Seaside Wellness is here to help. Fill out the confidential form and a member of our admissions team will contact you shortly to answer your questions, verify insurance, and guide you through the next steps. Getting started is quick, private, and judgment-free."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "help-for-yourself",
+    "metaTitle": "Get Help for Yourself | Seaside Wellness Rehab",
+    "metaDescription": "Take the first step toward healing. Seaside Wellness offers addiction and mental health treatment in West Palm Beach. Get help today.",
+    "heading": "Get help to Overcome Addiction & Mental Health Challenges",
+    "heroSubtitle": "Struggling with drugs, alcohol, or mental health challenges? We're here to help. The hardest step is the first one. You don't have to take it alone.",
+    "intro": [
+      "Struggling with drugs, alcohol, or mental health challenges? We're here to help.",
+      "The hardest step is the first one. You don't have to take it alone."
+    ],
+    "sections": [
+      {
+        "heading": "Break Free and Take Control of Your Life Again",
+        "paragraphs": [
+          "Taking the first step toward recovery can feel overwhelming, but it's also the most important decision you'll ever make. Whether you're struggling with drug addiction, alcohol dependency, or mental health challenges, real healing begins with reaching out for help. Located in amazing West Palm Beach, FL, our evidence-based treatment programs provide a safe, supportive environment where you can break free from the cycle of addiction and begin building a healthier, more fulfilling future. You don't have to do this alone; lasting recovery starts with one call.",
+          "Your recovery deserves the best care, and the right team."
+        ]
+      },
+      {
+        "heading": "Wondering If You Need Professional Treatment?",
+        "paragraphs": [
+          "Overcoming addiction or managing a mental health disorder is not something anyone should have to face alone. Professional treatment provides the expert medical care, evidence-based therapies, and supportive environment that make lasting recovery possible. Whether you're struggling with drug or alcohol addiction or facing mental health challenges, our treatment programs give you the structure and tools to heal fully. Here are some of the key benefits you gain from seeking professional help:"
+        ]
+      },
+      {
+        "heading": "Drug & Alcohol Addiction Treatment",
+        "bullets": [
+          "Detox safely with medical supervision to ease withdrawal and protect your health.",
+          "Learn how to avoid relapse with proven therapies and coping strategies.",
+          "Heal the root causes of addiction, from trauma to stress and co-occurring disorders.",
+          "Connect with others who understand your struggles and support your recovery.",
+          "Focus fully on healing in a structured, substance-free environment."
+        ]
+      },
+      {
+        "heading": "Mental Health Disorders Treatment",
+        "bullets": [
+          "Get the right diagnosis and a treatment plan tailored to your needs.",
+          "Talk it out in therapy and gain real tools for managing emotions and challenges.",
+          "Access safe medication support when needed, guided by licensed professionals.",
+          "Find stability during crisis with immediate, compassionate care.",
+          "Build lifelong skills like mindfulness, stress management, and healthy coping habits."
+        ]
+      },
+      {
+        "heading": "We Build Treatment Around Your Needs",
+        "paragraphs": [
+          "At Seaside, we know that every person's struggle with addiction and/or mental health is unique, and so is the path to healing. That's why our treatment programs are never one-size-fits-all. From medical detox and residential care to dual diagnosis treatment and ongoing support, every level of care is customized to meet your specific challenges, goals, and history. Our team works closely with you to create a plan that addresses not just your symptoms but the underlying causes, so you can move forward with confidence."
+        ],
+        "bullets": [
+          "Detox",
+          "Substance Abuse Residential Inpatient",
+          "Mental Health Residential Inpatient",
+          "Aftercare",
+          "Dual Diagnosis"
+        ]
+      },
+      {
+        "heading": "Your Path to Recovery Starts Here in West Palm",
+        "paragraphs": [
+          "The right setting can make recovery feel possible. Located in West Palm Beach, Florida, Seaside Wellness offers the ideal balance of peaceful coastal surroundings and convenient access. Palm Beach's warm climate, ocean views, and calming atmosphere create a space where recovery feels natural and sustainable. With easy access to Palm Beach International Airport, Fort Lauderdale (45 minutes away), and Miami (just over an hour), as well as a local Brightline station minutes away from the center, patients and families can reach us quickly and without stress.",
+          "While we primarily serve the local community, we also welcome those who wish to travel here for the benefits of Palm Beach's environment. Our admissions team makes the process simple and handles travel coordination when needed, no matter where you travel from."
+        ]
+      },
+      {
+        "heading": "Take the First Step Toward Recovery Today",
+        "paragraphs": [
+          "If you or a loved one is struggling with addiction or mental health challenges, Seaside Wellness is here to help. Fill out the confidential form and a member of our admissions team will contact you shortly to answer your questions, verify insurance, and guide you through the next steps. Getting started is quick, private, and judgment-free."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "help-for-loved-one",
+    "metaTitle": "Help for a Loved One | Seaside Wellness Rehab",
+    "metaDescription": "Get help for a loved one struggling with addiction or mental health issues. Seaside Wellness offers expert care and guidance at every step.",
+    "heading": "Helping You Guide a Loved One Into Addiction & Mental Health Recovery",
+    "heroSubtitle": "Worried about someone you love? We're here to help you. You don't have to carry this burden alone.",
+    "intro": [
+      "Worried about someone you love? We're here to help you.",
+      "You don't have to carry this burden alone."
+    ],
+    "sections": [
+      {
+        "heading": "The Hardest Step Is Helping Them Take the First One",
+        "paragraphs": [
+          "Watching someone you care about struggle with drugs, alcohol, or mental health challenges can feel overwhelming and painful. You may feel powerless, but your support can make all the difference. Taking action today can help your loved one find stability, safety, and a real chance at recovery.",
+          "Our evidence-based programs in West Palm Beach, Florida provide a safe and supportive environment where healing can begin. Whether your loved one needs medical detox, residential treatment (for substance abuse or mental health), or dual diagnosis care, we'll guide you step by step through the admissions process and make sure they get the help they deserve.",
+          "You don't have to wait for things to get worse, reaching out now can change the course of their life.",
+          "Your recovery deserves the best care, and the right team."
+        ]
+      },
+      {
+        "heading": "Wondering If You Need Professional Treatment?",
+        "paragraphs": [
+          "Encouraging someone you love to get professional help can be one of the hardest, but most important steps you'll ever take for them. Addiction and mental health disorders don't just impact the individual; they affect the entire family. Professional treatment provides the medical expertise, evidence-based therapies, and a safe environment necessary to give your loved one a genuine chance at lasting recovery. With the right program in place, they'll have the structure, support, and tools to heal fully. Here are some benefits of getting expert treatment:"
+        ]
+      },
+      {
+        "heading": "Drug & Alcohol Addiction Treatment",
+        "bullets": [
+          "Ensure your loved one detoxes safely under medical supervision, easing withdrawal and protecting their health.",
+          "Give them tools and therapies proven to reduce relapse and build stronger coping skills.",
+          "Address the root causes of addiction, from trauma to co-occurring disorders, so recovery lasts.",
+          "Surround them with peers who understand their struggles, creating a network of support.",
+          "Allow them to focus fully on healing in a safe, substance-free environment."
+        ]
+      },
+      {
+        "heading": "Mental Health Disorders Treatment",
+        "bullets": [
+          "Get an accurate diagnosis and a treatment plan tailored to their unique needs.",
+          "Provide a space where they can openly process emotions and challenges with professional guidance.",
+          "Offer safe, evidence-based medication support when needed.",
+          "Help them find stability in times of crisis with immediate, compassionate care.",
+          "Encourage lasting wellness through skills like stress management, mindfulness, and healthy coping habits."
+        ]
+      },
+      {
+        "heading": "We Build Treatment Around Your Loved One's Needs",
+        "paragraphs": [
+          "Every person's journey with addiction or mental health is different, which means recovery can't follow a one-size-fits-all plan. That's why our treatment programs are personalized to meet your loved one where they are. Each level of care is tailored to their unique challenges, history, and goals. Our team works closely with families, keeping you involved and informed, while creating a plan that not only eases symptoms but addresses the deeper causes, to help your loved one build a stronger, healthier future with the confidence to move forward."
+        ],
+        "bullets": [
+          "Detox",
+          "Substance Abuse Residential Inpatient",
+          "Mental Health Residential Inpatient",
+          "Aftercare",
+          "Dual Diagnosis"
+        ]
+      },
+      {
+        "heading": "A Healing Environment That Supports Your Loved One's Recovery",
+        "paragraphs": [
+          "The setting can make all the difference when it comes to recovery. Our West Palm Beach treatment center offers the best of both worlds: a calming coastal atmosphere and easy access for families. With ocean views, warm weather, and a supportive environment, your loved one has the chance to heal in a place that feels safe and restorative.",
+          "Located near Palm Beach International Airport and within driving distance of Fort Lauderdale and Miami, our center is easily accessible for family visits and support. The Brightline station, just minutes away, also makes travel simple and stress-free.",
+          "While we're proud to serve the Palm Beach County community, families from across Florida (and even nationwide) choose our location because it creates an environment where recovery feels possible. And if your loved one is traveling from out of town, our admissions team is here to help with logistics so the focus stays on what matters most: healing."
+        ]
+      },
+      {
+        "heading": "Take the First Step Toward Recovery Today",
+        "paragraphs": [
+          "If someone you care about is struggling with addiction or mental health challenges, you don't have to go through this alone. Fill out the confidential form, and a member of our admissions team will reach out shortly to answer your questions, explain treatment options, verify insurance, and walk you through the next steps. Helping your loved one begin recovery is private and judgment-free, and it can change the course of their life."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "insurance-verification",
+    "metaTitle": "Insurance Verification for Rehab | Seaside Wellness",
+    "metaDescription": "Start your recovery with confidence. Seaside offers quick, confidential insurance verification for rehab and mental health treatment.",
+    "heading": "Verify Your Insurance",
+    "heroSubtitle": "We help you make treatment accessible.",
+    "intro": [
+      "Many people don't realize that their health insurance can cover the cost of addiction and mental health treatment. At Seaside Detox, we work with most major insurance providers to check your benefits and explain what's included. In many cases, insurance will pay for a significant portion (and sometimes even all) of treatment expenses. Verifying your coverage is fast, confidential, and can help you take the first step toward recovery without worrying about financial barriers."
+    ],
+    "sections": [
+      {
+        "heading": "How Do We Verify Your Insurance?",
+        "paragraphs": [
+          "We make the insurance verification process simple and stress-free. When you share your information with us, our team handles the details so you can focus on what matters most, getting help. Here's how it works:"
+        ],
+        "bullets": [
+          "Submit Your Information: Fill out our secure, confidential insurance form or call us directly.",
+          "We Contact Your Provider: Our admissions specialists reach out to your insurance company on your behalf.",
+          "Benefits Review: We review what services are covered under your plan and identify any out-of-pocket costs.",
+          "Next Steps: We explain your coverage and guide you through treatment options that fit your benefits."
+        ]
+      },
+      {
+        "heading": "We Work With All Major Insurance Carriers",
+        "paragraphs": [
+          "Our facility accepts a wide range of insurance plans, including many PPO and some HMO policies. We commonly work with providers such as Aetna, Cigna, Blue Cross Blue Shield, UnitedHealthcare, Humana, and more. Coverage levels vary depending on your plan, but many policies include partial or full benefits for detox, residential treatment (substance abuse and mental health), and dual diagnosis. If your provider isn't listed, don't worry. Our team will still review your benefits and let you know what options are available. Even if your plan offers limited coverage, we'll help you explore solutions so that cost doesn't stand in the way of getting the care you need."
+        ]
+      },
+      {
+        "heading": "Verify Your Insurance Coverage Today",
+        "paragraphs": [
+          "If you or a loved one is struggling with addiction or mental health challenges, Seaside Wellness is here to help. Fill out the confidential form and a member of our admissions team will verify your benefits and contact you shortly to answer your questions, learn more about your struggles, and guide you through the next steps. Getting started is quick, private, and judgment-free."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "tour",
+    "metaTitle": "Rehab Facility Tour | Seaside Wellness",
+    "metaDescription": "Take a virtual rehab facility tour of Seaside Wellness in West Palm Beach. Explore our modern mental health and addiction treatment center.",
+    "heading": "Explore our addiction & mental health rehab from anywhere",
+    "heroSubtitle": "See Where Healing Happens. Clinical expertise, individualized treatment.",
+    "intro": [
+      "See Where Healing Happens",
+      "Clinical expertise, individualized treatment"
+    ],
+    "sections": [
+      {
+        "heading": "Take a Closer Look Inside Our Facility",
+        "paragraphs": [
+          "Choosing the right treatment center is an important decision, and seeing the environment can help you feel confident in your choice. At Seaside Wellness in West Palm Beach, Florida, we provide evidence-based treatment for addiction, mental health, and co-occurring disorders in a safe, private setting. Take our virtual tour to explore our modern facility, comfortable spaces, and the healing environment we've created for recovery."
+        ]
+      },
+      {
+        "heading": "Experience the Seaside Environment",
+        "paragraphs": [
+          "Step outside and discover what makes Seaside Wellness unique. Our facility is nestled in the heart of West Palm Beach, surrounded by peaceful outdoor spaces and close to Florida's world-renowned beaches. This natural setting provides a calm and restorative atmosphere, encouraging reflection, healing, and a deeper connection to recovery. Take a look around and see how our location sets the tone for lasting wellness."
+        ]
+      },
+      {
+        "heading": "Inside Seaside Wellness - Take the Tour",
+        "paragraphs": [
+          "Beyond our peaceful coastal setting, Seaside Wellness offers a modern, comfortable, and clinically focused environment designed to support recovery. Our photo gallery gives you a closer look at the spaces where healing happens, from welcoming residential rooms to therapy areas and shared community spaces. Each detail has been carefully designed to promote comfort, safety, and the focus needed for effective addiction and mental health treatment."
+        ],
+        "bullets": [
+          "Living room and common areas",
+          "Kitchen & Dining Room",
+          "Bedrooms & Baths",
+          "Pool & Outside Spaces"
+        ]
+      },
+      {
+        "heading": "Our Programs",
+        "paragraphs": [
+          "At Seaside Wellness, we know that no two recovery journeys are alike. That's why our programs are designed to meet each client's unique needs, whether they're beginning with medical detox, seeking inpatient support, or addressing mental health challenges. Our programs provide structure, compassion, and the right level of care to help clients heal."
+        ],
+        "bullets": [
+          "Medical Detox",
+          "Substance Abuse Disorder Residential",
+          "Mental Health Residential",
+          "Dual Diagnosis",
+          "Aftercare"
+        ]
+      },
+      {
+        "heading": "We Accept Most Major Insurances",
+        "paragraphs": [
+          "At Seaside Wellness, we believe cost should never stand in the way of recovery. That's why we work with most major insurance providers to make treatment more accessible and affordable for you and your family. Our admissions team will help you quickly verify your benefits, explain what's covered, and walk you through your options so you can focus on healing, not paperwork."
+        ]
+      }
+    ]
+  }
+]
