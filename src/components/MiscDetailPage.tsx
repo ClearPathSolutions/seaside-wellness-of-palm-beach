@@ -29,6 +29,7 @@ export default function MiscDetailPage({
   related,
   relatedBasePath,
   relatedTitle,
+  belowContent,
 }: {
   slug: string;
   image: string;
@@ -39,6 +40,7 @@ export default function MiscDetailPage({
   related?: CatalogItem[];
   relatedBasePath?: string;
   relatedTitle?: string;
+  belowContent?: React.ReactNode;
 }) {
   const detail = miscDetails.get(slug);
   const fallback: CatalogItem = {
@@ -56,6 +58,7 @@ export default function MiscDetailPage({
       related={related}
       relatedBasePath={relatedBasePath}
       relatedTitle={relatedTitle}
+      belowContent={belowContent}
     />
   );
 }
