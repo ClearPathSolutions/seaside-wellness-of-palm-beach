@@ -58,7 +58,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4" noValidate>
+    <form onSubmit={onSubmit} data-clarion-form="contact" className="space-y-4" noValidate>
       {/* Honeypot — hidden from users; bots that fill it are rejected server-side. */}
       <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
         <label htmlFor="website">Leave this field empty</label>

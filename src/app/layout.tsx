@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Karla } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { organizationJsonLd } from "@/lib/seo";
@@ -74,6 +75,30 @@ export default function RootLayout({
         <Header />
         <main id="main" className="flex-1">{children}</main>
         <Footer />
+
+        {/* Clarion Labs — hosted chat widget. Themed to Seaside's brand via the
+            attributes Clarion documents (data-color / data-font / data-position).
+            The launcher color uses gold-700 (#326052, the seafoam brand accent);
+            finer styling lives in the `.clarion-chat` overrides in globals.css. */}
+        <Script
+          src="https://www.clarionlabs.ai/widget.v1.js"
+          data-site-key="cpx_W7CkbBVZenGnvDbFYEKkZnvZSS7ynFh6"
+          data-api="https://api.clarionlabs.ai"
+          data-color="#326052"
+          data-position="right"
+          data-title="Seaside Wellness"
+          data-font="var(--font-karla), ui-sans-serif, system-ui, sans-serif"
+          strategy="lazyOnload"
+        />
+
+        {/* Clarion Labs — form capture. afterInteractive so it is present to
+            hook the [data-clarion-form] forms once the page hydrates. */}
+        <Script
+          src="https://www.clarionlabs.ai/forms-capture.v1.js"
+          data-site-key="cpx_W7CkbBVZenGnvDbFYEKkZnvZSS7ynFh6"
+          data-api="https://api.clarionlabs.ai"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
