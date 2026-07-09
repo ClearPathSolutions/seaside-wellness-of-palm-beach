@@ -1,17 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { ShieldCheck } from "lucide-react";
+import { CheckCircle2, Loader2, ShieldCheck } from "lucide-react";
 import ProviderCombobox from "@/components/ProviderCombobox";
+import { submitToClarion } from "@/lib/clarion";
 import { site } from "@/lib/site";
+
+type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
   "w-full rounded-xl border border-shell bg-cream px-4 py-3 text-ink placeholder:text-ink-400 focus:border-gold-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold-200 transition";
 
 /**
- * Insurance verification lead form. Submission is captured by the Clarion Labs
- * forms-capture script via the `data-clarion-form="insurance_verification"`
- * attribute on the <form> — no custom API route is needed here.
+ * Insurance verification lead form.
+ *
+ * Submission is sent to Clarion Labs (form key "insurance_verification") from
+ * our own submit handler — Clarion's script only scans the DOM once, so a
+ * React form that mounts later is never auto-wired; relying on that caused a
+ * native submit that just reloaded the page. We preventDefault and post
+ * explicitly, then show a confirmation.
  *
  * Field rules (per admissions requirements):
  *  - Date of birth is REQUIRED (insurers need it to confirm coverage).
@@ -20,13 +27,74 @@ const inputClass =
  */
 export default function InsuranceVerificationForm() {
   const [provider, setProvider] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState("");
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+
+    // Honeypot: a filled hidden field means a bot — silently "succeed".
+    if (data.website) {
+      setStatus("success");
+      return;
+    }
+
+    // Required fields (mirrors the `required` attributes for a friendly message).
+    if (
+      !data.firstName?.trim() ||
+      !data.lastName?.trim() ||
+      !data.phone?.trim() ||
+      !data.email?.trim() ||
+      !data.dateOfBirth?.trim() ||
+      !data.insuranceProvider?.trim()
+    ) {
+      setStatus("error");
+      setError("Please complete all required fields, including your date of birth and insurance provider.");
+      return;
+    }
+
+    setStatus("submitting");
+    setError("");
+    try {
+      await submitToClarion("insurance_verification", data);
+      setStatus("success");
+      form.reset();
+      setProvider("");
+    } catch (err) {
+      setStatus("error");
+      setError(
+        err instanceof Error
+          ? "We couldn't submit your details just now. Please try again, or call us directly."
+          : "Something went wrong."
+      );
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="flex flex-col items-center rounded-2xl border border-shell bg-white p-10 text-center">
+        <CheckCircle2 className="size-14 text-ocean-500" />
+        <h3 className="mt-4 text-2xl font-medium text-ink">
+          Thank you for submitting your insurance details
+        </h3>
+        <p className="mt-2 max-w-md text-ink-600">
+          We&rsquo;ll begin verifying your insurance coverage right away. An admissions specialist
+          will reach out to you shortly to review your benefits and answer any questions — all in
+          strict confidence. For immediate assistance, call{" "}
+          <a href={site.phoneHref} className="font-semibold text-gold-700">
+            {site.phone}
+          </a>
+          .
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <form
-      data-clarion-form="insurance_verification"
-      className="space-y-4"
-    >
-      {/* Honeypot — hidden from users; bots that fill it can be filtered out. */}
+    <form onSubmit={onSubmit} className="space-y-4" noValidate>
+      {/* Honeypot — hidden from users; bots that fill it are rejected. */}
       <div
         aria-hidden="true"
         style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}
@@ -155,11 +223,28 @@ export default function InsuranceVerificationForm() {
         />
       </div>
 
+      <p
+        role="alert"
+        aria-live="assertive"
+        className={status === "error" ? "rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700" : "sr-only"}
+      >
+        {status === "error" ? error : ""}
+      </p>
+
       <button
         type="submit"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-700 px-6 py-4 font-semibold text-white shadow-[0_8px_24px_rgba(53,48,45,0.28)] transition-colors hover:bg-gold-800 sm:w-auto"
+        disabled={status === "submitting"}
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-700 px-6 py-4 font-semibold text-white shadow-[0_8px_24px_rgba(53,48,45,0.28)] transition-colors hover:bg-gold-800 disabled:opacity-70 sm:w-auto"
       >
-        <ShieldCheck className="size-4" /> Verify My Insurance
+        {status === "submitting" ? (
+          <>
+            <Loader2 className="size-5 animate-spin" /> Submitting…
+          </>
+        ) : (
+          <>
+            <ShieldCheck className="size-4" /> Verify My Insurance
+          </>
+        )}
       </button>
 
       <p className="text-xs text-ink-400">

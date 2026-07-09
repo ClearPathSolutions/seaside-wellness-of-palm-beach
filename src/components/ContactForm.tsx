@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { submitToClarion } from "@/lib/clarion";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -35,6 +36,15 @@ export default function ContactForm() {
       });
       const json = await res.json();
       if (!res.ok || !json.ok) throw new Error(json.error || "Something went wrong.");
+
+      // Also sync the lead to Clarion. Non-blocking: a Clarion hiccup must not
+      // fail a submission that already succeeded on our own backend.
+      try {
+        await submitToClarion("contact", payload);
+      } catch {
+        /* ignore — the message was already received by /api/contact */
+      }
+
       setStatus("success");
       form.reset();
     } catch (err) {
@@ -47,10 +57,9 @@ export default function ContactForm() {
     return (
       <div className="flex flex-col items-center rounded-2xl border border-shell bg-cream p-10 text-center">
         <CheckCircle2 className="size-14 text-ocean-500" />
-        <h3 className="mt-4 text-2xl font-medium text-ink">Thank you for reaching out</h3>
+        <h3 className="mt-4 text-2xl font-medium text-ink">Thank you for contacting us</h3>
         <p className="mt-2 max-w-md text-ink-600">
-          Your message has been received. A member of our admissions team will reach out shortly —
-          your privacy is always protected. For immediate help, call{" "}
+          An admissions specialist will be reaching out to you shortly. For immediate help, call{" "}
           <a href={site.phoneHref} className="font-semibold text-gold-700">{site.phone}</a>.
         </p>
       </div>
@@ -58,7 +67,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} data-clarion-form="contact" className="space-y-4" noValidate>
+    <form onSubmit={onSubmit} className="space-y-4" noValidate>
       {/* Honeypot — hidden from users; bots that fill it are rejected server-side. */}
       <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
         <label htmlFor="website">Leave this field empty</label>
