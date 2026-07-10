@@ -56,6 +56,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      // The inline script below swaps `no-js`→`js` on <html> before React
+      // hydrates, so the live DOM's className intentionally differs from the
+      // server-rendered one. Suppress the resulting attribute mismatch warning
+      // for this element only (does not affect its children).
+      suppressHydrationWarning
       className={`no-js ${cormorant.variable} ${karla.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white">
