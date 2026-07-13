@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import Reveal from "@/components/Reveal";
 import CTASection from "@/components/CTASection";
 import ClarionBlog from "@/components/ClarionBlog";
+import LocalBlogGrid from "@/components/LocalBlogGrid";
 
 export const metadata: Metadata = {
   title: "Blog — Addiction & Mental Health Resources",
@@ -25,10 +25,9 @@ export default function BlogIndex() {
 
       <section className="py-16 md:py-24">
         <div className="container-page">
-          <Reveal>
-            {/* Post listing is managed and rendered by Clarion. */}
-            <ClarionBlog />
-          </Reveal>
+          {/* Post listing is managed and rendered by Clarion. The local posts
+              show as a fallback until the Clarion embed is live and populated. */}
+          <ClarionBlog fallback={<LocalBlogGrid />} />
         </div>
       </section>
 
