@@ -10,6 +10,13 @@
 export const CLARION_SITE_KEY = "cpx_W7CkbBVZenGnvDbFYEKkZnvZSS7ynFh6";
 export const CLARION_API = "https://api.clarionlabs.ai";
 
+// Clarion's hosted blog embed. It renders posts into a `[data-clarion-blog]`
+// element and, like the forms-capture script, scans the DOM once on load — so
+// the container must already exist when it runs. See ClarionBlog for how we
+// (re-)attach it on mount to survive client-side navigation.
+export const CLARION_BLOG_EMBED_SRC =
+  "https://www.clarionlabs.ai/blog-embed.v1.js";
+
 type ClarionForms = {
   submit: (args: { form_key: string; data: Record<string, unknown> }) => Promise<unknown>;
   scan?: () => void;
