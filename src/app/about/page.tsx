@@ -101,7 +101,13 @@ export default function AboutHub() {
               <Reveal key={m.slug} delay={i * 50}>
                 <Link href={`/about/${m.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-shell shadow-[var(--shadow-soft)]">
-                    <Image src={m.image} alt={m.name} fill sizes="(max-width:768px) 50vw, 25vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    {m.image ? (
+                      <Image src={m.image} alt={m.name} fill sizes="(max-width:768px) 50vw, 25vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-shell font-semibold text-3xl text-gold-700">
+                        {m.name.replace(/^(Dr|Mr|Mrs|Ms)\.?\s+/i, "").split(/\s+/).slice(0, 2).map((w) => w[0]).join("")}
+                      </div>
+                    )}
                   </div>
                   <p className="mt-3 font-semibold text-ink">{m.name}</p>
                   <p className="text-sm text-ink-500">{m.role}</p>

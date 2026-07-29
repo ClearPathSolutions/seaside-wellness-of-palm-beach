@@ -35,7 +35,13 @@ export default function MeetTheTeam() {
                   className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-soft)] ring-1 ring-shell transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]"
                 >
                   <div className="relative aspect-[4/5] overflow-hidden bg-shell">
-                    <Image src={m.image} alt={m.name} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    {m.image ? (
+                      <Image src={m.image} alt={m.name} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-shell font-semibold text-4xl text-gold-700">
+                        {m.name.replace(/^(Dr|Mr|Mrs|Ms)\.?\s+/i, "").split(/\s+/).slice(0, 2).map((w) => w[0]).join("")}
+                      </div>
+                    )}
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-ink">{m.name}</h3>
