@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Karla } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { organizationJsonLd } from "@/lib/seo";
+import { isPreview } from "@/lib/deployment";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -47,7 +48,11 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   twitter: { card: "summary_large_image" },
-  robots: { index: true, follow: true },
+  // Preview deployments emit `noindex`. robots.txt already disallows them, but
+  // a Disallow only stops crawling — a URL discovered via an external link can
+  // still be indexed without being fetched, and only a meta/header directive
+  // prevents that. See the note in app/robots.ts (V0018).
+  robots: isPreview ? { index: false, follow: false } : { index: true, follow: true },
   alternates: { canonical: "/" },
 };
 
