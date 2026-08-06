@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { site } from "@/lib/site";
+import { canonicalPath } from "@/lib/routing";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -28,7 +29,12 @@ export default function ContactForm() {
     setStatus("submitting");
     setError("");
     try {
-      const res = await fetch("/api/contact", {
+      // canonicalPath, not a literal: `trailingSlash: true` applies to route
+      // handlers too, so posting to "/api/contact" earns a 308 to
+      // "/api/contact/" on every submission. Browsers do re-POST with the body
+      // intact, but it is a wasted round trip on the one request that matters —
+      // and deriving the path means it stays correct if the convention flips.
+      const res = await fetch(canonicalPath("/api/contact"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -64,21 +70,32 @@ export default function ContactForm() {
         <label htmlFor="website">Leave this field empty</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-ink">Full name *</label>
-          <input id="name" name="name" required autoComplete="name" className={inputClass} placeholder="Your name" />
-        </div>
-        <div>
-          <label htmlFor="phone" className="mb-1.5 block text-sm font-semibold text-ink">Phone</label>
-          <input id="phone" name="phone" type="tel" autoComplete="tel" aria-required="true" className={inputClass} placeholder="(000) 000-0000" />
-        </div>
-      </div>
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-ink">Email</label>
-        <input id="email" name="email" type="email" autoComplete="email" aria-required="true" className={inputClass} placeholder="you@example.com" />
-        <p className="mt-1.5 text-xs text-ink-400">Please give us a phone number or email so we can reach you.</p>
+        <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-ink">Full name *</label>
+        <input id="name" name="name" required autoComplete="name" className={inputClass} placeholder="Your name" />
       </div>
+
+      {/* Phone and email are grouped because the requirement is "one of the two",
+          which no per-field attribute can express. Marking each `aria-required`
+          told screen-reader users a required field was empty when they'd
+          legitimately supplied only the other one. The rule lives in the legend
+          and hint, both associated with the pair. */}
+      <fieldset>
+        <legend className="mb-1.5 text-sm font-semibold text-ink">How can we reach you?</legend>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor="phone" className="mb-1.5 block text-sm font-semibold text-ink">Phone</label>
+            <input id="phone" name="phone" type="tel" autoComplete="tel" aria-describedby="reach-hint" className={inputClass} placeholder="(000) 000-0000" />
+          </div>
+          <div>
+            <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-ink">Email</label>
+            <input id="email" name="email" type="email" autoComplete="email" aria-describedby="reach-hint" className={inputClass} placeholder="you@example.com" />
+          </div>
+        </div>
+        <p id="reach-hint" className="mt-1.5 text-xs text-ink-500">
+          Please give us a phone number or email so we can reach you — either one is fine.
+        </p>
+      </fieldset>
       <div>
         <label htmlFor="relationship" className="mb-1.5 block text-sm font-semibold text-ink">Who are you seeking help for?</label>
         <select id="relationship" name="relationship" className={inputClass} defaultValue="">
@@ -101,7 +118,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-700 px-6 py-4 font-semibold text-white shadow-[0_8px_24px_rgba(53,48,45,0.28)] transition-colors hover:bg-gold-800 disabled:opacity-70 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-700 px-6 py-4 font-semibold text-white shadow-[0_8px_24px_rgba(50,96,82,0.28)] transition-colors hover:bg-gold-800 disabled:opacity-70 sm:w-auto"
       >
         {status === "submitting" ? (
           <>
@@ -113,9 +130,12 @@ export default function ContactForm() {
           </>
         )}
       </button>
-      <p className="text-xs text-ink-400">
+      {/* ink-500, not ink-400: at 2.84:1 the crisis instruction was the
+          lowest-contrast text on the page. ink-500 clears WCAG AA at 4.60:1. */}
+      <p className="text-xs text-ink-500">
         Your information is kept strictly confidential and is never shared. This form is not for
-        emergencies — if you are in crisis, call or text 988.
+        emergencies — if you are in crisis, call or text{" "}
+        <a href="tel:988" className="font-semibold text-gold-700 underline underline-offset-2">988</a>.
       </p>
     </form>
   );

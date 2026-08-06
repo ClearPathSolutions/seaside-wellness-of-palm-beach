@@ -10,12 +10,15 @@ import { Button } from "@/components/Button";
 import CTASection from "@/components/CTASection";
 import { team } from "@/data/team";
 import { differentiators } from "@/data/site-content";
+import { pageMeta, smartTitle } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "About Seaside Wellness | Trusted South Florida Rehab Center",
+  // smartTitle: this title already carries the brand, so bypass the root
+  // layout's "%s | Seaside Wellness" template instead of doubling it.
+  title: smartTitle("About Seaside Wellness | Trusted South Florida Rehab Center"),
   description:
     "Learn about Seaside Wellness — a luxury addiction and mental health treatment center in West Palm Beach, Florida, led by an experienced, licensed clinical team.",
-  alternates: { canonical: "/about" },
+  ...pageMeta("/about"),
 };
 
 export default function AboutHub() {
@@ -25,7 +28,7 @@ export default function AboutHub() {
         eyebrow="About us"
         title="Recovery by the ocean, backed by real clinical expertise"
         subtitle="Seaside Wellness blends a calm, luxury coastal setting with evidence-based care and a team that treats every person — not just a diagnosis."
-        image="/wp-content/uploads/2025/08/15-web-or-mls-DJI_0165_6_7_8_9.jpg"
+        image="/images/facility/15-web-or-mls-DJI_0165_6_7_8_9.jpg"
         crumbs={[{ label: "About" }]}
       />
 
@@ -50,17 +53,17 @@ export default function AboutHub() {
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/about/about-us" variant="ghost">Read Our Story</Button>
+              <Button href="/about/our-story" variant="ghost">Read Our Story</Button>
               <Button href="/tour">Tour the Facility <ArrowRight className="size-4" /></Button>
             </div>
           </Reveal>
           <Reveal delay={100}>
             <div className="grid grid-cols-2 gap-4">
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-[var(--shadow-soft)]">
-                <Image src="/wp-content/uploads/2025/08/48-web-or-mls-0E2A6426-1.jpg" alt="Interior at Seaside Wellness" fill sizes="25vw" className="object-cover" />
+                <Image src="/images/facility/48-web-or-mls-0E2A6426-1.jpg" alt="Interior at Seaside Wellness" fill sizes="25vw" className="object-cover" />
               </div>
               <div className="relative mt-8 aspect-[3/4] overflow-hidden rounded-2xl shadow-[var(--shadow-soft)]">
-                <Image src="/wp-content/uploads/2025/08/89-web-or-mls-0E2A6631.jpg" alt="Common area at Seaside Wellness" fill sizes="25vw" className="object-cover" />
+                <Image src="/images/facility/89-web-or-mls-0E2A6631.jpg" alt="Common area at Seaside Wellness" fill sizes="25vw" className="object-cover" />
               </div>
             </div>
           </Reveal>

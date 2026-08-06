@@ -4,12 +4,13 @@ import SectionHeading from "@/components/SectionHeading";
 import { CardGrid } from "@/components/cards";
 import CTASection from "@/components/CTASection";
 import { programs, therapies } from "@/data/catalog";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Addiction & Mental Health Treatment Programs",
   description:
-    "Explore Seaside Wellness treatment programs — medical detox, residential inpatient, dual diagnosis, aftercare, and individual, group & family therapy in West Palm Beach.",
-  alternates: { canonical: "/treatment" },
+    "Medical detox, residential inpatient, dual diagnosis, aftercare, and individual, group and family therapy — all in West Palm Beach, Florida.",
+  ...pageMeta("/treatment"),
 };
 
 export default function TreatmentIndex() {
@@ -19,7 +20,7 @@ export default function TreatmentIndex() {
         eyebrow="Treatment"
         title="Evidence-based programs, one campus"
         subtitle="A full continuum of care — from medically supervised detox to residential treatment and aftercare — delivered by a licensed clinical team."
-        image="/wp-content/uploads/2025/08/67-web-or-mls-0E2A6521.jpg"
+        image="/images/facility/67-web-or-mls-0E2A6521.jpg"
         crumbs={[{ label: "Treatment" }]}
       />
 

@@ -1,22 +1,5 @@
 [
   {
-    "slug": "about-us",
-    "metaTitle": "About Seaside Wellness | South Florida Rehab Center",
-    "metaDescription": "Learn about Seaside Wellness, a leading Florida addiction and mental health treatment center backed by 10+ years of proven recovery success.",
-    "heading": "Timothy Foley",
-    "heroSubtitle": "Program Director",
-    "intro": [],
-    "sections": [
-      {
-        "heading": "About Timothy",
-        "paragraphs": [
-          "Tim is a dedicated and compassionate Program Director with over seven years of experience in addiction treatment and behavioral health. He has developed and managed evidence-based, patient-centered programs and is skilled at leading multidisciplinary teams to deliver seamless, holistic care.",
-          "With a strong background in program evaluation and staff development, Tim ensures services are effective, up to date, and tailored to client needs. He holds a bachelor's degree in behavioral science and is known for his empathetic leadership style. Under his guidance, the program has achieved higher patient engagement and improved long-term recovery outcomes."
-        ]
-      }
-    ]
-  },
-  {
     "slug": "faq",
     "metaTitle": "Addiction and Mental Health FAQ | Seaside Wellness",
     "metaDescription": "Get answers to common questions about addiction and mental health treatment, admissions, and insurance at Seaside Wellness in West Palm Beach.",
@@ -28,159 +11,198 @@
     "faqs": [
       {
         "q": "What conditions do you treat at Seaside Wellness?",
-        "a": "We treat drug & alcohol addiction, mental health disorders (without addiction), and co-occurring disorders (people facing drug/alcohol addiction with mental health issues). Our licensed clinicians provide evidence-based care for a range of conditions, from substance use to anxiety, depression, bipolar disorder, and trauma-related disorders."
+        "a": "We treat drug & alcohol addiction, mental health disorders (without addiction), and co-occurring disorders (people facing drug/alcohol addiction with mental health issues). Our licensed clinicians provide evidence-based care for a range of conditions, from substance use to anxiety, depression, bipolar disorder, and trauma-related disorders.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "Do you treat mental health disorders that don't involve substance use?",
-        "a": "Yes. Seaside Wellness offers dedicated mental health programs for individuals struggling with psychiatric or emotional challenges who do not have a history of substance use. Our services address a wide range of mental health conditions using individualized therapeutic approaches."
+        "a": "Yes. Seaside Wellness offers dedicated mental health programs for individuals struggling with psychiatric or emotional challenges who do not have a history of substance use. Our services address a wide range of mental health conditions using individualized therapeutic approaches.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "Do you treat co-occurring (dual diagnosis) disorders?",
-        "a": "Yes. Our licensed clinicians specialize in treating dual diagnosis cases, addressing both substance use disorders and mental health conditions simultaneously for more effective outcomes."
+        "a": "Yes. Our licensed clinicians specialize in treating dual diagnosis cases, addressing both substance use disorders and mental health conditions simultaneously for more effective outcomes.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "Do you offer medically supervised detox?",
-        "a": "Yes. Our facility provides medically supervised detox for clients withdrawing from alcohol, opioids, benzodiazepines, and other substances. Detox is closely monitored by licensed medical staff to ensure safety and comfort."
+        "a": "Yes. Our facility provides medically supervised detox for clients withdrawing from alcohol, opioids, benzodiazepines, and other substances. Detox is closely monitored by licensed medical staff to ensure safety and comfort.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "What types of therapy do you use?",
-        "a": "We utilize evidence-based modalities including Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), Eye Movement Desensitization and Reprocessing (EMDR), trauma-informed care, and holistic interventions to support both mental health stabilization and substance use recovery."
+        "a": "We utilize evidence-based modalities including Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), Eye Movement Desensitization and Reprocessing (EMDR), trauma-informed care, and holistic interventions to support both mental health stabilization and substance use recovery.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "How long does treatment last?",
-        "a": "The length of treatment depends on individual needs and diagnosis. Programs for addiction recovery and mental health stabilization typically range from 30 to 90 days, with extended care available when clinically appropriate. Call (855) 416-5648 to speak with our team about your situation."
+        "a": "The length of treatment depends on individual needs and diagnosis. Programs for addiction recovery and mental health stabilization typically range from 30 to 90 days, with extended care available when clinically appropriate. Call (855) 416-5648 to speak with our team about your situation.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "Do you accept clients from outside Florida?",
-        "a": "Yes. We welcome clients from across Florida and the United States, offering assistance with travel arrangements to our West Palm Beach treatment center. Call (855) 416-5648 to speak with our team about your situation."
+        "a": "Yes. We welcome clients from across Florida and the United States, offering assistance with travel arrangements to our West Palm Beach treatment center. Call (855) 416-5648 to speak with our team about your situation.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "Who is residential treatment recommended for?",
-        "a": "Residential treatment is recommended for individuals requiring a structured, 24/7 environment to address severe addiction, complex mental health conditions, or co-occurring disorders. Call (855) 416-5648 for a free assessment. Our team will help decide what's best for you or your loved one."
+        "a": "Residential treatment is recommended for individuals requiring a structured, 24/7 environment to address severe addiction, complex mental health conditions, or co-occurring disorders. Call (855) 416-5648 for a free assessment. Our team will help decide what's best for you or your loved one.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "Which addictions do you treat?",
-        "a": "Yes. Our team has expertise in treating addictions to alcohol, opioids (including fentanyl and heroin), methamphetamine, cocaine, benzodiazepines, and prescription medications."
+        "a": "Yes. Our team has expertise in treating addictions to alcohol, opioids (including fentanyl and heroin), methamphetamine, cocaine, benzodiazepines, and prescription medications.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "Why choose West Palm Beach for treatment?",
-        "a": "West Palm Beach offers a tranquil coastal setting with year-round warm weather, creating a therapeutic environment that supports emotional healing. Clients benefit from a calm atmosphere combined with access to top addiction treatment and mental health professionals in South Florida."
+        "a": "West Palm Beach offers a tranquil coastal setting with year-round warm weather, creating a therapeutic environment that supports emotional healing. Clients benefit from a calm atmosphere combined with access to top addiction treatment and mental health professionals in South Florida.",
+        "category": "Addiction & Mental Health"
       },
       {
         "q": "Where is Seaside Wellness located?",
-        "a": "Seaside Wellness is located in West Palm Beach, Florida, minutes from Palm Beach International Airport and within easy reach of Fort Lauderdale and Miami. Our location offers a calm, coastal environment ideal for both addiction recovery and mental health stabilization."
+        "a": "Seaside Wellness is located in West Palm Beach, Florida, minutes from Palm Beach International Airport and within easy reach of Fort Lauderdale and Miami. Our location offers a calm, coastal environment ideal for both addiction recovery and mental health stabilization.",
+        "category": "Facility & Programs"
       },
       {
         "q": "What levels of care do you offer at this location?",
-        "a": "At this West Palm Beach location, we specialize in medical detox, substance abuse inpatient rehabilitation, and mental health inpatient stabilization for individuals requiring 24/7 clinical supervision. Other levels of care, such as partial hospitalization programs (PHP) and intensive outpatient programs (IOP), are available through our affiliated facilities within the same treatment network, ensuring clients have access to a full continuum of care."
+        "a": "At this West Palm Beach location, we specialize in medical detox, substance abuse inpatient rehabilitation, and mental health inpatient stabilization for individuals requiring 24/7 clinical supervision. Other levels of care, such as partial hospitalization programs (PHP) and intensive outpatient programs (IOP), are available through our affiliated facilities within the same treatment network, ensuring clients have access to a full continuum of care.",
+        "category": "Facility & Programs"
       },
       {
         "q": "What is your client-to-staff ratio?",
-        "a": "We maintain a low client-to-staff ratio to ensure each patient receives individualized attention from our multidisciplinary treatment team, which includes licensed physicians, psychiatric providers, registered nurses, and licensed therapists. This approach supports intensive monitoring, precise medication management, and personalized therapeutic interventions."
+        "a": "We maintain a low client-to-staff ratio to ensure each patient receives individualized attention from our multidisciplinary treatment team, which includes licensed physicians, psychiatric providers, registered nurses, and licensed therapists. This approach supports intensive monitoring, precise medication management, and personalized therapeutic interventions.",
+        "category": "Facility & Programs"
       },
       {
         "q": "Will I receive an individualized treatment plan?",
-        "a": "Yes. All clients undergo a comprehensive biopsychosocial assessment upon admission. This informs a customized treatment plan that integrates evidence-based therapies, medical care, and psychiatric support for addiction, mental health disorders, or co-occurring conditions. If you or a loved one need help, call (855) 416-5648 for a free assessment."
+        "a": "Yes. All clients undergo a comprehensive biopsychosocial assessment upon admission. This informs a customized treatment plan that integrates evidence-based therapies, medical care, and psychiatric support for addiction, mental health disorders, or co-occurring conditions. If you or a loved one need help, call (855) 416-5648 for a free assessment.",
+        "category": "Facility & Programs"
       },
       {
         "q": "Is medical staff available around the clock?",
-        "a": "Yes. Our inpatient units are staffed around the clock with licensed medical professionals who provide continuous monitoring, medication administration, and crisis intervention when necessary."
+        "a": "Yes. Our inpatient units are staffed around the clock with licensed medical professionals who provide continuous monitoring, medication administration, and crisis intervention when necessary.",
+        "category": "Facility & Programs"
       },
       {
         "q": "What amenities does the facility offer?",
-        "a": "In addition to comfortable, private or semi-private rooms, patients have access to therapeutic common areas, structured recreational activities, and wellness-focused amenities (gym, pool…) designed to support recovery in a clinically supervised setting."
+        "a": "In addition to comfortable, private or semi-private rooms, patients have access to therapeutic common areas, structured recreational activities, and wellness-focused amenities (gym, pool…) designed to support recovery in a clinically supervised setting.",
+        "category": "Facility & Programs"
       },
       {
         "q": "Do you offer gender-specific therapy?",
-        "a": "Yes. When clinically appropriate, we provide gender-specific therapy groups and individual sessions to foster comfort and address gender-related recovery issues in both substance abuse and mental health treatment."
+        "a": "Yes. When clinically appropriate, we provide gender-specific therapy groups and individual sessions to foster comfort and address gender-related recovery issues in both substance abuse and mental health treatment.",
+        "category": "Facility & Programs"
       },
       {
         "q": "Can clients spend time outdoors?",
-        "a": "Yes. Clients may participate in supervised outdoor activities as part of our therapeutic programming, which can improve mood regulation and encourage physical wellness during recovery."
+        "a": "Yes. Clients may participate in supervised outdoor activities as part of our therapeutic programming, which can improve mood regulation and encourage physical wellness during recovery.",
+        "category": "Facility & Programs"
       },
       {
         "q": "Do you offer family therapy?",
-        "a": "Absolutely. With patient consent, we facilitate family therapy sessions, either in-person or virtually, to strengthen support systems and improve communication post-discharge."
+        "a": "Absolutely. With patient consent, we facilitate family therapy sessions, either in-person or virtually, to strengthen support systems and improve communication post-discharge.",
+        "category": "Facility & Programs"
       },
       {
         "q": "Do you provide aftercare planning?",
-        "a": "Yes. Our case management team develops a detailed aftercare plan for every client, which may include referrals to PHP, IOP, outpatient therapy, medication management, and community support groups, often within our broader treatment network."
+        "a": "Yes. Our case management team develops a detailed aftercare plan for every client, which may include referrals to PHP, IOP, outpatient therapy, medication management, and community support groups, often within our broader treatment network.",
+        "category": "Facility & Programs"
       },
       {
         "q": "How do I begin the admissions process?",
-        "a": "To start, contact our admissions team by phone or submit our confidential online form. We offer no-cost clinical assessments for individuals seeking medical detox, inpatient substance abuse treatment, or mental health help. This assessment helps us determine the most clinically appropriate program for you, either here in West Palm Beach or within our broader treatment network."
+        "a": "To start, contact our admissions team by phone or submit our confidential online form. We offer no-cost clinical assessments for individuals seeking medical detox, inpatient substance abuse treatment, or mental health help. This assessment helps us determine the most clinically appropriate program for you, either here in West Palm Beach or within our broader treatment network.",
+        "category": "Admissions & Intake"
       },
       {
         "q": "What information will I need to provide?",
-        "a": "We'll ask for your personal and contact details, medical history, current medications, insurance information, and a summary of your mental health or substance use concerns. This allows our team to create a safe, tailored admission plan."
+        "a": "We'll ask for your personal and contact details, medical history, current medications, insurance information, and a summary of your mental health or substance use concerns. This allows our team to create a safe, tailored admission plan.",
+        "category": "Admissions & Intake"
       },
       {
         "q": "How quickly can I be admitted?",
-        "a": "We usually have same-day admissions available. Depending on the urgency, we aim to admit clients within 24 hours, depending on bed availability and completion of pre-admission requirements such as insurance verification and medical clearance. For medical detox and mental health crisis stabilization, we prioritize expedited intake."
+        "a": "We usually have same-day admissions available. Depending on the urgency, we aim to admit clients within 24 hours, depending on bed availability and completion of pre-admission requirements such as insurance verification and medical clearance. For medical detox and mental health crisis stabilization, we prioritize expedited intake.",
+        "category": "Admissions & Intake"
       },
       {
         "q": "Can I tour the facility before I decide?",
-        "a": "Yes. We offer both in-person and virtual tours so you can see our West Palm Beach inpatient facility and meet staff before making your decision."
+        "a": "Yes. We offer both in-person and virtual tours so you can see our West Palm Beach inpatient facility and meet staff before making your decision.",
+        "category": "Admissions & Intake"
       },
       {
         "q": "Do you accept clients traveling from out of state?",
-        "a": "Yes. We regularly admit clients from across the United States. Our admissions team can assist with travel arrangements, airport pickup, and coordination of medical records to ensure a smooth transition into care."
+        "a": "Yes. We regularly admit clients from across the United States. Our admissions team can assist with travel arrangements, airport pickup, and coordination of medical records to ensure a smooth transition into care.",
+        "category": "Admissions & Intake"
       },
       {
         "q": "Do you help arrange travel to the facility?",
-        "a": "We help coordinate every step, from booking flights to arranging ground transportation, to make the journey to our facility as stress-free as possible. Call our team at (855) 416-5648 for more information."
+        "a": "We help coordinate every step, from booking flights to arranging ground transportation, to make the journey to our facility as stress-free as possible. Call our team at (855) 416-5648 for more information.",
+        "category": "Admissions & Intake"
       },
       {
         "q": "Will I have to stop my current medications?",
-        "a": "Not necessarily. Our clinical team reviews all current prescriptions during intake and makes any necessary adjustments in collaboration with you to ensure safe continuity of care."
+        "a": "Not necessarily. Our clinical team reviews all current prescriptions during intake and makes any necessary adjustments in collaboration with you to ensure safe continuity of care.",
+        "category": "Admissions & Intake"
       },
       {
         "q": "What should I bring to treatment?",
-        "a": "We'll provide a detailed packing guide that includes comfortable clothing, approved personal items, and any necessary medical devices. Certain items, such as alcohol-based products or electronics, may be restricted for clinical or safety reasons."
+        "a": "We'll provide a detailed packing guide that includes comfortable clothing, approved personal items, and any necessary medical devices. Certain items, such as alcohol-based products or electronics, may be restricted for clinical or safety reasons.",
+        "category": "Admissions & Intake"
       },
       {
         "q": "Are same-day admissions available?",
-        "a": "Yes, when space allows and clinical criteria are met. Same-day admissions are often possible for detox, inpatient mental health, and substance abuse residential inpatient, especially in crisis situations. Call (855) 416-5648 to get more details."
+        "a": "Yes, when space allows and clinical criteria are met. Same-day admissions are often possible for detox, inpatient mental health, and substance abuse residential inpatient, especially in crisis situations. Call (855) 416-5648 to get more details.",
+        "category": "Admissions & Intake"
       },
       {
         "q": "Do you accept insurance?",
-        "a": "Yes. Seaside Wellness works with most major health insurance providers to cover medical detox, inpatient substance abuse treatment, and inpatient mental health stabilization. We also coordinate with our network partners to verify benefits for other levels of care if needed. If you want to check if we take your insurance, call (855) 416-5648, or fill out our confidential form."
+        "a": "Yes. Seaside Wellness works with most major health insurance providers to cover medical detox, inpatient substance abuse treatment, and inpatient mental health stabilization. We also coordinate with our network partners to verify benefits for other levels of care if needed. If you want to check if we take your insurance, call (855) 416-5648, or fill out our confidential form.",
+        "category": "Insurance & Cost"
       },
       {
         "q": "How do I verify my insurance benefits?",
-        "a": "Call our admissions team or complete our insurance verification form for a free, confidential review. Our specialists will contact your provider directly to confirm what services are covered, your deductible, and any out-of-pocket costs."
+        "a": "Call our admissions team or complete our insurance verification form for a free, confidential review. Our specialists will contact your provider directly to confirm what services are covered, your deductible, and any out-of-pocket costs.",
+        "category": "Insurance & Cost"
       },
       {
         "q": "Does insurance cover detox?",
-        "a": "In most cases, yes. If medical necessity is documented by a licensed physician, insurance plans often cover detox services for withdrawal from alcohol, opioids, benzodiazepines, and other substances."
+        "a": "In most cases, yes. If medical necessity is documented by a licensed physician, insurance plans often cover detox services for withdrawal from alcohol, opioids, benzodiazepines, and other substances.",
+        "category": "Insurance & Cost"
       },
       {
         "q": "What if I don't have insurance?",
-        "a": "We accept private pay and can help arrange flexible payment plans. Our team can also refer you to financing resources and assist in exploring coverage options within our treatment network. Call (855) 416-5648 for more answers."
+        "a": "We accept private pay and can help arrange flexible payment plans. Our team can also refer you to financing resources and assist in exploring coverage options within our treatment network. Call (855) 416-5648 for more answers.",
+        "category": "Insurance & Cost"
       },
       {
         "q": "What if my insurance isn't accepted at your location?",
-        "a": "Coverage depends on your specific plan and the clinical services required. Our admissions department can confirm eligibility and connect you with an appropriate program within our network if your plan is not accepted at our West Palm Beach location."
+        "a": "Coverage depends on your specific plan and the clinical services required. Our admissions department can confirm eligibility and connect you with an appropriate program within our network if your plan is not accepted at our West Palm Beach location.",
+        "category": "Insurance & Cost"
       },
       {
         "q": "How much of inpatient treatment will insurance cover?",
-        "a": "This varies by policy, provider, and level of care. Some plans fully cover inpatient treatment, while others require coinsurance or partial payment. We explain all benefits and costs before admission."
+        "a": "This varies by policy, provider, and level of care. Some plans fully cover inpatient treatment, while others require coinsurance or partial payment. We explain all benefits and costs before admission.",
+        "category": "Insurance & Cost"
       },
       {
         "q": "Do you handle insurance claims for me?",
-        "a": "Yes. We handle all claims submission and documentation directly with your insurance provider, so you can focus on recovery."
+        "a": "Yes. We handle all claims submission and documentation directly with your insurance provider, so you can focus on recovery.",
+        "category": "Insurance & Cost"
       },
       {
         "q": "Do you offer grants or financial assistance?",
-        "a": "While we do not offer direct grants, we help clients find third-party financing and coordinate cost-effective transitions within our network to ensure continuity of care."
+        "a": "While we do not offer direct grants, we help clients find third-party financing and coordinate cost-effective transitions within our network to ensure continuity of care.",
+        "category": "Insurance & Cost"
       },
       {
         "q": "Do you offer payment plans for clients without insurance?",
-        "a": "Yes. We offer structured payment arrangements to make care more accessible for those without insurance."
+        "a": "Yes. We offer structured payment arrangements to make care more accessible for those without insurance.",
+        "category": "Insurance & Cost"
       },
       {
         "q": "How much does treatment cost?",
-        "a": "Costs depend on the length of stay, type of treatment (detox, inpatient substance abuse, or mental health stabilization), and any additional clinical services. Contact us for a personalized quote based on your clinical assessment."
+        "a": "Costs depend on the length of stay, type of treatment (detox, inpatient substance abuse, or mental health stabilization), and any additional clinical services. Contact us for a personalized quote based on your clinical assessment.",
+        "category": "Insurance & Cost"
       }
     ]
   },
@@ -291,8 +313,7 @@
       {
         "heading": "Break Free and Take Control of Your Life Again",
         "paragraphs": [
-          "Taking the first step toward recovery can feel overwhelming, but it's also the most important decision you'll ever make. Whether you're struggling with drug addiction, alcohol dependency, or mental health challenges, real healing begins with reaching out for help. Located in amazing West Palm Beach, FL, our evidence-based treatment programs provide a safe, supportive environment where you can break free from the cycle of addiction and begin building a healthier, more fulfilling future. You don't have to do this alone; lasting recovery starts with one call.",
-          "Your recovery deserves the best care, and the right team."
+          "Taking the first step toward recovery can feel overwhelming, but it's also the most important decision you'll ever make. Whether you're struggling with drug addiction, alcohol dependency, or mental health challenges, real healing begins with reaching out for help. Located in amazing West Palm Beach, FL, our evidence-based treatment programs provide a safe, supportive environment where you can break free from the cycle of addiction and begin building a healthier, more fulfilling future. You don't have to do this alone; lasting recovery starts with one call."
         ]
       },
       {
@@ -365,8 +386,7 @@
         "paragraphs": [
           "Watching someone you care about struggle with drugs, alcohol, or mental health challenges can feel overwhelming and painful. You may feel powerless, but your support can make all the difference. Taking action today can help your loved one find stability, safety, and a real chance at recovery.",
           "Our evidence-based programs in West Palm Beach, Florida provide a safe and supportive environment where healing can begin. Whether your loved one needs medical detox, residential treatment (for substance abuse or mental health), or dual diagnosis care, we'll guide you step by step through the admissions process and make sure they get the help they deserve.",
-          "You don't have to wait for things to get worse, reaching out now can change the course of their life.",
-          "Your recovery deserves the best care, and the right team."
+          "You don't have to wait for things to get worse, reaching out now can change the course of their life."
         ]
       },
       {

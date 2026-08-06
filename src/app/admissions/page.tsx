@@ -7,12 +7,13 @@ import Reveal from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import CTASection from "@/components/CTASection";
 import { admissionsSteps } from "@/data/site-content";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Rehab & Mental Health Admissions",
   description:
     "Starting treatment at Seaside Wellness is simple and confidential. Learn about our admissions process, insurance verification, and how to get help today.",
-  alternates: { canonical: "/admissions" },
+  ...pageMeta("/admissions"),
 };
 
 const paths = [
@@ -29,7 +30,7 @@ export default function AdmissionsHub() {
         eyebrow="Admissions"
         title="Getting started is simple"
         subtitle="Reaching out is the hardest part. From your first call, our admissions team handles the details so you can focus on healing."
-        image="/wp-content/uploads/2025/08/70-web-or-mls-0E2A6536.jpg"
+        image="/images/facility/70-web-or-mls-0E2A6536.jpg"
         crumbs={[{ label: "Admissions" }]}
       />
 

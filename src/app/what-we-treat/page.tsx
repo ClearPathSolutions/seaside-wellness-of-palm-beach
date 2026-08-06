@@ -4,12 +4,13 @@ import SectionHeading from "@/components/SectionHeading";
 import { CardGrid } from "@/components/cards";
 import CTASection from "@/components/CTASection";
 import { substances, mentalHealth } from "@/data/catalog";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Substance Use & Conditions We Treat",
   description:
     "Seaside Wellness treats a wide range of substance use disorders and mental health conditions with personalized, evidence-based care in West Palm Beach.",
-  alternates: { canonical: "/what-we-treat" },
+  ...pageMeta("/what-we-treat"),
 };
 
 export default function WhatWeTreatIndex() {
@@ -19,7 +20,7 @@ export default function WhatWeTreatIndex() {
         eyebrow="What we treat"
         title="Comprehensive treatment for addiction & mental health"
         subtitle="We provide personalized, evidence-based care for substance use disorders and mental health conditions — including co-occurring dual diagnosis."
-        image="/wp-content/uploads/2025/08/48-web-or-mls-0E2A6426-1.jpg"
+        image="/images/facility/48-web-or-mls-0E2A6426-1.jpg"
         crumbs={[{ label: "What We Treat" }]}
       />
 

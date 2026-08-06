@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { areas } from "@/data/catalog";
 import { areaDetails } from "@/data/details";
 import DetailLayout from "@/components/DetailLayout";
-import { smartTitle } from "@/lib/seo";
+import { smartTitle, pageMeta } from "@/lib/seo";
 
 export function generateStaticParams() {
   return areas.map((a) => ({ slug: a.slug }));
@@ -23,7 +23,7 @@ export async function generateMetadata({
       ? smartTitle(d.metaTitle)
       : `Addiction & Mental Health Treatment in ${item.name}`,
     description: d?.metaDescription ?? item.short,
-    alternates: { canonical: `/areas-we-serve/${slug}` },
+    ...pageMeta(`/areas-we-serve/${slug}`),
   };
 }
 

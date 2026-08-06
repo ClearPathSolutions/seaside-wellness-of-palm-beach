@@ -9,8 +9,11 @@ const base =
   "inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-60 disabled:pointer-events-none whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
+  // Shadow is tinted to gold-700 (#326052 = 50,96,82), matching how `secondary`
+  // tints to ocean-500. It previously carried rgba(53,48,45) — the warm brown
+  // from the pre-seafoam palette, which read as a muddy cast under a teal button.
   primary:
-    "bg-gold-700 text-white shadow-[0_8px_24px_rgba(53,48,45,0.28)] hover:bg-gold-800 hover:shadow-[0_10px_30px_rgba(53,48,45,0.35)] hover:-translate-y-0.5",
+    "bg-gold-700 text-white shadow-[0_8px_24px_rgba(50,96,82,0.28)] hover:bg-gold-800 hover:shadow-[0_10px_30px_rgba(50,96,82,0.35)] hover:-translate-y-0.5",
   secondary:
     "bg-ocean-500 text-white hover:bg-ocean-600 hover:-translate-y-0.5 shadow-[0_8px_24px_rgba(55,92,96,0.28)]",
   ghost:

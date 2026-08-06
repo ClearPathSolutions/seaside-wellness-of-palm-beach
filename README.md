@@ -66,8 +66,15 @@ with catalog metadata at build time. To edit copy, edit the data files — no co
    a Terms of Service (`/terms`), split from a single file. The Terms are generic boilerplate that
    still references marketplace concepts (reviews, deals, newsletters) that don't apply — have
    counsel review/replace before launch.
-6. **Area pages** — `src/data/content/areas.json` bodies are near-identical across locations
-   (duplicate-content SEO risk). Differentiate per community when possible.
+6. **Area-page imagery** — six of the seven `/areas-we-serve` cards illustrate other towns with a
+   photograph of the West Palm Beach building. Drop the images or source per-community
+   photography. See `VIS-9` in `ISSUES.md`.
+
+> The former item 6 ("area page bodies are near-identical — duplicate-content risk") was measured
+> on 2026-08-06 and is **false**: max pairwise 8-gram Jaccard similarity across the 7 area pages is
+> **5.6%** (Delray↔Wellington), all other pairs under 3%, at 644–1,011 words each. Conditions max
+> 3.7%, treatments max 7.0%. No duplicate-content risk. The full open-issue register is in
+> [`ISSUES.md`](ISSUES.md).
 
 ## Deploy to Vercel
 

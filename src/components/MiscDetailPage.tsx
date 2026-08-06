@@ -2,7 +2,7 @@ import { miscDetails } from "@/data/details";
 import DetailLayout from "./DetailLayout";
 import type { Crumb } from "./PageHero";
 import type { CatalogItem } from "@/data/types";
-import { smartTitle } from "@/lib/seo";
+import { smartTitle, pageMeta } from "@/lib/seo";
 
 export function getMiscMeta(
   slug: string,
@@ -15,7 +15,7 @@ export function getMiscMeta(
   return {
     title: smartTitle(title),
     description: d?.metaDescription ?? fallbackDesc,
-    alternates: { canonical },
+    ...pageMeta(canonical),
   };
 }
 

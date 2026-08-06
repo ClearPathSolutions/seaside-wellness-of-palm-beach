@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { conditions, substances, mentalHealth } from "@/data/catalog";
 import { conditionDetails } from "@/data/details";
 import DetailLayout from "@/components/DetailLayout";
-import { smartTitle } from "@/lib/seo";
+import { smartTitle, pageMeta } from "@/lib/seo";
 
 export function generateStaticParams() {
   return conditions.map((c) => ({ slug: c.slug }));
@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: d?.metaTitle ? smartTitle(d.metaTitle) : item.name,
     description: d?.metaDescription ?? item.short,
-    alternates: { canonical: `/what-we-treat/${slug}` },
+    ...pageMeta(`/what-we-treat/${slug}`),
   };
 }
 

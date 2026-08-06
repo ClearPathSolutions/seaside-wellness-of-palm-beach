@@ -1,13 +1,16 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  Star,
   Phone,
   ShieldCheck,
   CheckCircle2,
   MapPin,
 } from "lucide-react";
 import { site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
@@ -23,14 +26,21 @@ import {
   accreditations,
   insuranceImage,
   insurers,
-  testimonials,
+  googleReviews,
 } from "@/data/site-content";
 import { latestPosts } from "@/data/posts";
+import { brandFilmTranscript } from "@/data/brand-film";
 
-const HERO = "/wp-content/uploads/2025/08/5-web-or-mls-DJI_0101_2_3_4_5.jpg";
-const INTRO_IMG = "/wp-content/uploads/2025/08/67-web-or-mls-0E2A6521.jpg";
-const TOUR_IMG = "/wp-content/uploads/2025/08/17-web-or-mls-DJI_0175_6_7_8_9.jpg";
-const VIDEO = "/wp-content/uploads/2026/04/Seaside-Wellness-Brand-Story-Video-V2-VOICEOVER.mp4";
+// Title and description come from the root layout's defaults; this only pins the
+// homepage's own canonical and og:url so the layout doesn't have to (which is
+// what previously leaked the homepage's og:url onto all 56 non-blog pages).
+export const metadata: Metadata = pageMeta("/");
+
+const HERO = "/images/facility/5-web-or-mls-DJI_0101_2_3_4_5.jpg";
+const INTRO_IMG = "/images/facility/67-web-or-mls-0E2A6521.jpg";
+const TOUR_IMG = "/images/facility/17-web-or-mls-DJI_0175_6_7_8_9.jpg";
+const VIDEO = "/video/seaside-brand-film.mp4";
+const BRAND_FILM_CAPTIONS = "/video/seaside-brand-film.en.vtt";
 
 export default function Home() {
   return (
@@ -73,7 +83,10 @@ export default function Home() {
       {/* ---------- TRUST STRIP ---------- */}
       <section className="border-b border-shell bg-cream">
         <div className="container-page flex flex-wrap items-center justify-center gap-x-10 gap-y-5 py-6">
-          <span className="eyebrow text-ink-400">Accredited &amp; Certified</span>
+          {/* ink-600, not ink-500: this strip is bg-cream, where ink-500 is only
+              4.25:1. ink-600 gives 6.65:1. (On white, ink-500's 4.60:1 passes —
+              which is why the other swaps in this pass use it.) */}
+          <span className="eyebrow text-ink-600">Accredited &amp; Certified</span>
           {accreditations.map((a) => (
             <Image
               key={a.name}
@@ -121,7 +134,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/about/about-us" variant="ghost">Our Story</Button>
+              <Button href="/about/our-story" variant="ghost">Our Story</Button>
               <Button href="/treatment">Explore Treatment <ArrowRight className="size-4" /></Button>
             </div>
           </Reveal>
@@ -179,7 +192,15 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <BrandVideo src={VIDEO} poster={TOUR_IMG} label="Watch the Seaside Wellness story" />
+            <BrandVideo
+              src={VIDEO}
+              poster={TOUR_IMG}
+              label="Watch the Seaside Wellness story"
+              captionsSrc={BRAND_FILM_CAPTIONS}
+              captionsLabel="English (on-screen text)"
+              transcript={brandFilmTranscript}
+              transcriptLabel="Read the on-screen text"
+            />
           </Reveal>
         </div>
       </section>
@@ -353,23 +374,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- TESTIMONIALS ---------- */}
+      {/* ---------- REVIEWS ----------
+          Mirrors the Google Business Profile. Renders review cards only when
+          `googleReviews` holds real, attributable entries — see the note in
+          data/site-content.ts. The links to the live listing always render, so
+          the section still points at genuine social proof while empty. */}
       <section className="bg-cream py-20 md:py-28">
         <div className="container-page">
-          <SectionHeading eyebrow="In their words" title="They trusted us with their recovery" />
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <figure className="flex h-full flex-col rounded-2xl bg-white p-8 shadow-[var(--shadow-soft)] ring-1 ring-shell">
-                  <span className="font-display text-6xl leading-none text-gold-300">&ldquo;</span>
-                  <blockquote className="-mt-4 flex-1 text-lg leading-relaxed text-ink-700">{t.quote}</blockquote>
-                  <figcaption className="mt-6 border-t border-shell pt-4">
-                    <p className="font-semibold text-ink">{t.name}</p>
-                    <p className="text-sm text-ink-500">{t.context}</p>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
+          <SectionHeading
+            eyebrow="In their words"
+            title="They trusted us with their recovery"
+            text={
+              googleReviews.length
+                ? undefined
+                : "Read what clients and families say about Seaside Wellness — every review is a verified Google review, published by the people who wrote it."
+            }
+          />
+
+          {googleReviews.length > 0 && (
+            <div className="mt-14 grid gap-6 lg:grid-cols-3">
+              {googleReviews.map((r, i) => (
+                <Reveal key={i} delay={i * 80}>
+                  <figure className="flex h-full flex-col rounded-2xl bg-white p-8 shadow-[var(--shadow-soft)] ring-1 ring-shell">
+                    <div className="flex items-center gap-0.5" role="img" aria-label={`${r.rating} out of 5 stars`}>
+                      {Array.from({ length: 5 }, (_, s) => (
+                        <Star
+                          key={s}
+                          aria-hidden
+                          className={
+                            s < r.rating
+                              ? "size-4 fill-gold-500 text-gold-500"
+                              : "size-4 text-ink-300"
+                          }
+                        />
+                      ))}
+                    </div>
+                    <blockquote className="mt-4 flex-1 text-lg leading-relaxed text-ink-700">
+                      {r.text}
+                    </blockquote>
+                    <figcaption className="mt-6 border-t border-shell pt-4">
+                      <p className="font-semibold text-ink">{r.author}</p>
+                      <p className="text-sm text-ink-500">via Google</p>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Button href={site.reviewsUrl} variant="secondary">
+              Read our Google reviews <ArrowRight className="size-4" />
+            </Button>
+            <Button href={site.reviewUrl} variant="ghost">
+              Leave a review
+            </Button>
           </div>
         </div>
       </section>
@@ -394,7 +453,7 @@ export default function Home() {
                     <p className="eyebrow text-gold-600">{p.category}</p>
                     <h3 className="mt-2 text-lg font-semibold leading-snug text-ink">{p.title}</h3>
                     <p className="mt-2 flex-1 text-[0.9rem] leading-relaxed text-ink-600">{p.excerpt}</p>
-                    <span className="mt-4 text-sm text-ink-400">{p.readingMinutes} min read</span>
+                    <span className="mt-4 text-sm text-ink-500">{p.readingMinutes} min read</span>
                   </div>
                 </Link>
               </Reveal>

@@ -37,7 +37,16 @@ export type DetailSection = {
   bullets?: string[];
 };
 
-export type Faq = { q: string; a: string };
+export type Faq = {
+  q: string;
+  a: string;
+  /**
+   * Optional topic grouping. Used on the standalone /about/faq page, where 39
+   * questions in one flat accordion were unscannable. Detail-page FAQ sets are
+   * short enough to stay ungrouped, so this is undefined there.
+   */
+  category?: string;
+};
 
 export type DetailContent = {
   slug: string;
@@ -55,7 +64,14 @@ export type DetailContent = {
 
 export type Post = {
   slug: string;
+  /** Full headline — rendered as the on-page `<h1>`. */
   title: string;
+  /**
+   * Optional shorter title for the `<title>` tag only. Set where `title` plus
+   * the " | Seaside Wellness" suffix would run past ~60 chars and truncate in
+   * search results. Falls back to `title`.
+   */
+  metaTitle?: string;
   excerpt: string;
   category: string;
   date: string; // ISO

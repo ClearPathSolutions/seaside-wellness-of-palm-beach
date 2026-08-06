@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { programs, therapies } from "@/data/catalog";
 import { treatmentDetails } from "@/data/details";
 import DetailLayout from "@/components/DetailLayout";
-import { smartTitle } from "@/lib/seo";
+import { smartTitle, pageMeta } from "@/lib/seo";
 
 const all = [...programs, ...therapies];
 
@@ -23,7 +23,7 @@ export async function generateMetadata({
   return {
     title: d?.metaTitle ? smartTitle(d.metaTitle) : item.name,
     description: d?.metaDescription ?? item.short,
-    alternates: { canonical: `/treatment/${slug}` },
+    ...pageMeta(`/treatment/${slug}`),
   };
 }
 

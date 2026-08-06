@@ -5,12 +5,13 @@ import SectionHeading from "@/components/SectionHeading";
 import { CardGrid } from "@/components/cards";
 import CTASection from "@/components/CTASection";
 import { areas, additionalCommunities } from "@/data/catalog";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Florida Addiction Treatment Center | Areas We Serve",
+  title: "Areas We Serve Across South Florida",
   description:
     "Seaside Wellness serves West Palm Beach, Boca Raton, Boynton Beach, Delray Beach, Wellington, and communities across Palm Beach County and South Florida.",
-  alternates: { canonical: "/areas-we-serve" },
+  ...pageMeta("/areas-we-serve"),
 };
 
 export default function AreasIndex() {
@@ -20,7 +21,7 @@ export default function AreasIndex() {
         eyebrow="Areas we serve"
         title="Trusted care, close to home"
         subtitle="Seaside Wellness provides high-quality addiction and mental health treatment to individuals across West Palm Beach and the surrounding South Florida communities."
-        image="/wp-content/uploads/2025/08/17-web-or-mls-DJI_0175_6_7_8_9.jpg"
+        image="/images/facility/17-web-or-mls-DJI_0175_6_7_8_9.jpg"
         crumbs={[{ label: "Areas We Serve" }]}
       />
 
@@ -32,8 +33,14 @@ export default function AreasIndex() {
             align="left"
             className="mx-0"
           />
+          {/* showImage={false}: every area was illustrated with a photo of the
+              West Palm Beach building, so the Boca Raton, Delray Beach and
+              Wellington cards all showed the same property — a false implication
+              on pages about other communities. Dropping the images is the honest
+              default; restore them per-card only with genuine local photography.
+              See VIS-9. */}
           <div className="mt-12">
-            <CardGrid items={areas} basePath="/areas-we-serve" />
+            <CardGrid items={areas} basePath="/areas-we-serve" showImage={false} />
           </div>
         </div>
       </section>

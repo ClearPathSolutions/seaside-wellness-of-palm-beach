@@ -182,7 +182,7 @@ export default function Header() {
             </Link>
             <a
               href={site.phoneHref}
-              className="hidden sm:inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gold-700 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(53,48,45,0.28)] hover:bg-gold-800 transition-colors lg:px-5"
+              className="hidden sm:inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gold-700 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(50,96,82,0.28)] hover:bg-gold-800 transition-colors lg:px-5"
             >
               <Phone className="size-4 shrink-0" />
               {site.phone}
@@ -191,7 +191,7 @@ export default function Header() {
             <a
               href={site.phoneHref}
               aria-label={`Call ${site.phone}`}
-              className="sm:hidden inline-flex size-11 items-center justify-center rounded-full bg-gold-700 text-white shadow-[0_8px_24px_rgba(53,48,45,0.28)] hover:bg-gold-800 transition-colors"
+              className="sm:hidden inline-flex size-11 items-center justify-center rounded-full bg-gold-700 text-white shadow-[0_8px_24px_rgba(50,96,82,0.28)] hover:bg-gold-800 transition-colors"
             >
               <Phone className="size-5" />
             </a>

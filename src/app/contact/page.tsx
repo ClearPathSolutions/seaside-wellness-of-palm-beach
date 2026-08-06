@@ -2,18 +2,21 @@ import type { Metadata } from "next";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
+import MapEmbed from "@/components/MapEmbed";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
+import { pageMeta, smartTitle } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact Seaside Wellness | West Palm Beach Rehab Center",
+  // smartTitle: already brand-bearing, so bypass the layout's title template.
+  title: smartTitle("Contact Seaside Wellness | West Palm Beach Rehab Center"),
   description:
     "Contact Seaside Wellness in West Palm Beach for confidential, 24/7 help with addiction and mental health treatment. Call (855) 416-5648 or send a message.",
-  alternates: { canonical: "/contact" },
+  ...pageMeta("/contact"),
 };
 
-const mapSrc =
-  "https://www.google.com/maps?q=106+Blossom+Ln,+West+Palm+Beach,+FL+33404&output=embed";
+/** Passed to MapEmbed; only used if the visitor chooses to load the embed. */
+const mapQuery = `${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`;
 
 export default function ContactPage() {
   return (
@@ -22,7 +25,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Reach out — we're here 24/7"
         subtitle="Whether you're ready to start or just have questions, our admissions team is available around the clock for a confidential, no-obligation conversation."
-        image="/wp-content/uploads/2025/08/26-web-or-mls-0E2A6316.jpg"
+        image="/images/facility/26-web-or-mls-0E2A6316.jpg"
         crumbs={[{ label: "Contact" }]}
         showCta={false}
       />
@@ -82,17 +85,10 @@ export default function ContactPage() {
                 </li>
               </ul>
 
-              <div className="overflow-hidden rounded-2xl border border-shell">
-                <iframe
-                  src={mapSrc}
-                  title="Map to Seaside Wellness"
-                  width="100%"
-                  height="260"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="block"
-                />
-              </div>
+              {/* Click-to-load: the Google embed used to load on arrival,
+                  setting Google cookies on the page where people type health
+                  details into a form. See SW-010. */}
+              <MapEmbed query={mapQuery} />
             </div>
           </Reveal>
         </div>

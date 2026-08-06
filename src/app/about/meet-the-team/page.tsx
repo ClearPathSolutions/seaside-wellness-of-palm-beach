@@ -6,12 +6,13 @@ import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import CTASection from "@/components/CTASection";
 import { team } from "@/data/team";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Meet the Team",
   description:
     "Meet the licensed clinical and medical team at Seaside Wellness in West Palm Beach — experienced professionals dedicated to compassionate, evidence-based care.",
-  alternates: { canonical: "/about/meet-the-team" },
+  ...pageMeta("/about/meet-the-team"),
 };
 
 export default function MeetTheTeam() {
@@ -21,7 +22,7 @@ export default function MeetTheTeam() {
         eyebrow="Our team"
         title="Meet the team"
         subtitle="Experienced, licensed, and genuinely compassionate — the people who will walk beside you through every step of recovery."
-        image="/wp-content/uploads/2025/08/68-web-or-mls-0E2A6526.jpg"
+        image="/images/facility/68-web-or-mls-0E2A6526.jpg"
         crumbs={[{ label: "About", href: "/about" }, { label: "Meet the Team" }]}
       />
 
@@ -38,7 +39,11 @@ export default function MeetTheTeam() {
                     <Image src={m.image} alt={m.name} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-ink">{m.name}</h3>
+                    {/* h2, not h3: the page h1 is "Meet the team" and each card
+                        is a direct child of it. h3 skipped a level, the only
+                        heading-order violation on the site. Appearance is
+                        unchanged — size and weight come from the classes. */}
+                    <h2 className="text-xl font-semibold text-ink">{m.name}</h2>
                     <p className="mt-0.5 font-medium text-gold-700">{m.role}</p>
                     {m.credentials && <p className="mt-0.5 text-sm text-ink-500">{m.credentials}</p>}
                     <p className="mt-3 line-clamp-3 text-[0.95rem] leading-relaxed text-ink-600">{m.bio[0]}</p>

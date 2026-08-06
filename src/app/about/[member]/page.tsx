@@ -7,6 +7,7 @@ import { team } from "@/data/team";
 import { site } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 import CTASection from "@/components/CTASection";
+import { pageMeta, metaDescription } from "@/lib/seo";
 
 export function generateStaticParams() {
   return team.map((m) => ({ member: m.slug }));
@@ -21,9 +22,15 @@ export async function generateMetadata({
   const m = team.find((t) => t.slug === member);
   if (!m) return {};
   return {
-    title: `${m.name}${m.credentials ? ", " + m.credentials : ""} — ${m.role}`,
-    description: `${m.name}, ${m.role} at Seaside Wellness. ${m.bio[0].slice(0, 130)}`,
-    alternates: { canonical: `/about/${m.slug}` },
+    // Credentials are deliberately left off the SERP title — with them, six of
+    // the eight ran past 60 chars once the brand suffix was appended. The full
+    // credential string still renders on the page itself.
+    title: `${m.name} — ${m.role}`,
+    description: metaDescription(
+      `${m.name}, ${m.role} at Seaside Wellness. `,
+      m.bio[0]
+    ),
+    ...pageMeta(`/about/${m.slug}`),
   };
 }
 

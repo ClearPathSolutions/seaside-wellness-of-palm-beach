@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Calendar, Clock } from "lucide-react";
 import { posts, getPost } from "@/data/posts";
 import { site } from "@/lib/site";
+import { ogBase } from "@/lib/seo";
+import { canonicalPath } from "@/lib/routing";
 import Reveal from "@/components/Reveal";
 import CTASection from "@/components/CTASection";
 
@@ -23,11 +25,17 @@ export async function generateMetadata({
   const p = getPost(slug);
   if (!p) return {};
   return {
-    title: p.title,
+    // metaTitle is the SERP-length variant; the full headline stays as the h1.
+    title: p.metaTitle ?? p.title,
     description: p.excerpt,
-    alternates: { canonical: `/${p.slug}` },
+    alternates: { canonical: canonicalPath(`/${p.slug}`) },
     openGraph: {
+      // `ogBase` must be spread explicitly: Next replaces the root layout's
+      // `openGraph` block wholesale for any page that declares its own, so
+      // omitting this silently drops og:site_name and og:locale.
+      ...ogBase,
       type: "article",
+      url: canonicalPath(`/${p.slug}`),
       title: p.title,
       description: p.excerpt,
       publishedTime: p.date,

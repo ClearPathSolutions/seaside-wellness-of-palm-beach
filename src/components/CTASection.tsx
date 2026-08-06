@@ -13,7 +13,7 @@ type Props = {
 export default function CTASection({
   title = "Take the first step toward recovery today",
   text = "If you or a loved one is struggling with addiction or a mental health condition, Seaside Wellness is here to help. Reach out for a confidential, no-obligation assessment — most major insurance plans accepted.",
-  image = "/wp-content/uploads/2025/08/17-web-or-mls-DJI_0175_6_7_8_9.jpg",
+  image = "/images/facility/17-web-or-mls-DJI_0175_6_7_8_9.jpg",
 }: Props) {
   return (
     <section className="relative isolate overflow-hidden bg-ocean-700">

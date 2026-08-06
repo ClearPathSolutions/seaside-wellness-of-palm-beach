@@ -7,6 +7,8 @@ import Gallery from "@/components/Gallery";
 import CTASection from "@/components/CTASection";
 import { miscDetails } from "@/data/details";
 import { getMiscMeta } from "@/components/MiscDetailPage";
+import { brandFilmTranscript } from "@/data/brand-film";
+import { reelTranscript } from "@/data/reel";
 
 const SLUG = "tour";
 
@@ -17,32 +19,33 @@ export const metadata: Metadata = getMiscMeta(
   "/tour"
 );
 
-const VIDEO = "/wp-content/uploads/2026/04/Seaside-Wellness-Brand-Story-Video-V2-VOICEOVER.mp4";
+const VIDEO = "/video/seaside-brand-film.mp4";
+const REEL = "/video/seaside-reel.mp4";
+const REEL_POSTER = "/images/seaside-reel-poster.jpg";
 
-const U = "/wp-content/uploads/2025/08/";
 const galleryImages = [
-  { src: U + "5-web-or-mls-DJI_0101_2_3_4_5.jpg", alt: "Aerial view of the Seaside Wellness campus" },
-  { src: U + "14-web-or-mls-DJI_0160_1_2_3_4.jpg", alt: "Aerial view of the property and coastline" },
-  { src: U + "17-web-or-mls-DJI_0175_6_7_8_9.jpg", alt: "Aerial view of the grounds near the water" },
-  { src: U + "26-web-or-mls-0E2A6316.jpg", alt: "Welcoming entryway" },
-  { src: U + "34-web-or-mls-0E2A6356.jpg", alt: "Bright interior living space" },
-  { src: U + "36-web-or-mls-0E2A6366.jpg", alt: "Comfortable seating area" },
-  { src: U + "43-web-or-mls-0E2A6401.jpg", alt: "Interior detail" },
-  { src: U + "47-web-or-mls-0E2A6421.jpg", alt: "Living space with natural light" },
-  { src: U + "48-web-or-mls-0E2A6426-1.jpg", alt: "Private suite interior" },
-  { src: U + "56-web-or-mls-0E2A6466-1.jpg", alt: "Outdoor lounge area" },
-  { src: U + "62-web-or-mls-0E2A6496.jpg", alt: "Shared gathering space" },
-  { src: U + "67-web-or-mls-0E2A6521.jpg", alt: "Comfortable common area" },
-  { src: U + "68-web-or-mls-0E2A6526.jpg", alt: "Common space with natural light" },
-  { src: U + "70-web-or-mls-0E2A6536.jpg", alt: "Dining and shared area" },
-  { src: U + "73-web-or-mls-0E2A6551.jpg", alt: "Restful interior" },
-  { src: U + "77-web-or-mls-0E2A6571.jpg", alt: "Therapy and consultation room" },
-  { src: U + "83-web-or-mls-0E2A6601.jpg", alt: "Quiet corner for reflection" },
-  { src: U + "87-web-or-mls-0E2A6621.jpg", alt: "Bedroom retreat" },
-  { src: U + "89-web-or-mls-0E2A6631.jpg", alt: "Lounge and gathering space" },
-  { src: U + "91-web-or-mls-0E2A6641.jpg", alt: "Restful bedroom" },
-  { src: U + "98-web-or-mls-0E2A6676.jpg", alt: "Bright, calming interior" },
-  { src: U + "100-web-or-mls-0E2A6686.jpg", alt: "Outdoor space by the water" },
+  { src: "/images/facility/5-web-or-mls-DJI_0101_2_3_4_5.jpg", alt: "Aerial view of the Seaside Wellness campus" },
+  { src: "/images/facility/14-web-or-mls-DJI_0160_1_2_3_4.jpg", alt: "Aerial view of the property and coastline" },
+  { src: "/images/facility/17-web-or-mls-DJI_0175_6_7_8_9.jpg", alt: "Aerial view of the grounds near the water" },
+  { src: "/images/facility/26-web-or-mls-0E2A6316.jpg", alt: "Welcoming entryway" },
+  { src: "/images/facility/34-web-or-mls-0E2A6356.jpg", alt: "Bright interior living space" },
+  { src: "/images/facility/36-web-or-mls-0E2A6366.jpg", alt: "Comfortable seating area" },
+  { src: "/images/facility/43-web-or-mls-0E2A6401.jpg", alt: "Interior detail" },
+  { src: "/images/facility/47-web-or-mls-0E2A6421.jpg", alt: "Living space with natural light" },
+  { src: "/images/facility/48-web-or-mls-0E2A6426-1.jpg", alt: "Private suite interior" },
+  { src: "/images/facility/56-web-or-mls-0E2A6466-1.jpg", alt: "Outdoor lounge area" },
+  { src: "/images/facility/62-web-or-mls-0E2A6496.jpg", alt: "Shared gathering space" },
+  { src: "/images/facility/67-web-or-mls-0E2A6521.jpg", alt: "Comfortable common area" },
+  { src: "/images/facility/68-web-or-mls-0E2A6526.jpg", alt: "Common space with natural light" },
+  { src: "/images/facility/70-web-or-mls-0E2A6536.jpg", alt: "Dining and shared area" },
+  { src: "/images/facility/73-web-or-mls-0E2A6551.jpg", alt: "Restful interior" },
+  { src: "/images/facility/77-web-or-mls-0E2A6571.jpg", alt: "Therapy and consultation room" },
+  { src: "/images/facility/83-web-or-mls-0E2A6601.jpg", alt: "Quiet corner for reflection" },
+  { src: "/images/facility/87-web-or-mls-0E2A6621.jpg", alt: "Bedroom retreat" },
+  { src: "/images/facility/89-web-or-mls-0E2A6631.jpg", alt: "Lounge and gathering space" },
+  { src: "/images/facility/91-web-or-mls-0E2A6641.jpg", alt: "Restful bedroom" },
+  { src: "/images/facility/98-web-or-mls-0E2A6676.jpg", alt: "Bright, calming interior" },
+  { src: "/images/facility/100-web-or-mls-0E2A6686.jpg", alt: "Outdoor space by the water" },
 ];
 
 export default function TourPage() {
@@ -57,7 +60,7 @@ export default function TourPage() {
         eyebrow="Tour the facility"
         title="Tour our luxury West Palm Beach rehab"
         subtitle="A calm, private, coastal environment designed to make recovery feel less like treatment and more like healing."
-        image="/wp-content/uploads/2025/08/15-web-or-mls-DJI_0165_6_7_8_9.jpg"
+        image="/images/facility/15-web-or-mls-DJI_0165_6_7_8_9.jpg"
         crumbs={[{ label: "Tour" }]}
       />
 
@@ -72,8 +75,45 @@ export default function TourPage() {
           </Reveal>
           <Reveal>
             <div className="mx-auto max-w-4xl">
-              <BrandVideo src={VIDEO} poster="/wp-content/uploads/2025/08/17-web-or-mls-DJI_0175_6_7_8_9.jpg" label="Watch the Seaside Wellness story" />
+              <BrandVideo
+                src={VIDEO}
+                poster="/images/facility/17-web-or-mls-DJI_0175_6_7_8_9.jpg"
+                label="Watch the Seaside Wellness story"
+                captionsSrc="/video/seaside-brand-film.en.vtt"
+                captionsLabel="English (on-screen text)"
+                transcript={brandFilmTranscript}
+                transcriptLabel="Read the on-screen text"
+              />
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Vertical social reel — filmed on site */}
+      <section className="bg-ink py-16 text-white md:py-24">
+        <div className="container-page grid items-center gap-12 lg:grid-cols-[1fr_22rem] lg:gap-16">
+          <Reveal>
+            <p className="eyebrow mb-4 text-gold-300">A minute on campus</p>
+            <h2 className="text-3xl font-medium text-white sm:text-4xl">
+              See the place, not just the plan
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-cream/80">
+              A short film shot on site — the grounds and the coastline, the private suites and
+              shared spaces, and the clinical work that happens between them. Sound on.
+            </p>
+          </Reveal>
+          <Reveal delay={120} className="mx-auto w-full max-w-[22rem]">
+            <BrandVideo
+              src={REEL}
+              poster={REEL_POSTER}
+              aspect="portrait"
+              sizes="(max-width: 1024px) 90vw, 352px"
+              label="Watch a minute on campus at Seaside Wellness"
+              // Transcript but deliberately no captionsSrc — the reel contains an
+              // on-camera interview the text cards don't cover. See data/reel.ts.
+              transcript={reelTranscript}
+              transcriptLabel="Read the on-screen text"
+            />
           </Reveal>
         </div>
       </section>

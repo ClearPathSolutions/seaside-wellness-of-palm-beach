@@ -2,8 +2,18 @@ export const site = {
   name: "Seaside Wellness",
   legalName: "Seaside Wellness of Palm Beach",
   tagline: "Your path to healing starts at Seaside Wellness",
+  /**
+   * Long-form prose description. Used for the JSON-LD `description`, where
+   * length is unconstrained. Not a meta description — see `metaDescription`.
+   */
   description:
     "Seaside Wellness is a luxury addiction treatment and mental health facility in West Palm Beach, Florida — offering evidence-based detox, residential inpatient, and dual diagnosis care just steps from the water.",
+  /**
+   * SERP-length variant (≤155 chars) for the homepage `<meta name="description">`.
+   * `description` was being reused verbatim at 210 chars and truncating.
+   */
+  metaDescription:
+    "Luxury addiction and mental health treatment in West Palm Beach, FL — evidence-based detox, residential inpatient, and dual diagnosis care.",
   url: "https://seasidewellnesspb.com",
   phone: "(855) 416-5648",
   phoneHref: "tel:+18554165648",
@@ -20,7 +30,22 @@ export const site = {
     instagram: "https://instagram.com/seasidewellnesspb",
     linkedin: "https://linkedin.com/company/seaside-wellness-pb/",
   },
-  logo: "/wp-content/uploads/2026/04/cropped-cropped-Seaside-Horizontal.png",
+  /**
+   * Google Business Profile.
+   *
+   * Checked 2026-08-06: this listing publishes the address as
+   * "106 Blossom Ln, West Palm Beach, FL 33404" — i.e. it agrees with this site
+   * and with production, not with the master-data row's "Palm Beach Shores".
+   * See FAC-1 in ISSUES.md.
+   */
+  placeId: "ChIJnYAXE9PZ2IgREdolATVwAMM",
+  mapUrl: "https://www.google.com/maps/place/?q=place_id:ChIJnYAXE9PZ2IgREdolATVwAMM",
+  /** Public review listing — for "read our reviews". */
+  reviewsUrl:
+    "https://search.google.com/local/reviews?placeid=ChIJnYAXE9PZ2IgREdolATVwAMM",
+  /** Opens the GBP review dialog directly — for alumni review requests. */
+  reviewUrl: "https://g.page/r/CRHaJQE1cADDEAI/review",
+  logo: "/images/brand/seaside-logo-horizontal.png",
 } as const;
 
 export type NavChild = { label: string; href: string };
@@ -40,7 +65,7 @@ export const nav: NavItem[] = [
       {
         heading: "The Facility",
         items: [
-          { label: "Our Story", href: "/about/about-us" },
+          { label: "Our Story", href: "/about/our-story" },
           { label: "Meet the Team", href: "/about/meet-the-team" },
           { label: "Tour the Facility", href: "/tour" },
         ],
@@ -57,8 +82,8 @@ export const nav: NavItem[] = [
     featured: {
       title: "Recovery by the ocean",
       text: "See why families across South Florida trust Seaside.",
-      href: "/about/about-us",
-      image: "/wp-content/uploads/2025/08/5-web-or-mls-DJI_0101_2_3_4_5.jpg",
+      href: "/about/our-story",
+      image: "/images/facility/5-web-or-mls-DJI_0101_2_3_4_5.jpg",
     },
   },
   {

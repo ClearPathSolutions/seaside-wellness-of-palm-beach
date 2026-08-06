@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     default: "West Palm Beach Rehab & Mental Health Center | Seaside Wellness",
     template: "%s | Seaside Wellness",
   },
-  description: site.description,
+  description: site.metaDescription,
   applicationName: site.legalName,
   keywords: [
     "West Palm Beach rehab",
@@ -36,12 +36,14 @@ export const metadata: Metadata = {
     "dual diagnosis treatment",
     "residential inpatient rehab",
   ],
+  // Only route-invariant fields belong here. Next merges `metadata` shallowly,
+  // so any field set on this object is inherited wholesale by every page that
+  // doesn't declare its own `openGraph` — pinning title/description/url here
+  // made all 56 non-blog pages advertise the homepage. Next derives og:title
+  // and og:description from each page's own title/description instead.
   openGraph: {
     type: "website",
     siteName: site.legalName,
-    title: "West Palm Beach Rehab & Mental Health Center | Seaside Wellness",
-    description: site.description,
-    url: site.url,
     locale: "en_US",
   },
   twitter: { card: "summary_large_image" },

@@ -4,8 +4,19 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { Faq as FaqItem } from "@/data/types";
 
-export default function Faq({ items }: { items: FaqItem[] }) {
-  const [open, setOpen] = useState<number | null>(0);
+export default function Faq({
+  items,
+  defaultOpen = 0,
+}: {
+  items: FaqItem[];
+  /**
+   * Index open on first render, or null for all-collapsed. Grouped renderings
+   * pass null on every group but the first — otherwise each group opens its own
+   * first item and four panels sit open at once.
+   */
+  defaultOpen?: number | null;
+}) {
+  const [open, setOpen] = useState<number | null>(defaultOpen);
   return (
     <div className="divide-y divide-shell rounded-2xl border border-shell bg-white">
       {items.map((f, i) => {

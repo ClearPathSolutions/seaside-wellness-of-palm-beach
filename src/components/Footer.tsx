@@ -28,7 +28,9 @@ const columns: { heading: string; links: { label: string; href: string }[] }[] =
   {
     heading: "Company",
     links: [
-      { label: "About Us", href: "/about/about-us" },
+      // Label follows the page, which is titled "Our Story" — "About Us" here
+      // was part of the same mismatch the slug rename fixed (V0073).
+      { label: "Our Story", href: "/about/our-story" },
       { label: "Meet the Team", href: "/about/meet-the-team" },
       { label: "Tour the Facility", href: "/tour" },
       { label: "Areas We Serve", href: "/areas-we-serve" },
@@ -131,13 +133,13 @@ export default function Footer() {
           <span className="eyebrow text-cream/70">Accredited &amp; Certified</span>
           <div className="flex flex-wrap items-center gap-6">
             <div className="flex h-14 items-center rounded-lg bg-white/95 px-3">
-              <Image src="/wp-content/uploads/2026/04/Joint-Commission.png" alt="Joint Commission accredited" width={150} height={150} loading="eager" className="h-10 w-auto" />
+              <Image src="/images/brand/joint-commission.png" alt="Joint Commission accredited" width={150} height={150} loading="eager" className="h-10 w-auto" />
             </div>
             <div className="flex h-14 items-center rounded-lg bg-white/95 px-3">
-              <Image src="/wp-content/uploads/2026/04/legitscript-seaside.png" alt="LegitScript certified" width={292} height={314} loading="eager" className="h-10 w-auto" />
+              <Image src="/images/brand/legitscript.png" alt="LegitScript certified" width={292} height={314} loading="eager" className="h-10 w-auto" />
             </div>
             <div className="flex h-14 items-center rounded-lg bg-white/95 px-3">
-              <Image src="/wp-content/uploads/2026/04/NAMI_logo.gif" alt="NAMI member" width={200} height={100} loading="eager" className="h-8 w-auto" unoptimized />
+              <Image src="/images/brand/nami.gif" alt="NAMI member" width={200} height={100} loading="eager" className="h-8 w-auto" unoptimized />
             </div>
           </div>
         </div>

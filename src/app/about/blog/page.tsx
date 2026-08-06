@@ -6,12 +6,13 @@ import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import CTASection from "@/components/CTASection";
 import { posts } from "@/data/posts";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Blog — Addiction & Mental Health Resources",
   description:
     "Guidance and insight on addiction, mental health, detox, and recovery from the clinical team at Seaside Wellness in West Palm Beach.",
-  alternates: { canonical: "/about/blog" },
+  ...pageMeta("/about/blog"),
 };
 
 function fmtDate(iso: string) {
@@ -30,7 +31,7 @@ export default function BlogIndex() {
         eyebrow="Blog"
         title="Resources for recovery"
         subtitle="Clinical insight and compassionate guidance on addiction, mental health, and the road to lasting recovery."
-        image="/wp-content/uploads/2025/08/70-web-or-mls-0E2A6536.jpg"
+        image="/images/facility/70-web-or-mls-0E2A6536.jpg"
         crumbs={[{ label: "About", href: "/about" }, { label: "Blog" }]}
         showCta={false}
       />
@@ -49,7 +50,7 @@ export default function BlogIndex() {
               <div className="flex flex-col justify-center p-8 lg:p-12">
                 <div className="flex items-center gap-3 text-sm">
                   <span className="eyebrow text-gold-600">{featured.category}</span>
-                  <span className="text-ink-400">·</span>
+                  <span className="text-ink-500">·</span>
                   <span className="text-ink-500">{featured.readingMinutes} min read</span>
                 </div>
                 <h2 className="mt-3 text-2xl font-medium text-ink sm:text-3xl">{featured.title}</h2>
@@ -75,12 +76,12 @@ export default function BlogIndex() {
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center gap-2 text-xs">
                       <span className="eyebrow text-gold-600">{p.category}</span>
-                      <span className="text-ink-400">·</span>
+                      <span className="text-ink-500">·</span>
                       <span className="text-ink-500">{p.readingMinutes} min</span>
                     </div>
                     <h3 className="mt-2 text-lg font-semibold leading-snug text-ink">{p.title}</h3>
                     <p className="mt-2 flex-1 text-[0.9rem] leading-relaxed text-ink-600">{p.excerpt}</p>
-                    <span className="mt-4 text-xs text-ink-400">{fmtDate(p.date)}</span>
+                    <span className="mt-4 text-xs text-ink-500">{fmtDate(p.date)}</span>
                   </div>
                 </Link>
               </Reveal>

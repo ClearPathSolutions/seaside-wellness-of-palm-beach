@@ -55,21 +55,9 @@
   {
     "tag": "ul",
     "items": [
-      "You can ask us not to use or share certain health information for treatment, payment, or our operations. We are not required to agree to your request, and we may say “no” if it would affect your care.",
+      "You can ask us not to use or share certain health information for treatment, payment, or our operations.",
       "We are not required to agree to your request, and we may say “no” if it would affect your care.",
-      "If you pay for a service or health care item out-of-pocket in full, you can ask us not to share that information for the purpose of payment or our operations with your health insurer. We will say “yes” unless a law requires us to share that information.",
-      "We will say “yes” unless a law requires us to share that information."
-    ]
-  },
-  {
-    "tag": "ul",
-    "items": [
-      "We are not required to agree to your request, and we may say “no” if it would affect your care."
-    ]
-  },
-  {
-    "tag": "ul",
-    "items": [
+      "If you pay for a service or health care item out-of-pocket in full, you can ask us not to share that information for the purpose of payment or our operations with your health insurer.",
       "We will say “yes” unless a law requires us to share that information."
     ]
   },
@@ -112,7 +100,7 @@
   {
     "tag": "ul",
     "items": [
-      "You can complain if you feel we have violated your rights by contacting us using the information on page 1.",
+      "You can complain if you feel we have violated your rights by contacting us at (855) 416-5648 or info@seasidewellnesspb.com.",
       "You can file a complaint with the U.S. Department of Health and Human Services Office for Civil Rights by sending a letter to 200 Independence Avenue, S.W., Washington, D.C. 20201, calling 1-877-696-6775, or visiting www.hhs.gov/ocr/privacy/hipaa/complaints/.",
       "If you have concerns about the safety and/or quality of care provided by our organization please follow this link to make a report to the Joint Commission (https://www.jointcommission.org/report_a_complaint.aspx).",
       "We will not retaliate against you for filing a complaint."
@@ -232,17 +220,7 @@
   {
     "tag": "ul",
     "items": [
-      "We can share health information about you for certain situations such as: Preventing diseaseHelping with product recallsReporting adverse reactions to medicationsReporting suspected abuse, neglect, or domestic violencePreventing or reducing a serious threat to anyone’s health or safety",
-      "Preventing disease",
-      "Helping with product recalls",
-      "Reporting adverse reactions to medications",
-      "Reporting suspected abuse, neglect, or domestic violence",
-      "Preventing or reducing a serious threat to anyone’s health or safety"
-    ]
-  },
-  {
-    "tag": "ul",
-    "items": [
+      "We can share health information about you for certain situations such as:",
       "Preventing disease",
       "Helping with product recalls",
       "Reporting adverse reactions to medications",

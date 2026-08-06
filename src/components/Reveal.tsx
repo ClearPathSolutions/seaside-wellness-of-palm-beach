@@ -10,6 +10,33 @@ type Props = {
   as?: "div" | "section" | "li" | "article";
 };
 
+/**
+ * One IntersectionObserver shared by every Reveal on the page, rather than one
+ * per instance (the homepage alone mounts 22). Callbacks are looked up by
+ * element, and each target is unobserved as soon as it fires — the reveal is
+ * one-way, so there is nothing to keep watching.
+ *
+ * Created lazily on first use so it is never constructed during SSR.
+ */
+let observer: IntersectionObserver | null = null;
+const callbacks = new WeakMap<Element, () => void>();
+
+function sharedObserver(): IntersectionObserver | null {
+  if (typeof IntersectionObserver === "undefined") return null;
+  observer ??= new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        callbacks.get(entry.target)?.();
+        callbacks.delete(entry.target);
+        observer?.unobserve(entry.target);
+      }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+  );
+  return observer;
+}
+
 /** Fade + rise into view on scroll. Respects reduced-motion via CSS. */
 export default function Reveal({ children, className, delay = 0, as = "div" }: Props) {
   const ref = useRef<HTMLElement | null>(null);
@@ -18,27 +45,23 @@ export default function Reveal({ children, className, delay = 0, as = "div" }: P
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    // Failsafe: if IntersectionObserver is unavailable, reveal immediately so
-    // content is never left stuck hidden. Runs once on mount (stable guard),
-    // so it can't cause the cascading renders the lint rule guards against.
-    if (typeof IntersectionObserver === "undefined") {
+
+    const io = sharedObserver();
+    // Failsafe: without IntersectionObserver, reveal immediately so content is
+    // never left stuck hidden. Runs once on mount (stable guard), so it can't
+    // cause the cascading renders the lint rule guards against.
+    if (!io) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setShown(true);
       return;
     }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            setShown(true);
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
-    );
+
+    callbacks.set(el, () => setShown(true));
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      callbacks.delete(el);
+      io.unobserve(el);
+    };
   }, []);
 
   const Tag = as as "div";

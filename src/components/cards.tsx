@@ -9,9 +9,12 @@ import type { CatalogItem } from "@/data/types";
 export function CardGrid({
   items,
   basePath,
+  showImage = true,
 }: {
   items: CatalogItem[];
   basePath: string;
+  /** Set false where the available photography doesn't depict the subject. */
+  showImage?: boolean;
 }) {
   return (
     <div className="flex flex-wrap justify-center gap-6">
@@ -21,7 +24,12 @@ export function CardGrid({
           delay={(i % 3) * 60}
           className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
         >
-          <ServiceCard item={it} basePath={basePath} className="h-full" />
+          <ServiceCard
+            item={it}
+            basePath={basePath}
+            showImage={showImage}
+            className="h-full"
+          />
         </Reveal>
       ))}
     </div>
@@ -33,31 +41,47 @@ export function ServiceCard({
   item,
   basePath,
   className,
+  showImage = true,
 }: {
   item: CatalogItem;
   basePath: string;
   className?: string;
+  /**
+   * Set false where the photography doesn't depict the card's subject. The
+   * governing rule: a facility photograph belongs only where the subject IS the
+   * facility. On an Area card for another town, it implies something untrue.
+   */
+  showImage?: boolean;
 }) {
   return (
     <Link
       href={`${basePath}/${item.slug}`}
       className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-soft)] ring-1 ring-shell transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] ${className ?? ""}`}
     >
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        {item.icon && (
-          <span className="absolute left-4 top-4 grid size-11 place-items-center rounded-full bg-white/90 text-gold-600 shadow-sm backdrop-blur">
-            <Icon name={item.icon} className="size-5" />
+      {showImage ? (
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          {item.icon && (
+            <span className="absolute left-4 top-4 grid size-11 place-items-center rounded-full bg-white/90 text-gold-600 shadow-sm backdrop-blur">
+              <Icon name={item.icon} className="size-5" />
+            </span>
+          )}
+        </div>
+      ) : (
+        // Image-free variant: keep the icon so the card still has a visual anchor.
+        item.icon && (
+          <span className="mx-6 mt-6 grid size-12 place-items-center rounded-xl bg-gold-50 text-gold-600">
+            <Icon name={item.icon} className="size-6" />
           </span>
-        )}
-      </div>
+        )
+      )}
       <div className="flex flex-1 flex-col p-6">
         <h3 className="text-xl font-semibold text-ink">{item.name}</h3>
         <p className="mt-2 flex-1 text-[0.95rem] leading-relaxed text-ink-600">{item.short}</p>
