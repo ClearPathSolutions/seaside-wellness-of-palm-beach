@@ -409,6 +409,10 @@ Inaccurate captions are themselves a failure, so treat the track as provisional 
 
 ### SW-008 · `ink-400` text fails contrast on informative copy
 
+> **⚠️ Regressed twice on 2026-08-07 and re-fixed at `6437263`.** `ink-400` came back in code written after the original fix: `LocalBlogGrid.tsx` (3 uses — extracted from the pre-fix blog page) and the new `InsuranceVerificationForm.tsx` (5 uses — two helper paragraphs, two "(optional)" labels, the closing note). Both moved to `ink-500` and `LocalBlogGrid` now carries a comment explaining why, so the next extraction doesn't undo it again. **This colour will keep coming back until it stops being reachable** — consider removing `--color-ink-400` from the theme or renaming it to something that reads as decorative-only.
+>
+> Still outstanding: `ProviderCombobox.tsx:112` uses `text-ink-400` on an interactive icon button. At 2.84:1 that also misses the 3:1 minimum for UI components (WCAG 1.4.11). Left alone pending a look at it rendered.
+
 - [x] **Done 2026-08-06** — with one correction to the prescribed fix.
 
 **⚠️ `ink-500` is not sufficient everywhere.** The row measured it on white (4.60:1, passes). But the *"Accredited & Certified"* eyebrow sits on `bg-cream`, where `ink-500` is only **4.25:1** — still failing AA. Measured all three tokens against both backgrounds:
@@ -1083,7 +1087,13 @@ Diffed sentence-by-sentence against the site on 2026-08-06:
 
 ### BIO-1 · Jennifer Penny is missing from the site entirely `P1`
 
-- [ ] **Task:** Add Jennifer Penny, Client Care Coordinator, as the 9th team member.
+- [x]
+> **Resolved 2026-08-07 by the portal sync, not by this branch.** `origin/main` gained "Sync the team roster from the support portal", which replaced `team.ts` with a 9-member roster and expanded bios. Merged in at `6437263`. It closes **BIO-1** (Jennifer Penny added), **BIO-2** (bios expanded from 2 paragraphs) and **BIO-3** (Erin Crawford's MSN/FNP credential and Dr. Hutton's modality paragraph now published). **HS-2** is unblocked too: they added initials-fallback guards at all three render sites, so she ships with a "JP" monogram rather than waiting on a headshot — a better answer than blocking, though the photo is still worth collecting.
+>
+> ⚠️ **The sync corrupted one bio.** *"Dr. Hutton holds a Ph.D. and M.Phil. in Educational Psychology"* had become *"Dr. D. Phil. in Educational Psychology"* — broken English that also dropped her doctorate from the prose. Restored from the master bio document during the merge. **Check the sync script**: the same truncation could be affecting other facilities' bios in the portal pipeline.
+>
+> Its image paths pointed at `/wp-content/uploads/` files deleted in the asset migration; repointed to `/images/team/` during the merge.
+ **Task:** Add Jennifer Penny, Client Care Coordinator, as the 9th team member.
 
 **Where:** [src/data/team.ts](src/data/team.ts) — 8 entries; the doc has 9.
 
@@ -1105,7 +1115,13 @@ Diffed sentence-by-sentence against the site on 2026-08-06:
 
 ### BIO-2 · Restore the full approved text for all 8 published bios `P2`
 
-- [ ] **Task:** Replace the 2-paragraph truncations with the doc's complete text.
+- [x]
+> **Resolved 2026-08-07 by the portal sync, not by this branch.** `origin/main` gained "Sync the team roster from the support portal", which replaced `team.ts` with a 9-member roster and expanded bios. Merged in at `6437263`. It closes **BIO-1** (Jennifer Penny added), **BIO-2** (bios expanded from 2 paragraphs) and **BIO-3** (Erin Crawford's MSN/FNP credential and Dr. Hutton's modality paragraph now published). **HS-2** is unblocked too: they added initials-fallback guards at all three render sites, so she ships with a "JP" monogram rather than waiting on a headshot — a better answer than blocking, though the photo is still worth collecting.
+>
+> ⚠️ **The sync corrupted one bio.** *"Dr. Hutton holds a Ph.D. and M.Phil. in Educational Psychology"* had become *"Dr. D. Phil. in Educational Psychology"* — broken English that also dropped her doctorate from the prose. Restored from the master bio document during the merge. **Check the sync script**: the same truncation could be affecting other facilities' bios in the portal pipeline.
+>
+> Its image paths pointed at `/wp-content/uploads/` files deleted in the asset migration; repointed to `/images/team/` during the merge.
+ **Task:** Replace the 2-paragraph truncations with the doc's complete text.
 
 **Where:** [src/data/team.ts](src/data/team.ts) — `bio: string[]` per member
 
@@ -1131,7 +1147,13 @@ Diffed sentence-by-sentence against the site on 2026-08-06:
 
 ### BIO-3 · Factual and credential updates that change accuracy `P2`
 
-- [ ] **Task:** Apply the substantive content changes, not just the length restoration.
+- [x]
+> **Resolved 2026-08-07 by the portal sync, not by this branch.** `origin/main` gained "Sync the team roster from the support portal", which replaced `team.ts` with a 9-member roster and expanded bios. Merged in at `6437263`. It closes **BIO-1** (Jennifer Penny added), **BIO-2** (bios expanded from 2 paragraphs) and **BIO-3** (Erin Crawford's MSN/FNP credential and Dr. Hutton's modality paragraph now published). **HS-2** is unblocked too: they added initials-fallback guards at all three render sites, so she ships with a "JP" monogram rather than waiting on a headshot — a better answer than blocking, though the photo is still worth collecting.
+>
+> ⚠️ **The sync corrupted one bio.** *"Dr. Hutton holds a Ph.D. and M.Phil. in Educational Psychology"* had become *"Dr. D. Phil. in Educational Psychology"* — broken English that also dropped her doctorate from the prose. Restored from the master bio document during the merge. **Check the sync script**: the same truncation could be affecting other facilities' bios in the portal pipeline.
+>
+> Its image paths pointed at `/wp-content/uploads/` files deleted in the asset migration; repointed to `/images/team/` during the merge.
+ **Task:** Apply the substantive content changes, not just the length restoration.
 
 These are not stylistic — the site is currently missing or understating facts:
 
