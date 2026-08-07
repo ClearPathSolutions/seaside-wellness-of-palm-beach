@@ -190,6 +190,109 @@
   transform: none !important;
 }
 
+/* ------------------------------------------------------------------ *
+ * Clarion Labs chat widget — brand theming
+ * The widget injects a plain DOM tree (no shadow DOM) under `.clarion-chat`
+ * and derives `--clarion-accent` from data-color (default teal #0d9488).
+ * We override its real class names to match Seaside's seafoam/ink palette,
+ * warm surfaces, Karla type, and soft rounded cards.
+ * Brand refs: gold-600 #3c7768 · gold-700 #326052 · gold-800 #284b40 ·
+ *             ink #282d33 · cream #f5f6f7 · shell #eaeded.
+ * ------------------------------------------------------------------ */
+:root {
+  --clarion-chat-color: #326052; /* gold-700 — seafoam brand accent */
+  --clarion-chat-position: right;
+  --clarion-chat-font: var(--font-karla), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Pin the derived accent to the brand green (overrides the teal default). */
+.clarion-chat {
+  --clarion-accent: #326052 !important; /* gold-700 */
+  --clarion-accent-soft: rgba(50, 96, 82, 0.14) !important;
+  --clarion-ff: var(--font-karla), ui-sans-serif, system-ui, sans-serif !important;
+  font-family: var(--font-karla), ui-sans-serif, system-ui, sans-serif;
+  color: var(--color-ink);
+}
+
+/* Launcher — seafoam gradient like the site's primary buttons. */
+.clarion-chat .clarion-launcher {
+  background: linear-gradient(135deg, #3c7768, #326052) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(40, 45, 51, 0.22) !important;
+}
+.clarion-chat .clarion-launcher:hover {
+  background: #284b40 !important; /* gold-800 */
+}
+
+/* Panel — warm white surface, rounded + soft shadow to match site cards. */
+.clarion-chat .clarion-panel {
+  background: #ffffff !important;
+  border: 1px solid #eaeded !important; /* shell */
+  border-radius: 1.25rem !important; /* --radius-xl */
+  box-shadow: 0 8px 20px rgba(40, 45, 51, 0.08), 0 24px 60px rgba(40, 45, 51, 0.1) !important;
+  overflow: hidden !important;
+}
+
+/* Header — brand green, not the default teal. */
+.clarion-chat .clarion-head {
+  background: linear-gradient(135deg, #3c7768, #326052) !important;
+  color: #fff !important;
+}
+.clarion-chat .clarion-head-title { font-family: var(--font-cormorant), Georgia, serif !important; }
+.clarion-chat .clarion-head-status,
+.clarion-chat .clarion-head-close { color: rgba(255, 255, 255, 0.85) !important; }
+
+/* Log area — soft cream backdrop. */
+.clarion-chat .clarion-log { background: #f5f6f7 !important; } /* cream */
+
+/* Bot (incoming) bubbles — white card on cream, ink text. */
+.clarion-chat .clarion-msg.in {
+  background: #ffffff !important;
+  color: var(--color-ink) !important;
+  border: 1px solid #eaeded !important;
+  border-radius: 1rem !important;
+}
+/* User (outgoing) bubbles — brand green. */
+.clarion-chat .clarion-msg.out {
+  background: #326052 !important;
+  color: #fff !important;
+  border-radius: 1rem !important;
+}
+.clarion-chat .clarion-msg.sys { color: var(--color-ink-500) !important; }
+
+/* Quick-reply chips — outlined in brand green, fill on hover. */
+.clarion-chat .clarion-choice {
+  border: 1px solid #326052 !important;
+  color: #326052 !important;
+  background: #ffffff !important;
+  border-radius: 9999px !important;
+  transition: background-color 0.15s, color 0.15s !important;
+}
+.clarion-chat .clarion-choice:hover {
+  background: #326052 !important;
+  color: #fff !important;
+}
+
+/* Composer — cream input, gold focus ring; brand-green Send button. */
+.clarion-chat .clarion-form { background: #ffffff !important; border-top: 1px solid #eaeded !important; }
+.clarion-chat .clarion-input {
+  background: #f5f6f7 !important;
+  color: var(--color-ink) !important;
+  border: 1px solid #eaeded !important;
+  border-radius: 0.75rem !important;
+}
+.clarion-chat .clarion-input:focus {
+  border-color: #6fae9b !important; /* gold-400 */
+  box-shadow: 0 0 0 2px #b8dccf !important; /* gold-200 */
+  outline: none !important;
+}
+.clarion-chat .clarion-send {
+  background: linear-gradient(135deg, #3c7768, #326052) !important;
+  color: #fff !important;
+  border-radius: 9999px !important;
+}
+.clarion-chat .clarion-send:hover { background: #284b40 !important; }
+
 /* Skip-to-content link — visible only when focused via keyboard. */
 .skip-link {
   position: fixed;

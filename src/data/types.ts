@@ -26,7 +26,8 @@ export type TeamMember = {
   name: string;
   role: string;
   credentials?: string;
-  image: string;
+  /** Optional: portal-synced staff may not have a headshot yet. */
+  image?: string;
   bio: string[];
 };
 

@@ -88,6 +88,7 @@ export default function DetailLayout({
   related,
   relatedBasePath,
   relatedTitle,
+  belowContent,
 }: {
   detail?: DetailContent;
   fallback: CatalogItem;
@@ -96,6 +97,8 @@ export default function DetailLayout({
   related?: CatalogItem[];
   relatedBasePath?: string;
   relatedTitle?: string;
+  /** Optional content rendered in the main column, below the article body. */
+  belowContent?: React.ReactNode;
 }) {
   const heading = detail?.heading ?? fallback.name;
   const heroSubtitle = detail?.heroSubtitle ?? fallback.short;
@@ -157,6 +160,8 @@ export default function DetailLayout({
                 <Faq items={faqs} />
               </div>
             )}
+
+            {belowContent}
           </Reveal>
 
           {/* Sidebar */}

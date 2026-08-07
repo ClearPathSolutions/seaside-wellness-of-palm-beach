@@ -57,7 +57,13 @@ export default async function MemberPage({
           <div className="mt-8 grid gap-10 lg:grid-cols-[22rem_1fr] lg:gap-16">
             <Reveal>
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-shell shadow-[var(--shadow-lift)]">
+                {m.image ? (
                 <Image src={m.image} alt={m.name} fill priority sizes="(max-width:1024px) 100vw, 22rem" className="object-cover" />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-shell font-semibold text-5xl text-gold-700">
+                  {m.name.replace(/^(Dr|Mr|Mrs|Ms)\.?\s+/i, "").split(/\s+/).slice(0, 2).map((w) => w[0]).join("")}
+                </div>
+              )}
               </div>
             </Reveal>
             <Reveal delay={100} className="min-w-0">
