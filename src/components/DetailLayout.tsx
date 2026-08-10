@@ -134,11 +134,14 @@ export default function DetailLayout({
         <div className="container-page grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
           {/* Body */}
           <Reveal className="min-w-0">
+            {/* No lead-paragraph size bump. The first intro paragraph used to
+                render at text-xl (20px) against 17.2px body copy, which read as
+                an inconsistency rather than emphasis — particularly where the
+                intro is a single paragraph and the size simply drops at the
+                first section heading. Uniform now, on all 36 detail pages. */}
             <div className="prose-seaside max-w-none">
               {intro.map((p, i) => (
-                <p key={i} className={i === 0 ? "text-xl leading-relaxed text-ink" : undefined}>
-                  {p}
-                </p>
+                <p key={i}>{p}</p>
               ))}
             </div>
 

@@ -28,7 +28,8 @@ export default function OurStory() {
       <section className="py-16 md:py-24">
         <div className="container-page mx-auto max-w-3xl">
           <div className="prose-seaside">
-            <p className="text-xl leading-relaxed text-ink">
+            {/* Uniform body size — see the note in DetailLayout. */}
+            <p>
               Seaside Wellness is a luxury addiction treatment and mental health facility in West
               Palm Beach, Florida, offering high-quality, evidence-based care in a serene coastal
               environment designed for healing.

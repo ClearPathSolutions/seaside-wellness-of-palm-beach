@@ -68,7 +68,7 @@ export default function TourPage() {
         <div className="container-page">
           <Reveal className="mx-auto mb-12 max-w-3xl text-center">
             {intro.map((p, i) => (
-              <p key={i} className={i === 0 ? "text-xl leading-relaxed text-ink" : "mt-4 text-lg text-ink-600"}>
+              <p key={i} className={i === 0 ? "text-lg leading-relaxed text-ink-600" : "mt-4 text-lg text-ink-600"}>
                 {p}
               </p>
             ))}

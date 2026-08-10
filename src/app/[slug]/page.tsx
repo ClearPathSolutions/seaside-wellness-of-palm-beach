@@ -114,10 +114,9 @@ export default async function PostPage({
                     className={s.heading ? "scroll-mt-28 border-t border-shell/70 pt-8 first:border-0 first:pt-0" : undefined}
                   >
                     {s.heading && <h2>{s.heading}</h2>}
+                    {/* Uniform body size — see the note in DetailLayout. */}
                     {s.paragraphs?.map((para, j) => (
-                      <p key={j} className={i === 0 && j === 0 ? "text-xl leading-relaxed text-ink" : undefined}>
-                        {para}
-                      </p>
+                      <p key={j}>{para}</p>
                     ))}
                     {s.bullets && s.bullets.length > 0 && (
                       <ul>
@@ -129,7 +128,7 @@ export default async function PostPage({
                   </section>
                 ))
               ) : (
-                <p className="text-xl leading-relaxed text-ink">{p.excerpt}</p>
+                <p>{p.excerpt}</p>
               )}
             </article>
           </Reveal>

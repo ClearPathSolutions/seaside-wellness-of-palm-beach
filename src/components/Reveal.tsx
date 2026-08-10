@@ -32,7 +32,22 @@ function sharedObserver(): IntersectionObserver | null {
         observer?.unobserve(entry.target);
       }
     },
-    { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    // threshold MUST stay 0. An element taller than the viewport can never reach
+    // a fractional threshold, because intersectionRatio is capped at
+    // viewportHeight / elementHeight. The old value of 0.12 combined with the
+    // -60px bottom margin meant anything taller than (viewport - 60) / 0.12
+    // never fired at all — roughly 5,500px on a 720px-tall window. The detail
+    // pages wrap their whole article body in one Reveal and run 4,700-6,900px,
+    // so 12 pages rendered a permanently invisible body at 1440x720 and 21 at
+    // 1440x620. It presented as "blank space on scroll" and moved around
+    // depending on window height, which is what made it look intermittent.
+    //
+    // With threshold 0 the callback fires as soon as any part of the element
+    // crosses into the root, which is height-independent and what the animation
+    // actually wants. The negative bottom margin still delays the reveal until
+    // the element is 60px inside the viewport, so the timing is unchanged for
+    // everything that already worked.
+    { threshold: 0, rootMargin: "0px 0px -60px 0px" }
   );
   return observer;
 }
