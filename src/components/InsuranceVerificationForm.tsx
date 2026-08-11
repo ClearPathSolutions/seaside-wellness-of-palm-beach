@@ -175,7 +175,7 @@ export default function InsuranceVerificationForm() {
           autoComplete="bday"
           className={inputClass}
         />
-        <p className="mt-1.5 text-xs text-ink-500">
+        <p className="mt-1.5 text-xs text-ink-600">
           Required — insurers use your date of birth to confirm coverage.
         </p>
       </div>
@@ -193,14 +193,14 @@ export default function InsuranceVerificationForm() {
           placeholder="Start typing, e.g. Florida Blue, Aetna, Cigna"
           className={inputClass}
         />
-        <p className="mt-1.5 text-xs text-ink-500">
+        <p className="mt-1.5 text-xs text-ink-600">
           Choose from the list or type your plan if it isn&rsquo;t shown.
         </p>
       </div>
 
       <div>
         <label htmlFor="iv-memberId" className="mb-1.5 block text-sm font-semibold text-ink">
-          Member / Policy ID <span className="font-normal text-ink-500">(optional)</span>
+          Member / Policy ID <span className="font-normal text-ink-600">(optional)</span>
         </label>
         <input
           id="iv-memberId"
@@ -212,7 +212,7 @@ export default function InsuranceVerificationForm() {
 
       <div>
         <label htmlFor="iv-notes" className="mb-1.5 block text-sm font-semibold text-ink">
-          Anything we should know? <span className="font-normal text-ink-500">(optional)</span>
+          Anything we should know? <span className="font-normal text-ink-600">(optional)</span>
         </label>
         <textarea
           id="iv-notes"
@@ -247,7 +247,7 @@ export default function InsuranceVerificationForm() {
         )}
       </button>
 
-      <p className="text-xs text-ink-500">
+      <p className="text-xs text-ink-600">
         Your information is kept strictly confidential and is never shared with third parties. This
         is not an emergency service — if you are in crisis, call or text 988. You can also reach our
         admissions team directly at{" "}

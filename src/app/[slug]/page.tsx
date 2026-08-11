@@ -88,7 +88,7 @@ export default async function PostPage({
         <Image src={p.image} alt={p.title} fill priority sizes="100vw" className="object-cover opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/70 to-ink/90" />
         <div className="container-page relative py-20 md:py-28">
-          <Link href="/about/blog" className="inline-flex items-center gap-1.5 text-sm font-semibold text-cream/80 hover:text-gold-300">
+          <Link href="/about/blog" className="-my-1 inline-flex items-center gap-1.5 py-1 text-sm font-semibold text-cream/80 hover:text-gold-300">
             <ArrowLeft className="size-4" /> All articles
           </Link>
           <p className="eyebrow mt-6 text-gold-400">{p.category}</p>

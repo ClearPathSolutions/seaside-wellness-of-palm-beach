@@ -101,7 +101,7 @@ export default function ContactForm() {
             <input id="email" name="email" type="email" autoComplete="email" aria-describedby="reach-hint" className={inputClass} placeholder="you@example.com" />
           </div>
         </div>
-        <p id="reach-hint" className="mt-1.5 text-xs text-ink-500">
+        <p id="reach-hint" className="mt-1.5 text-xs text-ink-600">
           Please give us a phone number or email so we can reach you — either one is fine.
         </p>
       </fieldset>
@@ -141,7 +141,7 @@ export default function ContactForm() {
       </button>
       {/* ink-500, not ink-400: at 2.84:1 the crisis instruction was the
           lowest-contrast text on the page. ink-500 clears WCAG AA at 4.60:1. */}
-      <p className="text-xs text-ink-500">
+      <p className="text-xs text-ink-600">
         Your information is kept strictly confidential and is never shared. This form is not for
         emergencies — if you are in crisis, call or text{" "}
         <a href="tel:988" className="font-semibold text-gold-700 underline underline-offset-2">988</a>.

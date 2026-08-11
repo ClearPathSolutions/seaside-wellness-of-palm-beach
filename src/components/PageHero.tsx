@@ -54,13 +54,13 @@ export default function PageHero({
           <nav aria-label="Breadcrumb" className="mb-5">
             <ol className="flex flex-wrap items-center gap-1.5 text-sm text-cream/70">
               <li>
-                <Link href="/" className="hover:text-gold-300 transition-colors">Home</Link>
+                <Link href="/" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">Home</Link>
               </li>
               {crumbs.map((c) => (
                 <li key={c.label} className="flex items-center gap-1.5">
                   <ChevronRight className="size-3.5 text-cream/40" />
                   {c.href ? (
-                    <Link href={c.href} className="hover:text-gold-300 transition-colors">{c.label}</Link>
+                    <Link href={c.href} className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">{c.label}</Link>
                   ) : (
                     <span className="text-cream">{c.label}</span>
                   )}

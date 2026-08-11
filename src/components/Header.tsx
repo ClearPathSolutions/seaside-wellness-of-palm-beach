@@ -72,6 +72,10 @@ export default function Header() {
               alt={`${site.legalName} logo`}
               width={1997}
               height={800}
+              // Without `sizes` Next picks srcset candidates from the width prop and
+              // fetches w=1920 for a 110px-tall render. Intrinsic dims stay for
+              // aspect ratio; `sizes` is what the browser actually selects on.
+              sizes="120px"
               priority
               className="h-11 w-auto md:h-12"
             />

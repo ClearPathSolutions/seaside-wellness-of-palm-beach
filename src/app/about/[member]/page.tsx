@@ -49,7 +49,7 @@ export default async function MemberPage({
         <div className="container-page py-14 md:py-20">
           <Link
             href="/about/meet-the-team"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-600 hover:text-gold-700"
+            className="-my-1 inline-flex items-center gap-1.5 py-1 text-sm font-semibold text-ink-600 hover:text-gold-700"
           >
             <ArrowLeft className="size-4" /> Back to the team
           </Link>

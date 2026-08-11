@@ -64,7 +64,7 @@ export default function MapEmbed({ query }: { query: string }) {
           Show map here
         </button>
       </div>
-      <p className="mt-3 text-xs text-ink-500">
+      <p className="mt-3 text-xs text-ink-600">
         The embedded map loads from Google and sets Google cookies, so we only load it if
         you ask for it.
       </p>

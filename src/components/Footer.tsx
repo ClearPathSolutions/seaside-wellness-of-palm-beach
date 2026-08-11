@@ -68,6 +68,7 @@ export default function Footer() {
                 alt={`${site.legalName} logo`}
                 width={1997}
                 height={800}
+                sizes="100px"
                 className="h-10 w-auto"
               />
             </div>
@@ -116,7 +117,7 @@ export default function Footer() {
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        className="text-[0.9rem] text-cream/70 hover:text-gold-300 transition-colors"
+                        className="-my-1 block py-1 text-[0.9rem] text-cream/70 hover:text-gold-300 transition-colors"
                       >
                         {l.label}
                       </Link>
@@ -149,10 +150,10 @@ export default function Footer() {
         <div className="container-page flex flex-col gap-2 py-5 text-xs text-cream/70 md:flex-row md:items-center md:justify-between">
           <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <span>© {year} {site.legalName}. All rights reserved.</span>
-            <Link href="/privacy-policy" className="hover:text-gold-300 transition-colors">
+            <Link href="/privacy-policy" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-gold-300 transition-colors">
+            <Link href="/terms" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
               Terms of Service
             </Link>
           </p>

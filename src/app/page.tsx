@@ -338,7 +338,12 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-8 text-center text-cream/60">
-            <Link href="/areas-we-serve" className="font-semibold text-gold-300 hover:text-gold-200">
+            {/* inline-block + py-1 lifts the hit area past the 24px minimum in
+                WCAG 2.2 SC 2.5.8 without moving anything visually. */}
+            <Link
+              href="/areas-we-serve"
+              className="inline-block py-1 font-semibold text-gold-300 hover:text-gold-200"
+            >
               View all communities we serve →
             </Link>
           </p>

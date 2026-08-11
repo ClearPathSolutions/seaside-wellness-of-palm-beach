@@ -83,7 +83,7 @@ export default function FaqPage() {
                       </span>
                       <span className="underline-offset-2 group-hover:underline">
                         {name}{" "}
-                        <span className="text-ink-500">({items.length})</span>
+                        <span className="text-ink-600">({items.length})</span>
                       </span>
                     </a>
                   </li>

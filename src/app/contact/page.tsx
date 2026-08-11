@@ -59,7 +59,7 @@ export default function ContactPage() {
                   <Mail className="mt-1 size-5 shrink-0 text-gold-600" />
                   <div>
                     <p className="text-sm font-semibold text-ink">Email</p>
-                    <a href={`mailto:${site.email}`} className="text-ink-600 hover:text-gold-700">{site.email}</a>
+                    <a href={`mailto:${site.email}`} className="-my-1 inline-block py-1 text-ink-600 hover:text-gold-700">{site.email}</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   <Phone className="mt-1 size-5 shrink-0 text-gold-600" />
                   <div>
                     <p className="text-sm font-semibold text-ink">Phone</p>
-                    <a href={site.phoneHref} className="text-ink-600 hover:text-gold-700">{site.phone}</a>
+                    <a href={site.phoneHref} className="-my-1 inline-block py-1 text-ink-600 hover:text-gold-700">{site.phone}</a>
                   </div>
                 </li>
               </ul>
