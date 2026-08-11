@@ -6,6 +6,7 @@ import PageHero, { type Crumb } from "./PageHero";
 import Faq from "./Faq";
 import CTASection from "./CTASection";
 import Reveal from "./Reveal";
+import { VERIFY_INSURANCE_HREF } from "@/lib/routing";
 
 function SectionBody({ s, id }: { s: DetailSection; id: string }) {
   return (
@@ -184,7 +185,7 @@ export default function DetailLayout({
                 <Phone className="size-4" /> {site.phone}
               </a>
               <Link
-                href="/admissions/insurance-verification"
+                href={VERIFY_INSURANCE_HREF}
                 className="mt-2.5 flex items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 font-semibold text-white transition-colors hover:bg-white/10"
               >
                 <ShieldCheck className="size-4" /> Verify Insurance

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Phone, ShieldCheck, X } from "lucide-react";
 import { nav, site } from "@/lib/site";
 import { cn } from "@/lib/cn";
+import { VERIFY_INSURANCE_HREF } from "@/lib/routing";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -179,7 +180,7 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <Link
-              href="/admissions/insurance-verification"
+              href={VERIFY_INSURANCE_HREF}
               className="hidden xl:inline-flex items-center whitespace-nowrap rounded-full border border-ink-300 px-4 py-2.5 text-sm font-semibold text-ink hover:border-gold-500 hover:text-gold-700 transition-colors"
             >
               Verify Insurance
@@ -366,7 +367,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
             <Phone className="size-4" /> Call {site.phone}
           </a>
           <Link
-            href="/admissions/insurance-verification"
+            href={VERIFY_INSURANCE_HREF}
             className="flex items-center justify-center gap-2 rounded-full border border-ink-300 px-5 py-3 font-semibold text-ink"
           >
             <ShieldCheck className="size-4" /> Verify Insurance

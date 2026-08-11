@@ -30,6 +30,7 @@ import {
 } from "@/data/site-content";
 import { latestPosts } from "@/data/posts";
 import { brandFilmTranscript } from "@/data/brand-film";
+import { VERIFY_INSURANCE_HREF } from "@/lib/routing";
 
 // Title and description come from the root layout's defaults; this only pins the
 // homepage's own canonical and og:url so the layout doesn't have to (which is
@@ -65,7 +66,7 @@ export default function Home() {
               <Button href={site.phoneHref} size="lg" variant="primary">
                 <Phone className="size-5" /> Call {site.phone}
               </Button>
-              <Button href="/admissions/insurance-verification" size="lg" variant="onDark">
+              <Button href={VERIFY_INSURANCE_HREF} size="lg" variant="onDark">
                 Verify Your Insurance
               </Button>
             </div>
@@ -373,7 +374,7 @@ export default function Home() {
               ))}
             </ul>
             <div className="mt-8">
-              <Button href="/admissions/insurance-verification" size="lg">Verify Your Insurance <ArrowRight className="size-4" /></Button>
+              <Button href={VERIFY_INSURANCE_HREF} size="lg">Verify Your Insurance <ArrowRight className="size-4" /></Button>
             </div>
           </Reveal>
         </div>

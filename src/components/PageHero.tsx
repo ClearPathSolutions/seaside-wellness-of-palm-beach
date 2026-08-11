@@ -4,6 +4,7 @@ import { ChevronRight, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { Button } from "./Button";
+import { VERIFY_INSURANCE_HREF } from "@/lib/routing";
 
 export type Crumb = { label: string; href?: string };
 
@@ -83,7 +84,7 @@ export default function PageHero({
             <Button href={site.phoneHref} size="lg" variant="primary">
               <Phone className="size-4" /> Call {site.phone}
             </Button>
-            <Button href="/admissions/insurance-verification" size="lg" variant="onDark">
+            <Button href={VERIFY_INSURANCE_HREF} size="lg" variant="onDark">
               Verify Your Insurance
             </Button>
           </div>

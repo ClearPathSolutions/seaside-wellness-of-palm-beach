@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "./SocialIcons";
 import { site } from "@/lib/site";
+import { VERIFY_INSURANCE_HREF } from "@/lib/routing";
 
 const columns: { heading: string; links: { label: string; href: string }[] }[] = [
   {
@@ -41,7 +42,7 @@ const columns: { heading: string; links: { label: string; href: string }[] }[] =
     heading: "Admissions",
     links: [
       { label: "Admissions Process", href: "/admissions/admissions-process" },
-      { label: "Verify Insurance", href: "/admissions/insurance-verification" },
+      { label: "Verify Insurance", href: VERIFY_INSURANCE_HREF },
       { label: "Help for Yourself", href: "/admissions/help-for-yourself" },
       { label: "Help for a Loved One", href: "/admissions/help-for-loved-one" },
       { label: "Contact", href: "/contact" },

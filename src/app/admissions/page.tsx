@@ -8,6 +8,7 @@ import { Button } from "@/components/Button";
 import CTASection from "@/components/CTASection";
 import { admissionsSteps } from "@/data/site-content";
 import { pageMeta } from "@/lib/seo";
+import { VERIFY_INSURANCE_HREF } from "@/lib/routing";
 
 export const metadata: Metadata = {
   title: "Rehab & Mental Health Admissions",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 const paths = [
   { href: "/admissions/admissions-process", icon: ArrowRight, title: "Admissions Process", text: "A clear, step-by-step look at what to expect from first call to admission day." },
-  { href: "/admissions/insurance-verification", icon: ShieldCheck, title: "Verify Insurance", text: "Confidentially confirm your coverage — most major PPO plans accepted." },
+  { href: VERIFY_INSURANCE_HREF, icon: ShieldCheck, title: "Verify Insurance", text: "Confidentially confirm your coverage — most major PPO plans accepted." },
   { href: "/admissions/help-for-yourself", icon: User, title: "Help for Yourself", text: "Taking the first step for your own recovery takes courage. We'll guide you." },
   { href: "/admissions/help-for-loved-one", icon: Users, title: "Help for a Loved One", text: "Worried about someone you love? Learn how to help them find care." },
 ];
