@@ -1665,6 +1665,43 @@ Closed with evidence. Recorded so they aren't re-raised.
 
 ---
 
+# Browser audit — 2026-08-11
+
+All **79 routes** driven in a real browser (Playwright) at **1440×900** and **375×667**, each page fully scrolled. This goes beyond the HTML-level checks below: runtime errors, failed requests, broken images, horizontal overflow, tap-target size, duplicate ids, form labelling, rendered-pixel contrast, and image payload.
+
+### No findings
+
+| Check | Result |
+|---|---|
+| JS page errors (uncaught exceptions) | ✅ 0 across 158 page-loads |
+| Broken images (`naturalWidth === 0`) | ✅ 0 |
+| Inputs without an accessible name | ✅ 0 |
+| Links with no accessible text | ✅ 0 |
+| Interactive nested in interactive | ✅ 0 |
+
+### Fixed this pass
+
+| Issue | Before | After |
+|---|---|---|
+| **Duplicate ids on `/about/faq/`** — `Faq` hardcoded `faq-btn-${i}`, so its 4 category groups each restarted at 0. `aria-controls`/`aria-labelledby` resolve to the first match, pointing 3 of 4 groups at the wrong panel for assistive tech. Now prefixed with `useId()`. | 20 | **0** |
+| **Contrast below AA.** `ink-500` is 4.60:1 on white but **4.25:1 on cream** — and every failure was small print on cream (form hints, "(optional)", FAQ counts, map notice). Moved those to `ink-600` (6.65:1); left the `ink-500` uses on white that pass. | 9 | **3** (all false positives) |
+| **Tap targets under 24px** (WCAG 2.2 SC 2.5.8). Footer column + legal links, breadcrumbs, contact details, back links were 14–20px tall. `py-1` with `-my-1` grows the hit area 8px without moving anything visually. | 35 | **2** (both exempt) |
+| **Logo fetched at 1920px to render at 110px.** The intrinsic `width` prop drove srcset selection; added `sizes`. | 5 oversized | **2** (both trivial) |
+
+### Investigated and dismissed — with evidence
+
+Recording these so they aren't "fixed" later on a bad signal.
+
+- **Horizontal overflow on 2 pages at 375px** (`scrollWidth` 609 vs client 375). **Not user-visible:** `scrollX` stays **0** after `scrollTo(600, 0)`, and the widest node is the off-canvas drawer, whose right edge sits at 713px on *every* page — including pages reporting no overflow at all. No change made.
+- **`gold-300` at 1.86:1 and white at 1.00:1.** Artifacts of my background-walk heuristic. `gold-300` sits on `ink`/`ocean-700` (**7.5:1**, passes); the white text is over hero *images*, which the walk can't sample. No change made.
+- **Clarion blog-feed CORS failure.** Only reproduces on `localhost`, where the origin isn't allowlisted. Third-party and not ours.
+
+### The two remaining tap targets are correctly exempt
+
+Both are phone/`988` links sitting **inline inside a sentence** — e.g. *"if you are in crisis, call or text 988"*. SC 2.5.8 explicitly exempts targets in a sentence or constrained by surrounding line-height. Padding them would break the text flow for no accessibility gain.
+
+---
+
 # Build health — verified clean
 
 Recorded so future audits don't re-derive it. **Re-measured 2026-08-06 after the second pass**, via `next build` + a live `next start` crawl of all 71 sitemap URLs.
