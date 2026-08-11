@@ -39,6 +39,28 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [mobileOpen]);
 
+  // Safety net: close on any route change.
+  //
+  // Each link in the drawer also calls onClose, but relying on that alone is
+  // fragile — the two footer CTAs were added without it, so tapping "Verify
+  // Insurance" navigated and scrolled to the anchor *behind* a still-open,
+  // scroll-locked overlay. The page looked frozen and the tap looked ignored.
+  //
+  // This does not replace the per-link onClose: a same-page hash link (tapping
+  // Verify Insurance while already on that page) leaves `pathname` unchanged and
+  // would never reach this.
+  //
+  // Adjusted during render rather than in an effect — React's documented pattern
+  // for resetting state when a value changes, and the same shape MobileDrawer
+  // already uses for its accordion. Avoids the extra commit-then-rerender an
+  // effect would cost, and keeps the drawer from painting once in its open state
+  // on the new route.
+  const [prevPath, setPrevPath] = useState(pathname);
+  if (pathname !== prevPath) {
+    setPrevPath(pathname);
+    if (mobileOpen) setMobileOpen(false);
+  }
+
   return (
     <header className="sticky top-0 z-50">
       {/* Utility bar */}
@@ -362,12 +384,14 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
         <div className="border-t border-shell p-4 space-y-2">
           <a
             href={site.phoneHref}
+            onClick={onClose}
             className="flex items-center justify-center gap-2 rounded-full bg-gold-700 px-5 py-3.5 font-semibold text-white"
           >
             <Phone className="size-4" /> Call {site.phone}
           </a>
           <Link
             href={VERIFY_INSURANCE_HREF}
+            onClick={onClose}
             className="flex items-center justify-center gap-2 rounded-full border border-ink-300 px-5 py-3 font-semibold text-ink"
           >
             <ShieldCheck className="size-4" /> Verify Insurance
