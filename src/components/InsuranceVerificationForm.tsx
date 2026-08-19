@@ -24,6 +24,7 @@ const inputClass =
  *  - Date of birth is REQUIRED (insurers need it to confirm coverage).
  *  - Member/Policy ID is OPTIONAL.
  *  - Insurance provider is a filtered combobox that still accepts free text.
+ *  - One `name` field, not first/last — see withNameParts for what is sent.
  */
 export default function InsuranceVerificationForm() {
   const [provider, setProvider] = useState("");
@@ -43,8 +44,7 @@ export default function InsuranceVerificationForm() {
 
     // Required fields (mirrors the `required` attributes for a friendly message).
     if (
-      !data.firstName?.trim() ||
-      !data.lastName?.trim() ||
+      !data.name?.trim() ||
       !data.phone?.trim() ||
       !data.email?.trim() ||
       !data.dateOfBirth?.trim() ||
@@ -58,7 +58,7 @@ export default function InsuranceVerificationForm() {
     setStatus("submitting");
     setError("");
     try {
-      await submitToClarion("insurance_verification", data);
+      await submitToClarion("insurance_verification", withNameParts(data));
       setStatus("success");
       form.reset();
       setProvider("");
@@ -103,33 +103,18 @@ export default function InsuranceVerificationForm() {
         <input id="iv-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <label htmlFor="iv-firstName" className="mb-1.5 block text-sm font-semibold text-ink">
-            First name *
-          </label>
-          <input
-            id="iv-firstName"
-            name="firstName"
-            required
-            autoComplete="given-name"
-            className={inputClass}
-            placeholder="First name"
-          />
-        </div>
-        <div>
-          <label htmlFor="iv-lastName" className="mb-1.5 block text-sm font-semibold text-ink">
-            Last name *
-          </label>
-          <input
-            id="iv-lastName"
-            name="lastName"
-            required
-            autoComplete="family-name"
-            className={inputClass}
-            placeholder="Last name"
-          />
-        </div>
+      <div>
+        <label htmlFor="iv-name" className="mb-1.5 block text-sm font-semibold text-ink">
+          Full name *
+        </label>
+        <input
+          id="iv-name"
+          name="name"
+          required
+          autoComplete="name"
+          className={inputClass}
+          placeholder="Your name"
+        />
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -258,4 +243,28 @@ export default function InsuranceVerificationForm() {
       </p>
     </form>
   );
+}
+
+/**
+ * Send the single `name` field, plus a best-effort `firstName` / `lastName`.
+ *
+ * The form asks for one name field, but Clarion's lead records may already be
+ * mapped to the two keys this form used to send. That mapping lives in Clarion's
+ * dashboard, not in this repo, so dropping the keys could silently land leads in
+ * an unmapped field. Sending all three costs nothing and keeps either mapping
+ * working; `name` stays authoritative.
+ *
+ * The split is first token / remainder, which is right for most names and wrong
+ * for some — "van der Berg" surnames, multi-part given names. That is acceptable
+ * precisely because `name` carries the value verbatim.
+ */
+function withNameParts(data: Record<string, string>): Record<string, string> {
+  const full = (data.name ?? "").trim().replace(/\s+/g, " ");
+  const gap = full.indexOf(" ");
+  return {
+    ...data,
+    name: full,
+    firstName: gap === -1 ? full : full.slice(0, gap),
+    lastName: gap === -1 ? "" : full.slice(gap + 1),
+  };
 }
