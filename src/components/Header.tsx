@@ -106,9 +106,22 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1" aria-label="Primary">
-            {nav.map((item) => {
+            {nav.map((item, i) => {
               const active =
                 pathname === item.href || pathname.startsWith(item.href + "/");
+              // Panels are centred on their trigger, which overflows the
+              // viewport for the outermost items — the first one clipped 87px
+              // off the left at 1280px, where the xl-only featured card widens
+              // the panel while the trigger is still near the edge. Anchor the
+              // end items to their trigger's inner edge instead of centring.
+              const isFirst = i === 0;
+              const isLastWithMenu =
+                i === nav.map((n) => Boolean(n.columns)).lastIndexOf(true);
+              const panelX = isFirst
+                ? "left-0"
+                : isLastWithMenu
+                  ? "right-0"
+                  : "left-1/2 -translate-x-1/2";
               return (
                 <div
                   key={item.label}
@@ -146,7 +159,7 @@ export default function Header() {
                   </Link>
 
                   {item.columns && openMenu === item.label && (
-                    <div className="absolute left-1/2 top-full -translate-x-1/2 pt-3">
+                    <div className={cn("absolute top-full pt-3", panelX)}>
                       <div className="flex max-w-[92vw] overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-lift)] ring-1 ring-shell animate-rise">
                         <div className="flex gap-8 p-6">
                           {item.columns.map((col) => (
