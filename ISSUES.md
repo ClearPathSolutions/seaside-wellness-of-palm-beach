@@ -1634,6 +1634,54 @@ Timothy Foley's *"over seven years"* in [team.ts](src/data/team.ts) stays — th
 
 ---
 
+# SCR — Reported from screenshots
+
+Four defects the client caught by eye, none of which appeared in the workbook or
+my own audits. Three share a root cause worth naming: **display order and
+structure were being inferred from data order** instead of stated explicitly.
+
+### SCR-1 · Footer logo sat in a white box `P2`
+
+- [x] **Fixed 2026-08-11.** Removed the `bg-cream` chip from [Footer.tsx](src/components/Footer.tsx#L66) so the logo sits directly on the dark footer, matching every other facility in the portfolio.
+
+Measured the portfolio first: 5 of 5 comparable sites put a dedicated `logo-white.png` straight onto the dark footer with no wrapper. Seaside was the only one with a chip — because it is the only facility whose Drive folder shipped **no logo set** (its folder held just the reel), so the colour logo had to be rescued with a light panel.
+
+Logo bumped `h-10 → h-12` and `sizes 100px → 160px`, since the chip's padding had been doing the sizing. **The three accreditation chips were deliberately kept** — Joint Commission, LegitScript and NAMI are third-party marks that need their own background.
+
+**Residual:** the wordmark measures **1.76:1** against the footer (`rgb(49,87,95)` on `rgb(40,45,51)`). Logotypes are exempt from WCAG contrast so nothing fails, but it is the dim element. A white knockout generated from the existing artwork is a one-line swap whenever the Drive original or that knockout is preferred.
+
+### SCR-2 · `/about` featured the wrong four people `P1`
+
+- [x] **Fixed 2026-08-11.** The preview used `team.slice(0, 4)` — whoever the portal sync happened to return first. That surfaced two Primary Therapists and a Client Care Coordinator with a placeholder monogram, while the Clinical and Program Directors sat on another page.
+
+Now driven by [src/data/roster.ts](src/data/roster.ts). **Deliberately not a flag inside `team.ts`**, which is regenerated from the Quadrant portal — anything added there is lost on the next sync, and it would fail silently because the grid would still render four plausible faces.
+
+**Side effect:** the `JP` monogram is gone from `/about/` (0 occurrences). It remains on `/about/meet-the-team/` and her bio page — that is **HS-2**, and no headshot exists on disk.
+
+### SCR-3 · Team page ignored the bio-sheet order `P2`
+
+- [x] **Fixed 2026-08-11.** `/about/meet-the-team/` rendered raw portal order, opening with two Primary Therapists. Same root cause as SCR-2, one level up.
+
+Both pages now derive from **one** ordered list in `roster.ts`, with `/about` taking `roster.slice(0, 4)` rather than a second hardcoded array — two lists would drift the moment someone was promoted. Anyone the portal adds who is not yet listed is **appended rather than dropped**: a new hire showing up last is cosmetic, a new hire missing entirely is not.
+
+### SCR-4 · Bullet lists flattened into prose by the migration `P2`
+
+- [x] **Fixed 2026-08-11.** Three sections in [treatments.json](src/data/content/treatments.json) stored `Label: description` list items as `paragraphs`, so they rendered as undifferentiated prose. The gold list markers were already styled — the content simply was not marked up as a list.
+
+| Page | Recovered |
+|---|---|
+| `/treatment/detox/` | intro + **4 bullets** + closing |
+| `/treatment/dual-diagnosis/` | intro + **5 bullets** |
+| `/treatment/individual-therapy/` | intro + **3 bullets** + closing |
+
+`SectionBody` renders paragraphs *then* bullets, so a naive move would have printed each closing paragraph **above** its list — two of the three have one. Added `afterBullets` to `DetailSection` and rendered it after the `<ul>` in both the detail and blog renderers.
+
+**Scope note:** my first scan under-reported this. The label regex required a capital first letter, so `24/7 Medical Supervision:` slipped past it; corrected to allow digit-led labels.
+
+**Not done — tiles.** The report said "tiles or bullet points". This restored bullets, which is unambiguously the authored intent. Tiles remain **VIS-1** (~60 rows, unverified design tab), and correct list semantics are its prerequisite.
+
+---
+
 # Verified Not Applicable
 
 Closed with evidence. Recorded so they aren't re-raised.

@@ -125,6 +125,9 @@ export default async function PostPage({
                         ))}
                       </ul>
                     )}
+                    {s.afterBullets?.map((para, j) => (
+                      <p key={j}>{para}</p>
+                    ))}
                   </section>
                 ))
               ) : (

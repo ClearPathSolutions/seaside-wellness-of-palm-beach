@@ -25,6 +25,9 @@ function SectionBody({ s, id }: { s: DetailSection; id: string }) {
           ))}
         </ul>
       )}
+      {s.afterBullets?.map((p, i) => (
+        <p key={i}>{p}</p>
+      ))}
     </section>
   );
 }

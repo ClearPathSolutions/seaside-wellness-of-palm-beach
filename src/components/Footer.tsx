@@ -63,16 +63,14 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.3fr_2.7fr]">
           {/* Brand */}
           <div>
-            <div className="inline-block rounded-xl bg-cream px-4 py-3">
-              <Image
-                src={site.logo}
-                alt={`${site.legalName} logo`}
-                width={1997}
-                height={800}
-                sizes="100px"
-                className="h-10 w-auto"
-              />
-            </div>
+            <Image
+              src={site.logo}
+              alt={`${site.legalName} logo`}
+              width={1997}
+              height={800}
+              sizes="160px"
+              className="h-12 w-auto"
+            />
             <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-cream/70">
               A luxury addiction &amp; mental health treatment center in West Palm Beach,
               Florida — delivering evidence-based care just steps from the water.

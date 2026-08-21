@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import CTASection from "@/components/CTASection";
-import { team } from "@/data/team";
+import { roster } from "@/data/roster";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function MeetTheTeam() {
       <section className="py-16 md:py-24">
         <div className="container-page">
           <div className="flex flex-wrap justify-center gap-8">
-            {team.map((m, i) => (
+            {roster.map((m, i) => (
               <Reveal key={m.slug} delay={(i % 3) * 60} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]">
                 <Link
                   href={`/about/${m.slug}`}

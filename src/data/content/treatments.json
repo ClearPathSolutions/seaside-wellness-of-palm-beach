@@ -38,11 +38,15 @@
       {
         "heading": "How our detox program helps manage withdrawal",
         "paragraphs": [
-          "Our medical detox provides a structured, supportive environment where withdrawal is carefully monitored and managed by trained professionals. Unlike attempting to go through withdrawal alone, detox ensures both safety and comfort during this high-risk period. At Seaside, every client receives individualized care designed to stabilize the body and mind.",
+          "Our medical detox provides a structured, supportive environment where withdrawal is carefully monitored and managed by trained professionals. Unlike attempting to go through withdrawal alone, detox ensures both safety and comfort during this high-risk period. At Seaside, every client receives individualized care designed to stabilize the body and mind."
+        ],
+        "bullets": [
           "24/7 Medical Supervision: Vital signs are continuously monitored, and staff are prepared to intervene immediately if complications such as seizures, heart irregularities, or severe dehydration arise.",
           "Medication-Assisted Treatment (MAT): MAT is used when appropriate to ease intense withdrawal symptoms, stabilize blood pressure and heart rate, and reduce the risk of seizures or other life-threatening complications.",
           "Emotional and Psychological Support: We help clients manage the anxiety, depression, and overwhelming cravings that often occur during withdrawal.",
-          "A Step-Down Approach: Detox isn't an isolated event. Clients are supported in transitioning into the next level of care, reducing the risk of relapse and building a foundation for long-term recovery.",
+          "A Step-Down Approach: Detox isn't an isolated event. Clients are supported in transitioning into the next level of care, reducing the risk of relapse and building a foundation for long-term recovery."
+        ],
+        "afterBullets": [
           "Detox is not just about removing substances from the body, it's about creating a stable foundation for recovery. By beginning with supervised detox, clients are better prepared to transition into therapy and long-term treatment, giving them the best chance for lasting sobriety."
         ]
       },
@@ -401,7 +405,9 @@
       {
         "heading": "The importance of dual diagnosis treatment, and who it can help",
         "paragraphs": [
-          "A dual diagnosis program does more than address addiction, it treats the underlying mental and emotional patterns that sustain it. By combining medical care and support, clients at Seaside Wellness learn to rebuild stability, confidence, and self-awareness. The main benefits of an integrated approach include:",
+          "A dual diagnosis program does more than address addiction, it treats the underlying mental and emotional patterns that sustain it. By combining medical care and support, clients at Seaside Wellness learn to rebuild stability, confidence, and self-awareness. The main benefits of an integrated approach include:"
+        ],
+        "bullets": [
           "Treats the Root Cause: Addiction often stems from unresolved trauma, anxiety, or depression. Dual diagnosis care uncovers and treats these underlying issues, allowing for true emotional healing instead of short-term symptom management.",
           "Prevents Relapse: By stabilizing mood and improving emotional regulation, integrated programs reduce the urge to self-medicate with drugs or alcohol. Clients leave treatment with stronger coping mechanisms and relapse-prevention tools.",
           "Improves Mental and Physical Well-Being: Dual diagnosis treatment supports both mind and body, combining therapy and holistic modalities like mindfulness or fitness-based recovery to promote overall wellness and clarity.",
@@ -630,10 +636,14 @@
       {
         "heading": "How individual therapy works at Seaside",
         "paragraphs": [
-          "For us, individual therapy is an essential part of every level of treatment, from detox and residential care to outpatient and aftercare. Each client works one-on-one with a licensed therapist who specializes in both mental health and substance use disorders, ensuring treatment is comprehensive and personalized. Therapy sessions are designed to help clients recognize thought patterns, emotional triggers, and behaviors that may fuel addiction or emotional distress. Depending on each individual's needs, therapists use several evidence-based approaches:",
+          "For us, individual therapy is an essential part of every level of treatment, from detox and residential care to outpatient and aftercare. Each client works one-on-one with a licensed therapist who specializes in both mental health and substance use disorders, ensuring treatment is comprehensive and personalized. Therapy sessions are designed to help clients recognize thought patterns, emotional triggers, and behaviors that may fuel addiction or emotional distress. Depending on each individual's needs, therapists use several evidence-based approaches:"
+        ],
+        "bullets": [
           "Cognitive Behavioral Therapy (CBT): Helps clients identify and change negative thought patterns that contribute to harmful behaviors, cravings, or emotional instability. CBT focuses on building practical coping skills and healthier ways to manage stress.",
           "Dialectical Behavior Therapy (DBT): Teaches emotional regulation, mindfulness, and distress tolerance skills. DBT is especially effective for individuals who experience intense emotions, impulsivity, or self-destructive behaviors.",
-          "Trauma-Informed Therapy: Provides a compassionate and safe space to process past trauma without re-traumatization. This approach focuses on understanding how trauma affects the brain and behavior, empowering clients to heal with trust and self-awareness.",
+          "Trauma-Informed Therapy: Provides a compassionate and safe space to process past trauma without re-traumatization. This approach focuses on understanding how trauma affects the brain and behavior, empowering clients to heal with trust and self-awareness."
+        ],
+        "afterBullets": [
           "Each session at Seaside Wellness is tailored to the client's goals, emotional state, and recovery stage. This individualized approach allows therapy to evolve over time, from addressing immediate challenges to strengthening long-term emotional balance and reducing the risk of relapse."
         ]
       },

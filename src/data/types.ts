@@ -36,6 +36,15 @@ export type DetailSection = {
   heading?: string;
   paragraphs?: string[];
   bullets?: string[];
+  /**
+   * Paragraphs that belong *after* the bullet list.
+   *
+   * Sections are commonly authored as intro → list → closing thought. Without a
+   * slot for the closing paragraph it has to live in `paragraphs`, which renders
+   * before the list, so the section reads out of order. Positional rather than
+   * pretty on purpose: the name says where it goes.
+   */
+  afterBullets?: string[];
 };
 
 export type Faq = {

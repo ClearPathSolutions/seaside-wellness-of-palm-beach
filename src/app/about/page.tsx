@@ -8,7 +8,7 @@ import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
 import { Button } from "@/components/Button";
 import CTASection from "@/components/CTASection";
-import { team } from "@/data/team";
+import { leadership } from "@/data/roster";
 import { differentiators } from "@/data/site-content";
 import { pageMeta, smartTitle } from "@/lib/seo";
 
@@ -100,7 +100,7 @@ export default function AboutHub() {
             </Link>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-            {team.slice(0, 4).map((m, i) => (
+            {leadership.map((m, i) => (
               <Reveal key={m.slug} delay={i * 50}>
                 <Link href={`/about/${m.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-shell shadow-[var(--shadow-soft)]">
