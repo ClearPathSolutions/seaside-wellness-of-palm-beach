@@ -5,6 +5,7 @@ import "./globals.css";
 import { site } from "@/lib/site";
 import { organizationJsonLd } from "@/lib/seo";
 import { isPreview } from "@/lib/deployment";
+import { FIRST_TOUCH_CAPTURE_JS } from "@/lib/attribution";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -79,6 +80,12 @@ export default function RootLayout({
               "document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');",
           }}
         />
+        {/* Persist the ad campaign on the entry pageview, before anything can
+            navigate away from it. Clarion's form capture reads utm/gclid from
+            the live URL at submit time, so without this every visitor who
+            reads a second page before converting files as direct traffic.
+            Inline and blocking on purpose — see lib/attribution.ts. */}
+        <script dangerouslySetInnerHTML={{ __html: FIRST_TOUCH_CAPTURE_JS }} />
         <a href="#main" className="skip-link">Skip to content</a>
         <script
           type="application/ld+json"
@@ -87,6 +94,18 @@ export default function RootLayout({
         <Header />
         <main id="main" className="flex-1">{children}</main>
         <Footer />
+
+        {/* CallTrackingMetrics (account 264810) — the tracking script that
+            creates the visitor session Clarion attaches each lead to, and that
+            performs the dynamic phone-number swap.
+
+            beforeInteractive, not afterInteractive: it rewrites the displayed
+            number, so deferring it lets a visitor read and dial the untracked
+            one. It must also run on every page including ad landing pages,
+            which is why it lives in the root layout. Exactly one copy — a
+            second (e.g. added via GTM) double-counts sessions and makes the
+            number swap unpredictable. */}
+        <Script src="https://264810.tctm.co/t.js" strategy="beforeInteractive" />
 
         {/* Clarion Labs — hosted chat widget. Themed to Seaside's brand via the
             attributes Clarion documents (data-color / data-font / data-position).
@@ -103,8 +122,13 @@ export default function RootLayout({
           strategy="lazyOnload"
         />
 
-        {/* Clarion Labs — form capture. afterInteractive so it is present to
-            hook the [data-clarion-form] forms once the page hydrates. */}
+        {/* Clarion Labs — form capture. Kept for the integration handshake it
+            pings on load; it does NOT carry this site's leads. Neither form
+            sets `data-clarion-form`, which is the only thing this script
+            auto-wires, and both submit explicitly via lib/clarion.ts so the
+            persisted campaign survives. Adding that attribute to either form
+            would send every lead twice — the script does not check
+            `defaultPrevented`. */}
         <Script
           src="https://www.clarionlabs.ai/forms-capture.v1.js"
           data-site-key="cpx_W7CkbBVZenGnvDbFYEKkZnvZSS7ynFh6"
