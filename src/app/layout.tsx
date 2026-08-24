@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 import { organizationJsonLd } from "@/lib/seo";
 import { isPreview } from "@/lib/deployment";
 import { FIRST_TOUCH_CAPTURE_JS } from "@/lib/attribution";
+import Analytics, { AnalyticsNoScript } from "@/components/Analytics";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -72,6 +73,7 @@ export default function RootLayout({
       className={`no-js ${cormorant.variable} ${karla.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white">
+        <AnalyticsNoScript />
         {/* Swap the no-js marker before paint so scroll-reveal animations run
             only when JS is available; without JS, revealed content stays visible. */}
         <script
@@ -94,6 +96,7 @@ export default function RootLayout({
         <Header />
         <main id="main" className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
 
         {/* CallTrackingMetrics (account 264810) — the tracking script that
             creates the visitor session Clarion attaches each lead to, and that
