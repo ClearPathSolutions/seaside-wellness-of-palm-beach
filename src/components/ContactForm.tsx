@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { submitToClarion } from "@/lib/clarion";
+import { submitToClarion, withNameParts } from "@/lib/clarion";
 import { site } from "@/lib/site";
 import { canonicalPath } from "@/lib/routing";
 
@@ -20,6 +20,15 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const payload = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
 
+    // Honeypot: real users never fill this. Silently "succeed" so bots get no
+    // signal. Checked here, not just server-side, because the submission no
+    // longer routes through /api/contact first — without this, a bot fill would
+    // post straight to Clarion and pollute the lead list.
+    if (payload.website?.trim()) {
+      setStatus("success");
+      return;
+    }
+
     // Client-side validation mirrors the server: name + at least one contact method.
     if (!payload.name?.trim() || (!payload.email?.trim() && !payload.phone?.trim())) {
       setStatus("error");
@@ -29,6 +38,40 @@ export default function ContactForm() {
 
     setStatus("submitting");
     setError("");
+
+    // Clarion is the PRIMARY destination, matching InsuranceVerificationForm.
+    //
+    // It used to be the reverse: /api/contact ran first and a non-ok response
+    // threw before Clarion was ever called. That route 502s whenever
+    // RESEND_API_KEY is unset, so a missing env var on an email transport was
+    // discarding the lead outright — the CRM never saw it either. Clarion is
+    // the system of record for admissions follow-up, so it must not be
+    // downstream of the optional one.
+    //
+    // withNameParts + the attribution in submitToClarion mean a contact lead
+    // now carries the same fields as an insurance lead: campaign, landing page,
+    // referrer, and the CTM session id that ties it to the originating call.
+    // Drop the honeypot before sending: it is our anti-bot mechanism, not a
+    // lead field, and a strict validator on Clarion's side could reject an
+    // unexpected key.
+    const fields = { ...payload };
+    delete fields.website;
+    const data = withNameParts(fields);
+    try {
+      await submitToClarion("contact", data);
+    } catch (err) {
+      setStatus("error");
+      setError(
+        `We couldn't send your message just now. Please call us at ${site.phone} — we answer 24/7.`
+      );
+      console.error("[contact] Clarion submission failed:", err);
+      return;
+    }
+
+    // The email notification is a convenience on top of a lead that has already
+    // landed, so its failure is logged and swallowed rather than shown. Telling
+    // someone their message did not go through, when it did, would send them
+    // away from an admissions team that can already see it.
     try {
       // canonicalPath, not a literal: `trailingSlash: true` applies to route
       // handlers too, so posting to "/api/contact" earns a 308 to
@@ -38,25 +81,20 @@ export default function ContactForm() {
       const res = await fetch(canonicalPath("/api/contact"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(data),
+        // keepalive so the notification survives the form swapping itself out
+        // for the confirmation panel below.
+        keepalive: true,
       });
-      const json = await res.json();
-      if (!res.ok || !json.ok) throw new Error(json.error || "Something went wrong.");
-
-      // Also sync the lead to Clarion. Non-blocking: a Clarion hiccup must not
-      // fail a submission that already succeeded on our own backend.
-      try {
-        await submitToClarion("contact", payload);
-      } catch {
-        /* ignore — the message was already received by /api/contact */
+      if (!res.ok) {
+        console.error("[contact] email notification failed:", res.status);
       }
-
-      setStatus("success");
-      form.reset();
     } catch (err) {
-      setStatus("error");
-      setError(err instanceof Error ? err.message : "Something went wrong.");
+      console.error("[contact] email notification failed:", err);
     }
+
+    setStatus("success");
+    form.reset();
   }
 
   if (status === "success") {

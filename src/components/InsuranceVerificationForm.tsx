@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CheckCircle2, Loader2, ShieldCheck } from "lucide-react";
 import ProviderCombobox from "@/components/ProviderCombobox";
-import { submitToClarion } from "@/lib/clarion";
+import { submitToClarion, withNameParts } from "@/lib/clarion";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -243,28 +243,4 @@ export default function InsuranceVerificationForm() {
       </p>
     </form>
   );
-}
-
-/**
- * Send the single `name` field, plus a best-effort `firstName` / `lastName`.
- *
- * The form asks for one name field, but Clarion's lead records may already be
- * mapped to the two keys this form used to send. That mapping lives in Clarion's
- * dashboard, not in this repo, so dropping the keys could silently land leads in
- * an unmapped field. Sending all three costs nothing and keeps either mapping
- * working; `name` stays authoritative.
- *
- * The split is first token / remainder, which is right for most names and wrong
- * for some — "van der Berg" surnames, multi-part given names. That is acceptable
- * precisely because `name` carries the value verbatim.
- */
-function withNameParts(data: Record<string, string>): Record<string, string> {
-  const full = (data.name ?? "").trim().replace(/\s+/g, " ");
-  const gap = full.indexOf(" ");
-  return {
-    ...data,
-    name: full,
-    firstName: gap === -1 ? full : full.slice(0, gap),
-    lastName: gap === -1 ? "" : full.slice(gap + 1),
-  };
 }

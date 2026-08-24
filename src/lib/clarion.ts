@@ -63,3 +63,30 @@ export async function submitToClarion(
     throw new Error(`Clarion submission failed (${res.status})`);
   }
 }
+
+/**
+ * Send the single `name` field, plus a best-effort `firstName` / `lastName`.
+ *
+ * The forms ask for one name field, but Clarion's lead records may already be
+ * mapped to the two keys these forms used to send. That mapping lives in
+ * Clarion's dashboard, not in this repo, so dropping the keys could silently
+ * land leads in an unmapped field. Sending all three costs nothing and keeps
+ * either mapping working; `name` stays authoritative.
+ *
+ * The split is first token / remainder, which is right for most names and wrong
+ * for some — "van der Berg" surnames, multi-part given names. That is acceptable
+ * precisely because `name` carries the value verbatim.
+ *
+ * Shared by ContactForm and InsuranceVerificationForm so both leads arrive in
+ * the same shape.
+ */
+export function withNameParts(data: Record<string, string>): Record<string, string> {
+  const full = (data.name ?? "").trim().replace(/\s+/g, " ");
+  const gap = full.indexOf(" ");
+  return {
+    ...data,
+    name: full,
+    firstName: gap === -1 ? full : full.slice(0, gap),
+    lastName: gap === -1 ? "" : full.slice(gap + 1),
+  };
+}
