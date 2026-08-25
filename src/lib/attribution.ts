@@ -48,7 +48,7 @@ export const CAMPAIGN_PARAMS = [
   "msclkid",
 ] as const;
 
-type FirstTouch = {
+export type FirstTouch = {
   /** Raw campaign params exactly as they appeared in the entry URL. */
   p: Record<string, string>;
   /** The real entry page, campaign and all. */
@@ -81,7 +81,12 @@ var d=document.referrer||"";
 try{localStorage.setItem(K,JSON.stringify({p:f,landing:location.href,referrer:d&&d.indexOf(location.origin)!==0?d:"",at:Date.now()}));}catch(e){}
 }catch(e){}})();`;
 
-function readFirstTouch(): FirstTouch | null {
+/**
+ * Exported so the session store can tell when a fresh ad click arrived: a
+ * first-touch record newer than the current session means a new campaign, and
+ * therefore a new session, not a continuation of the old one.
+ */
+export function readFirstTouch(): FirstTouch | null {
   if (typeof window === "undefined") return null;
   try {
     const raw = window.localStorage.getItem(FIRST_TOUCH_KEY);

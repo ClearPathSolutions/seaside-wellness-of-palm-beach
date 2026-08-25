@@ -11,6 +11,7 @@
 // plus the explicit submit below would send every lead to Clarion twice.
 
 import { clarionAttribution } from "@/lib/attribution";
+import { sessionPayload } from "@/lib/session";
 
 export const CLARION_SITE_KEY = "cpx_W7CkbBVZenGnvDbFYEKkZnvZSS7ynFh6";
 export const CLARION_API = "https://api.clarionlabs.ai";
@@ -40,24 +41,44 @@ export const CLARION_BLOG_EMBED_SRC =
  *
  * Same origin, same endpoint, same payload shape as the vendor script, so this
  * carries no new CORS exposure — only better values.
+ *
+ * `session` is the one key Clarion's form endpoint was not originally asked to
+ * accept, so a strict validator could reject the whole submission over it. On
+ * a 4xx we therefore retry once without it: attribution is worth having, but
+ * not at the price of losing the admissions enquiry it is attached to. Only
+ * 4xx — a 5xx may well have been processed, and retrying that risks a
+ * duplicate lead.
  */
 export async function submitToClarion(
   formKey: string,
   data: Record<string, unknown>
 ): Promise<void> {
-  const res = await fetch(`${CLARION_API}/forms/public/submit`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    // keepalive: the insurance form unmounts into its confirmation state as
-    // soon as this resolves, and a lead must survive the page being left.
-    keepalive: true,
-    body: JSON.stringify({
-      site_key: CLARION_SITE_KEY,
-      form_key: formKey,
-      data,
-      ...clarionAttribution(),
-    }),
-  });
+  const base = {
+    site_key: CLARION_SITE_KEY,
+    form_key: formKey,
+    data,
+    ...clarionAttribution(),
+  };
+  const session = sessionPayload();
+
+  const post = (withSession: boolean) =>
+    fetch(`${CLARION_API}/forms/public/submit`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      // keepalive: the forms unmount into their confirmation state as soon as
+      // this resolves, and a lead must survive the page being left.
+      keepalive: true,
+      body: JSON.stringify(withSession && session ? { ...base, session } : base),
+    });
+
+  let res = await post(true);
+
+  if (!res.ok && session && res.status >= 400 && res.status < 500) {
+    console.warn(
+      `[clarion] ${res.status} with session attached — retrying without it so the lead still lands.`
+    );
+    res = await post(false);
+  }
 
   if (!res.ok) {
     throw new Error(`Clarion submission failed (${res.status})`);

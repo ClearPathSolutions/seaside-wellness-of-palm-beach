@@ -7,6 +7,7 @@ import { organizationJsonLd } from "@/lib/seo";
 import { isPreview } from "@/lib/deployment";
 import { FIRST_TOUCH_CAPTURE_JS } from "@/lib/attribution";
 import Analytics, { AnalyticsNoScript } from "@/components/Analytics";
+import SessionTracker from "@/components/SessionTracker";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -93,6 +94,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
         />
+        <SessionTracker />
         <Header />
         <main id="main" className="flex-1">{children}</main>
         <Footer />
