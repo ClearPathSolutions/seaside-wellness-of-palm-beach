@@ -100,17 +100,37 @@ export default function RootLayout({
         <Footer />
         <Analytics />
 
-        {/* CallTrackingMetrics (account 264810) — the tracking script that
-            creates the visitor session Clarion attaches each lead to, and that
-            performs the dynamic phone-number swap.
+        {/* CallTrackingMetrics (account 264810) — creates the visitor session
+            Clarion attaches each lead to, and performs the dynamic phone-number
+            swap.
 
-            beforeInteractive, not afterInteractive: it rewrites the displayed
-            number, so deferring it lets a visitor read and dial the untracked
-            one. It must also run on every page including ad landing pages,
-            which is why it lives in the root layout. Exactly one copy — a
-            second (e.g. added via GTM) double-counts sessions and makes the
-            number swap unpredictable. */}
-        <Script src="https://264810.tctm.co/t.js" strategy="beforeInteractive" />
+            ⚠️ `async` is deliberate. Do NOT change this to a synchronous or
+            `beforeInteractive` tag, and do not "correct" it back to the eager
+            load the rollout spec's Section 2 describes — that guidance is wrong
+            and reintroduces two silent failures:
+
+              1. A synchronous tag in <head> runs before <body> exists. CTM's
+                 number scan defaults its root to document.body and silently
+                 no-ops when that is null, so it can miss every number on the
+                 page. Nothing swaps, all visitors see the hardcoded number, and
+                 CTM can only guess which web session an inbound call belongs
+                 to — call attribution then fails intermittently.
+              2. On a React site the sync tag rewrites the number before
+                 hydration, and React then reverts the swap when it replaces the
+                 server-rendered HTML.
+
+            A plain tag rather than next/script: `next/script` injects through
+            its own runtime, and what is wanted here is exactly this element in
+            the HTML. React hoists an async script to <head> and dedupes it.
+
+            Absolute https, never protocol-relative. Root layout, not a
+            per-route include, so campaign landing pages are covered too.
+
+            Exactly one copy. Count with:
+              document.querySelectorAll('script[src*="tctm.co/t.js"]').length
+            NOT script[src*="tctm.co"] — that returns 2 on a correct install,
+            because t.js injects its own p.js. Removing that "extra" breaks CTM. */}
+        <script async src="https://264810.tctm.co/t.js"></script>
 
         {/* Clarion Labs — hosted chat widget. Themed to Seaside's brand via the
             attributes Clarion documents (data-color / data-font / data-position).
