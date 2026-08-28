@@ -14,6 +14,7 @@ import type { TeamMember } from "./types";
  * /about/meet-the-team. Two lists would drift the moment someone was promoted.
  */
 const ROSTER_ORDER = [
+  "pamela-tambini", // Medical Oversight — network-wide
   "timothy-foley", // Program Director
   "erin-crawford", // Director of Nursing
   "steve-ryan", // Operations Director

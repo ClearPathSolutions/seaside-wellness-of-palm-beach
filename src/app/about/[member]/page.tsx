@@ -9,6 +9,10 @@ import Reveal from "@/components/Reveal";
 import CTASection from "@/components/CTASection";
 import { pageMeta, metaDescription } from "@/lib/seo";
 
+const CANONICAL_AT_PARENT: Record<string, string> = {
+  "pamela-tambini": "https://www.quadranthealthgroup.com/team/pamela-tambini/",
+};
+
 export function generateStaticParams() {
   return team.map((m) => ({ member: m.slug }));
 }
@@ -31,6 +35,12 @@ export async function generateMetadata({
       m.bio[0]
     ),
     ...pageMeta(`/about/${m.slug}`),
+    // Network-wide staff: the same approved bio is published on
+    // quadranthealthgroup.com and on every other Quadrant facility site, so
+    // these pages point at the parent rather than competing with it.
+    ...(CANONICAL_AT_PARENT[m.slug]
+      ? { alternates: { canonical: CANONICAL_AT_PARENT[m.slug] } }
+      : {}),
   };
 }
 
