@@ -60,6 +60,7 @@ export const team: TeamMember[] = [
     slug: "jennifer-penny",
     name: "Jennifer Penny",
     role: "Client Care Coordinator",
+    image: "/images/team/jennifer-penny.jpg",
     bio: [
       "Jennifer serves as a Client Care Coordinator and is passionate about helping individuals and families navigate the recovery process with compassion, understanding, and personalized support. With several years of experience in the behavioral healthcare field, she is dedicated to ensuring every client feels heard, valued, and supported from their very first interaction. Drawing from both her professional background and personal experience with recovery, Jennifer understands the courage it takes to ask for help.",
       "She is committed to making each client’s experience as seamless, comfortable, and encouraging as possible while advocating for the care that best meets their unique needs. Jennifer believes that every person deserves the opportunity to heal and is honored to be part of each client’s recovery journey. Her goal is to provide exceptional care, build meaningful connections, and help every individual take the next step toward lasting recovery with confidence and hope.",
