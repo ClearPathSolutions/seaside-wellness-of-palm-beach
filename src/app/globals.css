@@ -314,3 +314,28 @@
   outline: 2px solid var(--color-gold-400);
   outline-offset: 2px;
 }
+
+/* ------------------------------------------------------------------ *
+ * Clarion Labs blog embed
+ * The embed injects post HTML under `[data-clarion-blog]` (no shadow DOM)
+ * and ships no link styling, so every in-post link — including each entry
+ * in a post's own "Table of Contents" — rendered in the body text colour
+ * with no underline and read as plain text rather than something clickable.
+ * ------------------------------------------------------------------ */
+[data-clarion-blog] a {
+  color: var(--color-gold-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+[data-clarion-blog] a:hover {
+  color: var(--color-gold-800);
+}
+
+/* Jump targets clear the 110px sticky header. 8rem matches the scroll-mt-32
+   used by the "In this guide" and FAQ navs, so every anchor on the site
+   settles at the same offset. */
+[data-clarion-blog] :is(h1, h2, h3, h4)[id] {
+  scroll-margin-top: 8rem;
+}
