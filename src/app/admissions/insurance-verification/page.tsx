@@ -26,7 +26,7 @@ export default function Page() {
       relatedBasePath="/admissions"
       relatedTitle="Admissions"
       belowContent={
-        <div id="verify" className="mt-14 scroll-mt-28 rounded-2xl border border-shell bg-cream p-6 sm:p-8">
+        <div id="verify" className="mt-14 scroll-mt-32 rounded-2xl border border-shell bg-cream p-6 sm:p-8">
           <p className="eyebrow mb-2">Verify your coverage</p>
           <h2 className="mb-2 text-2xl font-medium text-ink sm:text-3xl">
             Confidential insurance verification

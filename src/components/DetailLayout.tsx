@@ -12,7 +12,7 @@ function SectionBody({ s, id }: { s: DetailSection; id: string }) {
   return (
     <section
       id={id}
-      className="scroll-mt-28 border-t border-shell/70 pt-8 first:border-0 first:pt-0"
+      className="scroll-mt-32 border-t border-shell/70 pt-8 first:border-0 first:pt-0"
     >
       {s.heading && <h2>{s.heading}</h2>}
       {s.paragraphs?.map((p, i) => (
@@ -137,7 +137,10 @@ export default function DetailLayout({
       <section className="py-16 md:py-24">
         <div className="container-page grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
           {/* Body */}
-          <Reveal className="min-w-0">
+          {/* translate={false}: this subtree holds the `section-N` and `faqs`
+              anchors the "In this guide" list jumps to, and a transform on
+              their container makes those jumps land 24px high. See Reveal. */}
+          <Reveal className="min-w-0" translate={false}>
             {/* No lead-paragraph size bump. The first intro paragraph used to
                 render at text-xl (20px) against 17.2px body copy, which read as
                 an inconsistency rather than emphasis — particularly where the
@@ -160,7 +163,7 @@ export default function DetailLayout({
             )}
 
             {faqs.length > 0 && (
-              <div id="faqs" className="mt-14 scroll-mt-28">
+              <div id="faqs" className="mt-14 scroll-mt-32">
                 <h2 className="mb-6 text-2xl font-medium text-ink sm:text-3xl">
                   Frequently asked questions
                 </h2>

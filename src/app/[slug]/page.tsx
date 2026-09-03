@@ -105,13 +105,14 @@ export default async function PostPage({
       {/* Body */}
       <section className="py-16 md:py-24">
         <div className="container-page grid gap-12 lg:grid-cols-[1fr_18rem] lg:gap-16">
-          <Reveal className="min-w-0">
+          {/* translate={false} — contains the jump-link anchors. See Reveal. */}
+          <Reveal className="min-w-0" translate={false}>
             <article className="prose-seaside max-w-none">
               {hasBody ? (
                 p.body.map((s, i) => (
                   <section
                     key={i}
-                    className={s.heading ? "scroll-mt-28 border-t border-shell/70 pt-8 first:border-0 first:pt-0" : undefined}
+                    className={s.heading ? "scroll-mt-32 border-t border-shell/70 pt-8 first:border-0 first:pt-0" : undefined}
                   >
                     {s.heading && <h2>{s.heading}</h2>}
                     {/* Uniform body size — see the note in DetailLayout. */}

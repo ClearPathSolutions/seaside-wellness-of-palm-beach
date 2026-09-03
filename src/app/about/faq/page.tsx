@@ -94,7 +94,7 @@ export default function FaqPage() {
 
           <div className="space-y-12">
             {groups.map(([name, items], i) => (
-              <section key={name} id={slugifyTopic(name)} className="scroll-mt-28">
+              <section key={name} id={slugifyTopic(name)} className="scroll-mt-32">
                 <h2 className="mb-5 text-2xl font-medium text-ink sm:text-3xl">{name}</h2>
                 <Faq items={items} defaultOpen={i === 0 ? 0 : null} />
               </section>

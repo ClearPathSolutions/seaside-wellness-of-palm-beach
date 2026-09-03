@@ -8,6 +8,22 @@ type Props = {
   className?: string;
   delay?: number;
   as?: "div" | "section" | "li" | "article";
+  /**
+   * Fade only, without the upward translate. Pass `false` whenever the subtree
+   * contains scroll targets (`id` anchors).
+   *
+   * A transform on an ancestor moves everything inside it, and the browser
+   * resolves an anchor scroll against wherever the target sits at that instant.
+   * If the 700ms transform is still running — or has not started, which is the
+   * case on a fresh load — the scroll is computed against content that is still
+   * 24px (`translate-y-6`) low, and completing the transform then slides the
+   * document up under the already-finished scroll. The section lands 24px too
+   * high, which is enough to tuck its heading behind the 110px sticky header.
+   *
+   * Measured on the deployed site before this was fixed: a jump link and a
+   * `#hash` deep link both settled at 88px instead of the intended 112px.
+   */
+  translate?: boolean;
 };
 
 /**
@@ -53,7 +69,13 @@ function sharedObserver(): IntersectionObserver | null {
 }
 
 /** Fade + rise into view on scroll. Respects reduced-motion via CSS. */
-export default function Reveal({ children, className, delay = 0, as = "div" }: Props) {
+export default function Reveal({
+  children,
+  className,
+  delay = 0,
+  as = "div",
+  translate = true,
+}: Props) {
   const ref = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
 
@@ -87,7 +109,8 @@ export default function Reveal({ children, className, delay = 0, as = "div" }: P
       style={{ transitionDelay: `${delay}ms` }}
       className={cn(
         "transition-all duration-700 ease-out motion-reduce:transition-none",
-        shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
+        shown ? "opacity-100" : "opacity-0",
+        translate && (shown ? "translate-y-0" : "translate-y-6"),
         className
       )}
     >
