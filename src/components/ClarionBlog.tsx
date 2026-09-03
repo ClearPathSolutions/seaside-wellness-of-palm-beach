@@ -93,6 +93,54 @@ export default function ClarionBlog({ fallback }: { fallback?: React.ReactNode }
     const observer = new MutationObserver(check);
     observer.observe(container, { childList: true, subtree: true });
 
+    // Scroll to in-post anchors ourselves instead of letting the browser
+    // perform a fragment navigation.
+    //
+    // A fragment navigation changes the history entry, and the App Router
+    // answers that by restoring the scroll position it had saved for the
+    // page — which drags the reader back to where they started, mid-scroll.
+    // Measured on the live insurance post: clicking a contents entry scrolled
+    // from 683 up toward the section, reached 1471, then snapped back to 683
+    // as popstate fired. It reads as the page glitching and throwing you back
+    // to the top.
+    //
+    // Doing the scroll here and never touching history avoids that entirely.
+    // scrollIntoView honours the scroll-margin-top set in globals.css, so the
+    // heading still clears the sticky header.
+    const onClick = (e: MouseEvent) => {
+      // Leave modified clicks and anything already handled alone.
+      if (e.defaultPrevented || e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      const el = e.target instanceof Element ? e.target : null;
+      const anchor = el?.closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!anchor || !container.contains(anchor)) return;
+
+      const raw = (anchor.getAttribute("href") ?? "").slice(1);
+      if (!raw) return;
+      let id = raw;
+      try {
+        id = decodeURIComponent(raw);
+      } catch {
+        /* malformed escape — use it verbatim */
+      }
+
+      // No target means a link Clarion wrote but never anchored (its
+      // [1]/[2] citations). Leaving the default alone keeps today's
+      // do-nothing behaviour rather than inventing a destination.
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      // The browser normally moves focus on a fragment navigation. Since we
+      // just prevented that, do it here, or keyboard and screen-reader users
+      // stay put while the page scrolls away from them.
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    };
+    container.addEventListener("click", onClick);
+
     const script = document.createElement("script");
     script.src = CLARION_BLOG_EMBED_SRC;
     script.async = true;
@@ -102,6 +150,7 @@ export default function ClarionBlog({ fallback }: { fallback?: React.ReactNode }
 
     return () => {
       observer.disconnect();
+      container.removeEventListener("click", onClick);
       script.remove();
     };
   }, []);
