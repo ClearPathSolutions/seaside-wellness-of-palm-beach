@@ -46,6 +46,18 @@ export const site = {
   /** Opens the GBP review dialog directly — for alumni review requests. */
   reviewUrl: "https://g.page/r/CRHaJQE1cADDEAI/review",
   logo: "/images/brand/seaside-logo-horizontal.png",
+  /**
+   * Reversed lockup, for dark surfaces.
+   *
+   * A different crop from the colour mark, not a recolour — 3.224:1 against
+   * 2.496:1 — so anywhere it is used must pass its own intrinsic width/height
+   * or next/image will letterbox it.
+   *
+   * Only the footer needs it. The header sits on white, and the JSON-LD `logo`
+   * must stay the colour version: search engines composite that onto a light
+   * card, where a white-on-transparent mark disappears.
+   */
+  logoWhite: "/images/brand/seaside-logo-white.png",
 } as const;
 
 export type NavChild = { label: string; href: string };

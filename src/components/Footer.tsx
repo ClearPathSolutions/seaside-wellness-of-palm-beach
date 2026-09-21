@@ -64,11 +64,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src={site.logo}
+              src={site.logoWhite}
               alt={`${site.legalName} logo`}
-              width={1997}
-              height={800}
-              sizes="160px"
+              width={2000}
+              height={620}
+              sizes="176px"
               className="h-12 w-auto"
             />
             <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-cream/70">
