@@ -24,6 +24,7 @@ const ROSTER_ORDER = [
   "kate-gulam", // Primary Therapist
   "shan-raiford", // Case Manager
   "jennifer-penny", // Client Care Coordinator
+  "zachary-walter", // Alumni Coordinator
 ] as const;
 
 /** How many of the above lead the org, for the /about preview grid. */

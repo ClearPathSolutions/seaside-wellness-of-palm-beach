@@ -119,4 +119,14 @@ export const team: TeamMember[] = [
       "He holds a bachelor’s degree in behavioral science and is known for his empathetic leadership style. Under his guidance, the program has achieved higher patient engagement and improved long-term recovery outcomes.",
     ],
   },
+  {
+    slug: "zachary-walter",
+    name: "Zachary Walter",
+    role: "Alumni Coordinator",
+    image: "/images/team/zachary-walter.jpg",
+    bio: [
+      "Zachary Walter brings both professional experience in behavioral health and a personal connection to recovery to his role as Alumni Coordinator at Seaside Wellness Palm Beach. His background supporting individuals throughout the recovery process has shaped a compassionate approach rooted in dignity, empathy, accountability, and respect. He is also Ocean Lifeguard Certified, reflecting his ability to remain calm, prepared, and focused in high-pressure situations.",
+      "Zachary’s own recovery journey has given him a strong appreciation for the importance of staying connected and involved within the recovery community. As Alumni Coordinator, he is passionate about creating opportunities for alumni to stay engaged, support one another, and continue building a strong foundation in recovery. For Zachary, recovery is about more than completing treatment, it’s about continuing to grow, stay connected, and build a meaningful life alongside a supportive community.",
+    ],
+  },
 ];
