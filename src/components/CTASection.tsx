@@ -25,7 +25,7 @@ export default function CTASection({
           <h2 className="text-3xl font-medium text-white sm:text-4xl lg:text-5xl">{title}</h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-cream/85">{text}</p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Button href={site.phoneHref} size="lg" variant="primary">
+            <Button href={site.phoneHref} size="lg" variant="primary" suppressHydrationWarning>
               <Phone className="size-4" /> Call {site.phone}
             </Button>
             <Button href="/contact" size="lg" variant="onDark">

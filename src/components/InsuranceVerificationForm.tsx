@@ -83,7 +83,7 @@ export default function InsuranceVerificationForm() {
           We&rsquo;ll begin verifying your insurance coverage right away. An admissions specialist
           will reach out to you shortly to review your benefits and answer any questions — all in
           strict confidence. For immediate assistance, call{" "}
-          <a href={site.phoneHref} className="font-semibold text-gold-700">
+          <a href={site.phoneHref} className="font-semibold text-gold-700" suppressHydrationWarning>
             {site.phone}
           </a>
           .
@@ -236,7 +236,7 @@ export default function InsuranceVerificationForm() {
         Your information is kept strictly confidential and is never shared with third parties. This
         is not an emergency service — if you are in crisis, call or text 988. You can also reach our
         admissions team directly at{" "}
-        <a href={site.phoneHref} className="font-semibold text-gold-700">
+        <a href={site.phoneHref} className="font-semibold text-gold-700" suppressHydrationWarning>
           {site.phone}
         </a>
         .

@@ -74,7 +74,7 @@ export default function Header() {
             <a href={`mailto:${site.email}`} className="hover:text-gold-300 transition-colors">
               {site.email}
             </a>
-            <a href={site.phoneHref} className="font-semibold text-gold-300 hover:text-gold-200 transition-colors">
+            <a href={site.phoneHref} className="font-semibold text-gold-300 hover:text-gold-200 transition-colors" suppressHydrationWarning>
               {site.phone}
             </a>
           </div>
@@ -222,7 +222,7 @@ export default function Header() {
             </Link>
             <a
               href={site.phoneHref}
-              className="hidden sm:inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gold-700 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(50,96,82,0.28)] hover:bg-gold-800 transition-colors lg:px-5"
+              className="hidden sm:inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gold-700 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(50,96,82,0.28)] hover:bg-gold-800 transition-colors lg:px-5" suppressHydrationWarning
             >
               <Phone className="size-4 shrink-0" />
               {site.phone}
@@ -231,7 +231,7 @@ export default function Header() {
             <a
               href={site.phoneHref}
               aria-label={`Call ${site.phone}`}
-              className="sm:hidden inline-flex size-11 items-center justify-center rounded-full bg-gold-700 text-white shadow-[0_8px_24px_rgba(50,96,82,0.28)] hover:bg-gold-800 transition-colors"
+              className="sm:hidden inline-flex size-11 items-center justify-center rounded-full bg-gold-700 text-white shadow-[0_8px_24px_rgba(50,96,82,0.28)] hover:bg-gold-800 transition-colors" suppressHydrationWarning
             >
               <Phone className="size-5" />
             </a>
@@ -398,7 +398,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
           <a
             href={site.phoneHref}
             onClick={onClose}
-            className="flex items-center justify-center gap-2 rounded-full bg-gold-700 px-5 py-3.5 font-semibold text-white"
+            className="flex items-center justify-center gap-2 rounded-full bg-gold-700 px-5 py-3.5 font-semibold text-white" suppressHydrationWarning
           >
             <Phone className="size-4" /> Call {site.phone}
           </a>

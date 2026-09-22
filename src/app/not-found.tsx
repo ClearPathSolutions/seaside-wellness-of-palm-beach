@@ -27,7 +27,7 @@ export default function NotFound() {
           </Link>
           <a
             href={site.phoneHref}
-            className="inline-flex items-center gap-2 rounded-full border border-ink-300 px-6 py-3.5 font-semibold text-ink transition-colors hover:border-gold-500 hover:text-gold-700"
+            className="inline-flex items-center gap-2 rounded-full border border-ink-300 px-6 py-3.5 font-semibold text-ink transition-colors hover:border-gold-500 hover:text-gold-700" suppressHydrationWarning
           >
             <Phone className="size-4" /> Call {site.phone}
           </a>

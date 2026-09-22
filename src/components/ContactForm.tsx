@@ -104,7 +104,7 @@ export default function ContactForm() {
         <h3 className="mt-4 text-2xl font-medium text-ink">Thank you for contacting us</h3>
         <p className="mt-2 max-w-md text-ink-600">
           An admissions specialist will be reaching out to you shortly. For immediate help, call{" "}
-          <a href={site.phoneHref} className="font-semibold text-gold-700">{site.phone}</a>.
+          <a href={site.phoneHref} className="font-semibold text-gold-700" suppressHydrationWarning>{site.phone}</a>.
         </p>
       </div>
     );
@@ -182,7 +182,7 @@ export default function ContactForm() {
       <p className="text-xs text-ink-600">
         Your information is kept strictly confidential and is never shared. This form is not for
         emergencies — if you are in crisis, call or text{" "}
-        <a href="tel:988" className="font-semibold text-gold-700 underline underline-offset-2">988</a>.
+        <a href="tel:988" className="font-semibold text-gold-700 underline underline-offset-2" suppressHydrationWarning>988</a>.
       </p>
     </form>
   );

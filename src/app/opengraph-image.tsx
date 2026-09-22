@@ -73,7 +73,7 @@ export default function OpengraphImage() {
           }}
         >
           <div style={{ display: "flex", width: 40, height: 4, background: SEAFOAM_DEEP }} />
-          <div style={{ display: "flex", color: SEAFOAM }}>{site.phone}</div>
+          <div style={{ display: "flex", color: SEAFOAM }} suppressHydrationWarning>{site.phone}</div>
         </div>
       </div>
     ),

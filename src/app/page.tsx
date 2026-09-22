@@ -63,7 +63,7 @@ export default function Home() {
               detox, residential inpatient, and dual diagnosis care — just steps from the water.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href={site.phoneHref} size="lg" variant="primary">
+              <Button href={site.phoneHref} size="lg" variant="primary" suppressHydrationWarning>
                 <Phone className="size-5" /> Call {site.phone}
               </Button>
               <Button href={VERIFY_INSURANCE_HREF} size="lg" variant="onDark">

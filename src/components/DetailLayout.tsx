@@ -186,7 +186,7 @@ export default function DetailLayout({
               </p>
               <a
                 href={site.phoneHref}
-                className="mt-5 flex items-center justify-center gap-2 rounded-full bg-gold-700 px-5 py-3.5 font-semibold text-white transition-colors hover:bg-gold-800"
+                className="mt-5 flex items-center justify-center gap-2 rounded-full bg-gold-700 px-5 py-3.5 font-semibold text-white transition-colors hover:bg-gold-800" suppressHydrationWarning
               >
                 <Phone className="size-4" /> {site.phone}
               </a>

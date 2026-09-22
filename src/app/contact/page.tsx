@@ -48,7 +48,7 @@ export default function ContactPage() {
             <div className="space-y-4">
               <div className="rounded-2xl bg-ink p-7 text-white">
                 <p className="eyebrow text-gold-300">Speak with us now</p>
-                <a href={site.phoneHref} className="mt-2 block font-display text-4xl text-white hover:text-gold-200">
+                <a href={site.phoneHref} className="mt-2 block font-display text-4xl text-white hover:text-gold-200" suppressHydrationWarning>
                   {site.phone}
                 </a>
                 <p className="mt-1 text-sm text-cream/70">Confidential · 24 hours a day, 7 days a week</p>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   <Phone className="mt-1 size-5 shrink-0 text-gold-600" />
                   <div>
                     <p className="text-sm font-semibold text-ink">Phone</p>
-                    <a href={site.phoneHref} className="-my-1 inline-block py-1 text-ink-600 hover:text-gold-700">{site.phone}</a>
+                    <a href={site.phoneHref} className="-my-1 inline-block py-1 text-ink-600 hover:text-gold-700" suppressHydrationWarning>{site.phone}</a>
                   </div>
                 </li>
               </ul>

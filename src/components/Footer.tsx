@@ -56,7 +56,7 @@ export default function Footer() {
     <footer className="bg-ink text-cream/80">
       {/* Crisis note */}
       <div className="bg-ocean-700 text-cream text-center text-sm py-2.5 px-4">
-        In a crisis? Call or text <a href="tel:988" className="font-semibold underline underline-offset-2">988</a> (Suicide &amp; Crisis Lifeline) — free, confidential, 24/7.
+        In a crisis? Call or text <a href="tel:988" className="font-semibold underline underline-offset-2" suppressHydrationWarning>988</a> (Suicide &amp; Crisis Lifeline) — free, confidential, 24/7.
       </div>
 
       <div className="container-page py-14 md:py-16">
@@ -76,7 +76,7 @@ export default function Footer() {
               Florida — delivering evidence-based care just steps from the water.
             </p>
             <div className="mt-6 space-y-2.5 text-[0.95rem]">
-              <a href={site.phoneHref} className="flex items-center gap-3 hover:text-gold-300 transition-colors">
+              <a href={site.phoneHref} className="flex items-center gap-3 hover:text-gold-300 transition-colors" suppressHydrationWarning>
                 <Phone className="size-4 text-gold-400 shrink-0" /> {site.phone}
               </a>
               <a href={`mailto:${site.email}`} className="flex items-center gap-3 hover:text-gold-300 transition-colors">

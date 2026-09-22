@@ -40,7 +40,7 @@ export default function PageHero({
       <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink/85" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/70 to-transparent" />
 
-      <div className="container-page relative py-20 md:py-28 lg:py-32">
+      <div className="container-page relative py-20 md:py-28 lg:py-32" suppressHydrationWarning>
         {crumbs.length > 0 && (
           <script
             type="application/ld+json"
@@ -81,7 +81,7 @@ export default function PageHero({
 
         {showCta && (
           <div className="mt-9 flex flex-wrap gap-3">
-            <Button href={site.phoneHref} size="lg" variant="primary">
+            <Button href={site.phoneHref} size="lg" variant="primary" suppressHydrationWarning>
               <Phone className="size-4" /> Call {site.phone}
             </Button>
             <Button href={VERIFY_INSURANCE_HREF} size="lg" variant="onDark">
