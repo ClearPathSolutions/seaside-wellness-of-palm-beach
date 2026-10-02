@@ -43,6 +43,14 @@ const nextConfig: NextConfig = {
         destination: canonicalPath("/about/our-story"),
         permanent: true,
       },
+      // Job listings live on ADP Workforce Now. Temporary (307) so browsers
+      // and search engines don't cache it, since ADP's URL may change.
+      {
+        source: "/careers",
+        destination:
+          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=e1094ba9-8b93-4f55-9dab-3102a4eaaa49&ccId=9200867085656_2&lang=en_US",
+        permanent: false,
+      },
     ];
   },
   async headers() {
