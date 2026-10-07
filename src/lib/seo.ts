@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 import { ogImage } from "@/lib/og";
 import { canonicalPath } from "@/lib/routing";
 import { areas } from "@/data/catalog";
+import { editorialPolicyReady, EDITORIAL_POLICY_URL, CORRECTIONS_ANCHOR } from "@/lib/editorial";
 
 /**
  * Returns a title that avoids doubling the brand. The root layout applies the
@@ -127,6 +128,14 @@ export function organizationJsonLd() {
       closes: "23:59",
     },
     sameAs: [site.socials.facebook, site.socials.instagram, site.socials.linkedin],
+    // Editorial policy package: merged into this node, never a second one.
+    // Only once the policy is signed off and served (lib/editorial.ts).
+    ...(editorialPolicyReady
+      ? {
+          publishingPrinciples: EDITORIAL_POLICY_URL,
+          correctionsPolicy: `${EDITORIAL_POLICY_URL}#${CORRECTIONS_ANCHOR}`,
+        }
+      : {}),
   };
 }
 

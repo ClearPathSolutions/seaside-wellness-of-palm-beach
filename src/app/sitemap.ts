@@ -4,6 +4,7 @@ import { conditions, programs, therapies, areas } from "@/data/catalog";
 import { team } from "@/data/team";
 import { posts } from "@/data/posts";
 import { canonicalPath } from "@/lib/routing";
+import { editorialPolicyReady } from "@/lib/editorial";
 
 type Entry = { path: string; lastModified?: string };
 
@@ -41,6 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const entries: Entry[] = [
     ...staticPaths.map((path) => ({ path })),
+    // Listed only once the policy is signed off and may be indexed (lib/editorial.ts).
+    ...(editorialPolicyReady ? [{ path: "/editorial-policy" }] : []),
     ...conditions.map((c) => ({ path: `/what-we-treat/${c.slug}` })),
     ...[...programs, ...therapies].map((t) => ({ path: `/treatment/${t.slug}` })),
     ...areas.map((a) => ({ path: `/areas-we-serve/${a.slug}` })),

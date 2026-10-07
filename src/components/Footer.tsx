@@ -4,6 +4,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "./SocialIcons";
 import { site } from "@/lib/site";
 import { VERIFY_INSURANCE_HREF } from "@/lib/routing";
+import { editorialPolicyServed, EDITORIAL_POLICY_PATH } from "@/lib/editorial";
 
 const columns: { heading: string; links: { label: string; href: string }[] }[] = [
   {
@@ -152,6 +153,12 @@ export default function Footer() {
             <Link href="/privacy-policy" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
               Privacy Policy
             </Link>
+            {/* Withheld in production until the policy is signed off (lib/editorial.ts). */}
+            {editorialPolicyServed && (
+              <Link href={EDITORIAL_POLICY_PATH} className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
+                Editorial Policy
+              </Link>
+            )}
             <Link href="/terms" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
               Terms of Service
             </Link>

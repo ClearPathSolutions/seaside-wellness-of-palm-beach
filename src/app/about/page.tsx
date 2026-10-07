@@ -11,6 +11,7 @@ import CTASection from "@/components/CTASection";
 import { leadership } from "@/data/roster";
 import { differentiators } from "@/data/site-content";
 import { pageMeta, smartTitle } from "@/lib/seo";
+import { editorialPolicyServed, EDITORIAL_POLICY_PATH } from "@/lib/editorial";
 
 export const metadata: Metadata = {
   // smartTitle: this title already carries the brand, so bypass the root
@@ -118,6 +119,16 @@ export default function AboutHub() {
               </Reveal>
             ))}
           </div>
+          {/* Withheld in production until the policy is signed off (lib/editorial.ts). */}
+          {editorialPolicyServed && (
+            <p className="mt-12 text-center text-sm text-ink-600">
+              Learn how we research, write and review the health information on this site in our{" "}
+              <Link href={EDITORIAL_POLICY_PATH} className="font-semibold text-gold-700 underline underline-offset-2 hover:text-gold-800">
+                Editorial Policy
+              </Link>
+              .
+            </p>
+          )}
         </div>
       </section>
 

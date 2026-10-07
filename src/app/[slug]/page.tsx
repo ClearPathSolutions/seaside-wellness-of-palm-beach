@@ -9,6 +9,8 @@ import { ogBase } from "@/lib/seo";
 import { canonicalPath } from "@/lib/routing";
 import Reveal from "@/components/Reveal";
 import CTASection from "@/components/CTASection";
+import ArticleByline from "@/components/ArticleByline";
+import { getByline } from "@/lib/byline";
 
 export const dynamicParams = false;
 
@@ -64,21 +66,48 @@ export default async function PostPage({
   const more = posts.filter((x) => x.slug !== slug).slice(0, 3);
   const hasBody = p.body.length > 0;
 
+  const byline = getByline(p);
+  const url = `${site.url}${canonicalPath(`/${p.slug}`)}`;
+  const orgRef = { "@id": `${site.url}/#organization` };
+  const personRef = (who: NonNullable<typeof byline.author>) => ({
+    "@type": "Person",
+    "@id": `${who.bioUrl}#person`,
+    name: who.name,
+    url: who.bioUrl,
+    ...(who.credentials ? { honorificSuffix: who.credentials } : {}),
+  });
+
+  // Editorial policy package: schema/clinical-article.jsonld. reviewedBy and
+  // lastReviewed only when the post has a reviewer and a review date — never a
+  // default reviewer. The publisher is the layout's single Organization node.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: p.title,
-    description: p.excerpt,
-    datePublished: p.date,
-    dateModified: p.date,
-    image: `${site.url}${p.image}`,
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${site.url}/${p.slug}` },
-    author: { "@type": "Organization", name: site.legalName, url: site.url },
-    publisher: {
-      "@type": "Organization",
-      name: site.legalName,
-      logo: { "@type": "ImageObject", url: `${site.url}${site.logo}` },
-    },
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: p.title,
+        ...(byline.reviewer && byline.lastReviewed
+          ? { lastReviewed: byline.lastReviewed, reviewedBy: personRef(byline.reviewer) }
+          : {}),
+        publisher: orgRef,
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": `${url}#article`,
+        headline: p.title,
+        description: p.excerpt,
+        image: `${site.url}${p.image}`,
+        mainEntityOfPage: { "@id": `${url}#webpage` },
+        datePublished: p.date,
+        dateModified: p.date,
+        // A named author only when one is recorded; otherwise the existing
+        // attribution to the organization stands.
+        author: byline.author ? personRef(byline.author) : orgRef,
+        publisher: orgRef,
+      },
+    ],
   };
 
   return (
@@ -95,6 +124,9 @@ export default async function PostPage({
           <h1 className="mt-3 max-w-4xl text-3xl font-medium leading-tight text-white sm:text-4xl lg:text-5xl">
             {p.title}
           </h1>
+          <div className="max-w-4xl text-cream/85">
+            <ArticleByline byline={byline} />
+          </div>
           <div className="mt-6 flex flex-wrap items-center gap-5 text-sm text-cream/70">
             <span className="flex items-center gap-1.5"><Calendar className="size-4 text-gold-400" /> {fmtDate(p.date)}</span>
             <span className="flex items-center gap-1.5"><Clock className="size-4 text-gold-400" /> {p.readingMinutes} min read</span>

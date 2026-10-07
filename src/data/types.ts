@@ -88,4 +88,16 @@ export type Post = {
   readingMinutes: number;
   image: string;
   body: DetailSection[];
+  /**
+   * Editorial policy per-post fields (the package's written_by, reviewed_by,
+   * last_reviewed). All optional. Both people are team slugs (data/team.ts),
+   * so every name links to its /about/<slug>/ bio page; an unknown slug fails
+   * the build. A missing value means no line — there is never a site-wide
+   * default author or reviewer. Fill only with real, confirmed people.
+   */
+  writtenBy?: string;
+  /** Clinical reviewer. Shown only when `lastReviewed` is also set. */
+  reviewedBy?: string;
+  /** YYYY-MM-DD. */
+  lastReviewed?: string;
 };

@@ -172,6 +172,53 @@
     text-decoration-thickness: 1px;
   }
   .prose-seaside strong { color: var(--color-ink); font-weight: 700; }
+
+  /* Article byline (editorial policy package, templates/article-byline.css).
+     Colours follow the surrounding text, so it works in the dark post hero. */
+  .article-byline {
+    margin: 1.25rem 0 0;
+    padding: 0.75rem 0;
+    border-top: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .article-byline p { margin: 0.15rem 0; }
+  .article-byline .byline-meta {
+    color: color-mix(in srgb, currentColor 75%, transparent);
+    font-size: 0.875rem;
+  }
+  .article-byline a { text-decoration: underline; text-underline-offset: 2px; }
+  .article-byline a:hover { color: var(--color-gold-300); }
+
+  /* Editorial policy page. The template's own <article class="editorial-policy">
+     sits between .prose-seaside and its blocks, so restate the prose rhythm. */
+  .editorial-policy > * + * { margin-top: 1.15em; }
+  .editorial-policy h2[id] { scroll-margin-top: 8rem; }
+  .editorial-policy ol { list-style: decimal; padding-left: 1.5rem; }
+  .editorial-policy ol li { margin-top: 0.6em; padding-left: 0.25rem; }
+  .editorial-policy ol li::marker { color: var(--color-gold-700); font-weight: 700; }
+  /* Terminology table scrolls sideways on phones instead of overflowing. */
+  .editorial-policy .table-scroll { overflow-x: auto; max-width: 100%; }
+  .editorial-policy table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 28rem;
+    font-size: 0.975rem;
+    line-height: 1.5;
+  }
+  .editorial-policy th,
+  .editorial-policy td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--color-shell);
+  }
+  .editorial-policy th {
+    font-weight: 700;
+    color: var(--color-ink);
+    border-bottom-color: var(--color-gold-200);
+  }
 }
 
 @keyframes rise-in {

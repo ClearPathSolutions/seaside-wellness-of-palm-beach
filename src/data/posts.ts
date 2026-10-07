@@ -7,6 +7,10 @@ import postBodies from "./content/posts.json";
  * `readingMinutes` is intentionally absent — it is derived from the body at
  * merge time. Hand-authored values had drifted 2–3× above the real length
  * (a 421-word post claimed 7 minutes).
+ *
+ * Bylines: each entry may set `writtenBy`, `reviewedBy` (team slugs) and
+ * `lastReviewed` (YYYY-MM-DD) — see the Post type. None is set yet because no
+ * author or reviewer has been confirmed for these posts; do not guess.
  */
 const meta: Omit<Post, "body" | "readingMinutes">[] = [
   {
