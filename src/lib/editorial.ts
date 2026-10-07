@@ -36,7 +36,7 @@ export const editorial = {
   phone: "855-416-5648",
   phoneTel: "+18554165648",
   /** YYYY-MM-DD. Blank until the content team reviews the policy. */
-  lastReviewed: "",
+  lastReviewed: "2026-10-07",
   /** Copy of the CSV's CONTENT_SIGNOFF cell. Blank until signed off. */
   contentSignoff: "",
 } as const;
