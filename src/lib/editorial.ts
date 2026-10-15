@@ -38,7 +38,7 @@ export const editorial = {
   /** YYYY-MM-DD. Blank until the content team reviews the policy. */
   lastReviewed: "2026-10-07",
   /** Copy of the CSV's CONTENT_SIGNOFF cell. Blank until signed off. */
-  contentSignoff: "",
+  contentSignoff: "2026-10-15",
 } as const;
 
 /** Slash-terminated to match the site's trailingSlash convention. */
