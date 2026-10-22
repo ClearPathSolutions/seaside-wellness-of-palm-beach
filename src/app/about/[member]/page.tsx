@@ -4,14 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Phone } from "lucide-react";
 import { team } from "@/data/team";
+import { roster, CANONICAL_AT_PARENT } from "@/data/roster";
 import { site } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 import CTASection from "@/components/CTASection";
 import { pageMeta, metaDescription } from "@/lib/seo";
 
-const CANONICAL_AT_PARENT: Record<string, string> = {
-  "pamela-tambini": "https://www.quadranthealthgroup.com/team/pamela-tambini/",
-};
 
 export function generateStaticParams() {
   return team.map((m) => ({ member: m.slug }));
@@ -93,6 +91,25 @@ export default async function MemberPage({
               </a>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Cross-links so every bio is reachable from more than the team grid. */}
+      <section className="border-t border-shell bg-white py-12 md:py-16">
+        <div className="container-page">
+          <h2 className="text-2xl font-medium text-ink sm:text-3xl">Meet the rest of the team</h2>
+          <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+            {roster
+              .filter((o) => o.slug !== m.slug)
+              .map((o) => (
+                <li key={o.slug}>
+                  <Link href={`/about/${o.slug}`} className="font-semibold text-ink hover:text-gold-700">
+                    {o.name}
+                  </Link>
+                  <span className="block text-sm text-ink-600">{o.role}</span>
+                </li>
+              ))}
+          </ul>
         </div>
       </section>
 

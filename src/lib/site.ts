@@ -14,7 +14,7 @@ export const site = {
    */
   metaDescription:
     "Luxury addiction and mental health treatment in West Palm Beach, FL — evidence-based detox, residential inpatient, and dual diagnosis care.",
-  url: "https://seasidewellnesspb.com",
+  url: "https://www.seasidewellnesspb.com",
   phone: "(855) 416-5648",
   phoneHref: "tel:+18554165648",
   email: "info@seasidewellnesspb.com",

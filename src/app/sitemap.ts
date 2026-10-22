@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { conditions, programs, therapies, areas } from "@/data/catalog";
 import { team } from "@/data/team";
+import { CANONICAL_AT_PARENT } from "@/data/roster";
 import { posts } from "@/data/posts";
 import { canonicalPath } from "@/lib/routing";
 import { editorialPolicyReady } from "@/lib/editorial";
@@ -47,7 +48,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...conditions.map((c) => ({ path: `/what-we-treat/${c.slug}` })),
     ...[...programs, ...therapies].map((t) => ({ path: `/treatment/${t.slug}` })),
     ...areas.map((a) => ({ path: `/areas-we-serve/${a.slug}` })),
-    ...team.map((m) => ({ path: `/about/${m.slug}` })),
+    ...team
+      .filter((m) => !CANONICAL_AT_PARENT[m.slug])
+      .map((m) => ({ path: `/about/${m.slug}` })),
     ...posts.map((p) => ({ path: `/${p.slug}`, lastModified: p.date })),
   ];
 

@@ -102,6 +102,7 @@ export default function Footer() {
                   className="grid size-10 place-items-center rounded-full border border-cream/20 text-cream/80 hover:border-gold-400 hover:text-gold-300 transition-colors"
                 >
                   <Icon className="size-[18px]" />
+                  <span className="sr-only">{label}</span>
                 </a>
               ))}
             </div>

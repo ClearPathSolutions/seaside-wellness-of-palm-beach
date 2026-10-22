@@ -49,3 +49,13 @@ export const roster: TeamMember[] = (() => {
 
 /** The directors, for the four-up grid on /about. */
 export const leadership: TeamMember[] = roster.slice(0, LEADERSHIP_COUNT);
+
+/**
+ * Network-wide staff whose approved bio is published on quadranthealthgroup.com
+ * and on every Quadrant facility site. Their pages here canonicalise to the
+ * parent, so they are also left out of this site's sitemap — listing a URL whose
+ * canonical points at another domain is an "incorrect page in sitemap" error.
+ */
+export const CANONICAL_AT_PARENT: Record<string, string> = {
+  "pamela-tambini": "https://www.quadranthealthgroup.com/team/pamela-tambini/",
+};

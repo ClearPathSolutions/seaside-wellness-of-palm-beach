@@ -63,7 +63,13 @@ export default async function PostPage({
   const p = getPost(slug);
   if (!p) notFound();
 
-  const more = posts.filter((x) => x.slug !== slug).slice(0, 3);
+  // The next three posts in list order (wrapping), rather than always the
+  // first three: that way every post is linked from three other posts instead
+  // of the same three collecting every "Keep reading" link on the site.
+  const idx = posts.findIndex((x) => x.slug === slug);
+  const more = [1, 2, 3]
+    .map((n) => posts[(idx + n) % posts.length])
+    .filter((x) => x && x.slug !== slug);
   const hasBody = p.body.length > 0;
 
   const byline = getByline(p);

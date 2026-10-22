@@ -234,6 +234,7 @@ export default function Header() {
               className="sm:hidden inline-flex size-11 items-center justify-center rounded-full bg-gold-700 text-white shadow-[0_8px_24px_rgba(50,96,82,0.28)] hover:bg-gold-800 transition-colors" suppressHydrationWarning
             >
               <Phone className="size-5" />
+              <span className="sr-only">Call {site.phone}</span>
             </a>
             <button
               type="button"
