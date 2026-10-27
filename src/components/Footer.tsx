@@ -166,7 +166,7 @@ export default function Footer() {
                 Editorial Policy
               </Link>
             )}
-            <Link href="/terms" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
+            <Link href="/terms-of-service" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
               Terms of Service
             </Link>
           </p>

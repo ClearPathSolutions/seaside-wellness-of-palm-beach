@@ -48,6 +48,8 @@ const nextConfig: NextConfig = {
         destination: canonicalPath("/about/our-story"),
         permanent: true,
       },
+      // The old marketplace-boilerplate Terms of Service moved to the portfolio-standard page (2026-10-27).
+      { source: "/terms", destination: canonicalPath("/terms-of-service"), permanent: true },
       // Job listings live on ADP Workforce Now. Temporary (307) so browsers
       // and search engines don't cache it, since ADP's URL may change.
       {

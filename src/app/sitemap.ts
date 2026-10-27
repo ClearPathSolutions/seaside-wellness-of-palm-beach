@@ -29,7 +29,7 @@ const staticPaths = [
   "/privacy-policy",
   "/notice-of-privacy-practices",
   "/sms-terms",
-  "/terms",
+  "/terms-of-service",
 ];
 
 /**
