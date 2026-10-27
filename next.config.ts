@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
       //   /category/blog/  → indexed in category-sitemap.xml
       //   /feed/           → returns 200 (RSS)
       //   /author/admin/   → already 404s; rule kept as cheap insurance
-      // /tag/* and dated permalinks were checked and do not exist — not added.
+      // Dated permalinks were checked and do not exist — not added. /tag/* did exist: see below.
       //
       // Destinations go through canonicalPath: `trailingSlash` normalises
       // incoming requests but does NOT rewrite redirect destinations, so a bare
@@ -32,6 +32,11 @@ const nextConfig: NextConfig = {
       // (/category/blog/ → /about/blog → /about/blog/).
       { source: "/author/:path*", destination: "/", permanent: true },
       { source: "/category/:path*", destination: BLOG, permanent: true },
+      // SEO 86e3ptqxw: the 2025 WordPress site did serve four /tag/ archives (Wayback CDX, tested
+      // against www 2026-10-26: all 404). The comment above was right in August and is stale now.
+      // The two detox tags have a better home than the blog index; the rest are post archives.
+      { source: "/tag/:slug(detox|drug-detox)", destination: canonicalPath("/treatment/detox"), permanent: true },
+      { source: "/tag/:path*", destination: BLOG, permanent: true },
       // Production serves a real feed here. Until an RSS route exists in this
       // build, point subscribers at the blog index rather than 404.
       { source: "/feed", destination: BLOG, permanent: true },
