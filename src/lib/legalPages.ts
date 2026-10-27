@@ -28,6 +28,7 @@ const fields: Record<string, string> = {
   STREET_ADDRESS: escapeHtml(site.address.full),
   LEGAL_ENTITY_LINE: "",
   STATE_NAME: "Florida",
+  STATE_NAME_CAPS: "FLORIDA",
   PP_LAST_UPDATED: LEGAL_DATE,
   SMS_LAST_UPDATED: LEGAL_DATE,
   NPP_EFFECTIVE_DATE: LEGAL_DATE,
