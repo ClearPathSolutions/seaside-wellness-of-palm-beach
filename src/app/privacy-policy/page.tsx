@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import privacyBlocks from "@/data/content/privacy.json";
-import { formatLegalDate, privacyEffective } from "@/data/legal";
+import { site } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
+import { legalPageBody } from "@/lib/legalPages";
+
+const title = `Privacy Policy | ${site.legalName}`;
+const description = `How ${site.legalName} collects, uses, discloses, and protects information you provide through our website and when you contact us.`;
+const base = pageMeta("/privacy-policy");
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "Notice of Privacy Practices for Seaside Wellness of Palm Beach — how your protected health information may be used and disclosed, and your rights regarding it.",
-  ...pageMeta("/privacy-policy"),
+  // Absolute: the root layout's "%s | Seaside Wellness" template would double the brand.
+  title: { absolute: title },
+  description,
+  ...base,
+  openGraph: { ...base.openGraph, title, description },
   robots: { index: true, follow: true },
 };
 
-type Block =
-  | { tag: "h2" | "h3" | "p"; text: string }
-  | { tag: "ul"; items: string[] };
-
 export default function PrivacyPolicy() {
-  const blocks = privacyBlocks as Block[];
+  const html = legalPageBody("privacy-policy");
   return (
     <>
       <PageHero
         eyebrow="Legal"
         title="Privacy Policy"
-        subtitle="Our Notice of Privacy Practices — how your protected health information is used and disclosed, and your rights regarding it."
         image="/images/facility/26-web-or-mls-0E2A6316.jpg"
         crumbs={[{ label: "Privacy Policy" }]}
         showCta={false}
@@ -31,30 +31,12 @@ export default function PrivacyPolicy() {
 
       <section className="py-16 md:py-24">
         <div className="container-page mx-auto max-w-3xl">
-          {/* 45 CFR §164.520(b)(1)(v)(C) requires an effective date on a Notice of
-              Privacy Practices. Renders only once the practice sets it — see
-              data/legal.ts. Deliberately not defaulted to a fabricated date. */}
-          {privacyEffective && (
-            <p className="mb-8 text-sm text-ink-500">
-              Effective {formatLegalDate(privacyEffective)}
-            </p>
-          )}
-          <div className="prose-seaside">
-            {blocks.map((b, i) => {
-              if (b.tag === "ul") {
-                return (
-                  <ul key={i}>
-                    {b.items.map((it, j) => (
-                      <li key={j}>{it}</li>
-                    ))}
-                  </ul>
-                );
-              }
-              if (b.tag === "h2") return <h2 key={i}>{b.text}</h2>;
-              if (b.tag === "h3") return <h3 key={i}>{b.text}</h3>;
-              return <p key={i}>{b.text}</p>;
-            })}
-          </div>
+          {/* suppressHydrationWarning: CTM rewrites the phone link inside. */}
+          <div
+            className="prose-seaside"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </div>
       </section>
     </>

@@ -27,6 +27,8 @@ const staticPaths = [
   "/tour",
   "/contact",
   "/privacy-policy",
+  "/notice-of-privacy-practices",
+  "/sms-terms",
   "/terms",
 ];
 

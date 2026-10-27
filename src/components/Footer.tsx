@@ -154,6 +154,12 @@ export default function Footer() {
             <Link href="/privacy-policy" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
               Privacy Policy
             </Link>
+            <Link href="/notice-of-privacy-practices" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
+              Notice of Privacy Practices
+            </Link>
+            <Link href="/sms-terms" className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
+              SMS Terms
+            </Link>
             {/* Withheld in production until the policy is signed off (lib/editorial.ts). */}
             {editorialPolicyServed && (
               <Link href={EDITORIAL_POLICY_PATH} className="-my-1 inline-block py-1 hover:text-gold-300 transition-colors">
