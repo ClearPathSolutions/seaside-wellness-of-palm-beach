@@ -20,6 +20,7 @@ const escapeHtml = (s: string) =>
 
 const fields: Record<string, string> = {
   FACILITY_NAME: escapeHtml(site.legalName),
+  FACILITY_NAME_CAPS: escapeHtml(site.legalName.toUpperCase()),
   DOMAIN: new URL(site.url).hostname.replace(/^www\./, ""),
   PHONE: `<a href="${site.phoneHref}">${escapeHtml(site.phone)}</a>`,
   PRIVACY_EMAIL: `<a href="mailto:${site.email}">${escapeHtml(site.email)}</a>`,
