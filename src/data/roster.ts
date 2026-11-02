@@ -19,6 +19,7 @@ const ROSTER_ORDER = [
   "erin-crawford", // Director of Nursing
   "steve-ryan", // Operations Director
   "michael-meagher", // Clinical Director
+  "casey-hyatt", // Director of Family Services — network-wide
   "shaun-hutton", // Primary Therapist
   "april-blair", // Primary Therapist
   "kate-gulam", // Primary Therapist
@@ -58,4 +59,5 @@ export const leadership: TeamMember[] = roster.slice(0, LEADERSHIP_COUNT);
  */
 export const CANONICAL_AT_PARENT: Record<string, string> = {
   "pamela-tambini": "https://www.quadranthealthgroup.com/team/pamela-tambini/",
+  "casey-hyatt": "https://www.quadranthealthgroup.com/team/casey-hyatt/",
 };
