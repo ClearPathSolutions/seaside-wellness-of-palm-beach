@@ -120,16 +120,6 @@ export const team: TeamMember[] = [
     ],
   },
   {
-    slug: "timothy-foley",
-    name: "Timothy Foley",
-    role: "Program Director",
-    image: "/images/team/timothy-foley.jpg",
-    bio: [
-      "Tim is a dedicated and compassionate Program Director with over seven years of experience in addiction treatment and behavioral health. He has developed and managed evidence-based, patient-centered programs and is skilled at leading multidisciplinary teams to deliver seamless, holistic care. With a strong background in program evaluation and staff development, Tim ensures services are effective, up to date, and tailored to client needs.",
-      "He holds a bachelor’s degree in behavioral science and is known for his empathetic leadership style. Under his guidance, the program has achieved higher patient engagement and improved long-term recovery outcomes.",
-    ],
-  },
-  {
     slug: "zachary-walter",
     name: "Zachary Walter",
     role: "Alumni Coordinator",

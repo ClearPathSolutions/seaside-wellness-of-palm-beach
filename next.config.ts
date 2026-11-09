@@ -48,6 +48,8 @@ const nextConfig: NextConfig = {
         destination: canonicalPath("/about/our-story"),
         permanent: true,
       },
+      // Timothy Foley left the team (2026-11-09); keep his indexed bio URL from 404ing.
+      { source: "/about/timothy-foley", destination: canonicalPath("/about/meet-the-team"), permanent: true },
       // The old marketplace-boilerplate Terms of Service moved to the portfolio-standard page (2026-10-27).
       { source: "/terms", destination: canonicalPath("/terms-of-service"), permanent: true },
       // Job listings live on ADP Workforce Now. Temporary (307) so browsers
