@@ -100,13 +100,14 @@ export default function AboutHub() {
               Meet the full team <ArrowRight className="size-4" />
             </Link>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+          {/* Flex rather than grid so a short last row (5 cards over 2 or 3 columns) centres instead of hanging left. */}
+          <div className="mt-12 flex flex-wrap justify-center gap-6">
             {leadership.map((m, i) => (
-              <Reveal key={m.slug} delay={i * 50}>
+              <Reveal key={m.slug} delay={i * 50} className="w-[calc((100%-1.5rem)/2)] sm:w-[calc((100%-3rem)/3)] lg:w-[calc((100%-6rem)/5)]">
                 <Link href={`/about/${m.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-shell shadow-[var(--shadow-soft)]">
                     {m.image ? (
-                      <Image src={m.image} alt={m.name} fill sizes="(max-width:768px) 50vw, 25vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <Image src={m.image} alt={m.name} fill sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 20vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center bg-shell font-semibold text-3xl text-gold-700">
                         {m.name.replace(/^(Dr|Mr|Mrs|Ms)\.?\s+/i, "").split(/\s+/).slice(0, 2).map((w) => w[0]).join("")}

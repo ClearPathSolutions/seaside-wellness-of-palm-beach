@@ -10,10 +10,11 @@ import type { TeamMember } from "./types";
  * whatever order the portal returned. Keeping the order here lets the sync
  * rewrite bios, roles, credentials and photos freely without disturbing it.
  *
- * One list drives both the four-up preview on /about and the full grid on
+ * One list drives both the leadership preview on /about and the full grid on
  * /about/meet-the-team. Two lists would drift the moment someone was promoted.
  */
 const ROSTER_ORDER = [
+  "hailey-henderson", // Executive Director
   "pamela-tambini", // Medical Oversight — network-wide
   "erin-crawford", // Director of Nursing
   "steve-ryan", // Operations Director
@@ -28,7 +29,7 @@ const ROSTER_ORDER = [
 ] as const;
 
 /** How many of the above lead the org, for the /about preview grid. */
-const LEADERSHIP_COUNT = 4;
+const LEADERSHIP_COUNT = 5;
 
 /**
  * Everyone, in bio-sheet order.
@@ -47,7 +48,7 @@ export const roster: TeamMember[] = (() => {
   return [...ordered, ...unlisted];
 })();
 
-/** The directors, for the four-up grid on /about. */
+/** The directors, for the leadership preview on /about. */
 export const leadership: TeamMember[] = roster.slice(0, LEADERSHIP_COUNT);
 
 /**

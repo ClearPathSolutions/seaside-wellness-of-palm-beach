@@ -11,6 +11,19 @@ import type { TeamMember } from "./types";
  */
 export const team: TeamMember[] = [
   {
+    slug: "hailey-henderson",
+    name: "Hailey Henderson",
+    role: "Executive Director",
+    credentials: "MA, LMHC, MCAP, QS",
+    image: "/images/team/hailey-henderson.jpg",
+    bio: [
+      "Hailey Henderson is a Licensed Mental Health Counselor, Master’s Level Certified Addiction Professional, and behavioral healthcare leader with over 14 years of experience in mental health and substance use disorder treatment. She holds a Master of Arts in Holistic Counseling from Salve Regina University and brings extensive expertise in clinical leadership, program development, and behavioral healthcare operations.",
+      "Throughout her career, Hailey has held progressive leadership roles, overseeing clinical services, leading multidisciplinary teams, strengthening clinical operations, and ensuring the delivery of high-quality, evidence-based care. Her areas of expertise include multiple levels of care, clinical program development and implementation, regulatory compliance, quality assurance, strategic planning, and interdisciplinary team leadership.",
+      "Hailey is passionate about advancing accessible, high-quality, person-centered behavioral healthcare. She values a collaborative, hands-on approach to leadership and is committed to empowering teams, fostering professional growth, and making a meaningful difference in the lives of individuals and families impacted by mental health and substance use disorders.",
+      "Originally from Rhode Island, Hailey now calls South Florida home. Outside of work, she enjoys spending time with her husband and daughter, staying active, and enjoying all that South Florida has to offer.",
+    ],
+  },
+  {
     slug: "pamela-tambini",
     name: "Dr. Pamela Tambini",
     role: "Medical Oversight",
