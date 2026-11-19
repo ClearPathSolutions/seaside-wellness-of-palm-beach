@@ -21,6 +21,8 @@
 // already logged against this site in LEGAL-REVIEW.md (SW-010). Sending the
 // fields explicitly keeps the campaign out of the address bar entirely.
 
+import { latestReferrer } from "./latest-referrer";
+
 /**
  * localStorage rather than sessionStorage: a second tab is the same visit, and
  * CTM's own attribution window is 30 days. sessionStorage would drop the
@@ -69,7 +71,52 @@ export type FirstTouch = {
  * route-change tracker to go with this — this runs on exactly the loads that
  * can carry a campaign.
  */
+/**
+ * The latest-external-referrer helper (see latest-referrer.ts) as ES5 text for the
+ * inline script below. String.raw keeps the regex backslashes intact.
+ */
+const LATEST_REFERRER_JS = String.raw`var ClarionReferrer = (function () {
+  var KEY = 'clarion.last_referrer.v1';
+  var TTL_MS = 30 * 24 * 60 * 60 * 1000;
+  var MAX_LEN = 2048;
+  var TWO = ['co.uk', 'org.uk', 'ac.uk', 'gov.uk', 'com.au', 'net.au', 'org.au', 'co.nz', 'com.mx', 'com.br', 'co.jp', 'co.in', 'com.sg'];
+  function siteDomain(host) {
+    var h = String(host || '').toLowerCase().replace(/\.$/, '').replace(/^www\./, '');
+    var parts = h.split('.');
+    if (parts.length <= 2) return h;
+    var lastTwo = parts.slice(-2).join('.');
+    return TWO.indexOf(lastTwo) !== -1 ? parts.slice(-3).join('.') : lastTwo;
+  }
+  function now() {
+    try {
+      var ref = document.referrer || '';
+      if (!ref) return '';
+      var u = new URL(ref);
+      if ((u.protocol === 'http:' || u.protocol === 'https:') && siteDomain(u.hostname) === siteDomain(location.hostname)) return '';
+      return ref.slice(0, MAX_LEN);
+    } catch (e) { return ''; }
+  }
+  function remember() {
+    try {
+      var ref = now();
+      if (ref) localStorage.setItem(KEY, JSON.stringify({ ref: ref, at: Date.now() }));
+    } catch (e) {}
+  }
+  function latest() {
+    var live = now();
+    if (live) return live;
+    try {
+      var v = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (v && typeof v.ref === 'string' && v.ref && typeof v.at === 'number' && Date.now() - v.at < TTL_MS) return v.ref;
+    } catch (e) {}
+    return null;
+  }
+  return { now: now, remember: remember, latest: latest };
+})();`;
+
 export const FIRST_TOUCH_CAPTURE_JS = `(function(){try{
+${LATEST_REFERRER_JS}
+ClarionReferrer.remember();
 var K=${JSON.stringify(FIRST_TOUCH_KEY)},T=${FIRST_TOUCH_TTL_MS},N=${JSON.stringify(CAMPAIGN_PARAMS)};
 var q=new URLSearchParams(location.search),f={},i,v;
 for(i=0;i<N.length;i++){v=q.get(N[i]);if(v)f[N[i]]=v;}
@@ -182,7 +229,7 @@ export function clarionAttribution(): ClarionAttribution {
   return {
     page_url: window.location.href,
     landing_page_url: ft?.landing || window.location.href,
-    referrer: ft?.referrer || null,
+    referrer: latestReferrer() ?? (ft?.referrer || null),
     utm: Object.keys(utm).length ? utm : null,
     // Clarion has one click-id field. wbraid/gbraid are gclid's stand-ins, so
     // they ride in it rather than in a key Clarion has not agreed to accept.
