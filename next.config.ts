@@ -18,6 +18,19 @@ const nextConfig: NextConfig = {
     deviceSizes: [360, 480, 640, 768, 1024, 1280, 1536, 1920],
   },
   poweredByHeader: false,
+  // Clarion blog images are served from this domain: Clarion's embed is told
+  // (once it verifies this rule) to use /blog-images/<key>, and this hands the
+  // same bytes back (no redirect), so the image address and any image-search
+  // credit are this site's, not api.clarionlabs.ai.
+  async rewrites() {
+    return [
+      {
+        source: "/blog-images/:path*",
+        destination: "https://api.clarionlabs.ai/blog/public/image-inline/:path*",
+      },
+    ];
+  },
+
   async redirects() {
     return [
       // Legacy WordPress paths. Verified against production 2026-08-06:
